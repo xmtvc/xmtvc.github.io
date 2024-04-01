@@ -13,6 +13,19 @@
       background-color: #D2E3FC;
       color: #202124;
     }
+    .bg{
+      margin: 0 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      width: 100%;
+      font-size: 14vh;
+      line-height: 1.2;
+      overflow: hidden;
+      color: #E8F0FE;
+    }
     .flex{
       display: flex;
       flex-direction: column;
@@ -20,6 +33,10 @@
       align-items: center;
       height: 100%;
       width: 100%;
+      position: fixed;
+      top:0;
+      left:0;
+      z-index:1
     }
     .flex p{
       font: 400 50px/1.2 Google Sans, sans-serif;
@@ -37,6 +54,15 @@
   </style>
 </head>
 <body>
+  <div class="bg">
+    <span>Reach</span>
+    <span>Video</span>
+    <span>Search</span>
+    <span style="color:#8AB4F8 ">AI</span>
+    <span>Sales</span>
+    <span>Bidding</span>
+    <span>Planner</span>
+  </div>
   <div class="flex">
     <img src="https://xmtvc.github.io/images/ai-gif-transparent.gif" alt="" width="1000" height="1000">
     <p>AI is at the Core of Google&nbsp;Ads</p>
