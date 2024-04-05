@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<style>
+  :root {
+    --font-primary: 'Google Sans';
+    --font-secondary: 'Google Sans Display';
+    --primary-color: #3C4043;
+    --hover-primary-color: #0058E5;
+    --focus-primary-color: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #4285F4;
+    --secondary-color: #4285F4;
+    --gray-900: #202124;
+    --gray-800: #3C4043;
+    --gray: #f1f3f4;
+    --black: #202124;
+    --white: #fff;
+    --dark-green: #0D652D;
+    --gradi1: linear-gradient(139.94deg, #1a73e8 -484.78%, #FFFFFF 109.02%), #F4F4F6;
+    --gradi2: linear-gradient(99.18deg, #533E8A 13.36%, #CB348E 54.59%, #DD326D 87.85%, #F22F46 96.45%), #1a73e8;
+    --red: #EA4335;
+    --gray-border: rgba(60, 64, 67, 0.4);
+    --dark-blue: #174EA6;
+    --yellow: #FBBC04;
+    --green: #34A853;
+    --light-blue: #E8F0FE;
+    --Green-Off-white: #ECF3EE;
+    --blue-core: #4285F4;
+    --blue-600: #1A73E8;
+    --blue-highlight: #63BDFD;
+    --Gray-Core: #575759;
+  }
+
+  *{
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 600px;
+    border-radius: 30px;
+    background: white;
+
+  }
+  
+  body {
+    background-color: #4285F4;
+    border-radius: 30px;
+    color: var(--black);
+    font-family: var(--font-primary) !important;
+    font-weight: 400;
+    font-size: 18px;
+    height: 100%;
+    line-height: 120%;
+    margin:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  h1, h2, h3, h5, h6 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h2{
+    font-size: 72px;
+  }
+
+  section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .sec-content{
+    margin: 0 auto;
+    padding: 0 18px;
+  }
+
+  .speaker-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    max-height: 564px;
+    justify-items: center;
+    max-width: 1280px;
+  }
+
+  .speaker-card{
+    width:100%;
+  }
+
+  .speaker-profile img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .speaker-header{
+    background-color: #fff;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 14px 18px 10px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .speaker-name{
+    font-size:28px;
+    letter-spacing: -1px;
+  }
+
+  .open-icon{
+    display: block;
+    overflow: visible;
+  }
+
+
+  dialog{
+    position: fixed;
+    top: 48px;
+    height: 500px;
+    border: none;
+    border-radius: 40px 40px;
+    background-color: white;
+    filter: drop-shadow(0px 12px 24px #1616163d);
+    padding: 40px 14px 0 0;
+    width: 90%;
+    max-width: 900px;
+    transition: opacity .8s ease-in-out;
+  }
+
+  dialog::backdrop{
+    background-color: #FFF7;
+  }
+
+  dialog {
+    animation: modal-fade-out 0.7s ease-out;
+  }
+
+  dialog[open] {
+    animation: modal-fade-in 0.7s ease-out;
+  }
+
+  .dialog-close{
+    position: absolute;
+    font-size: 0;
+    width: 44px;
+    height: 44px;
+    top: 18px;
+    right: 44px;
+    border: 0;
+    background: none;
+    padding: 0;
+  }
+  .close-icon{
+    width:100%;
+    height: 100%;
+  }
+
+  .dialog-inner{
+    height:100%;
+    padding: 0 48px 0 48px;
+    overflow: auto;;
+  }
+
+  .dialog-inner::-webkit-scrollbar {
+      width: 2px;
+    }
+
+  .dialog-inner::-webkit-scrollbar-thumb {
+    background: #DADCE0;
+    border-radius: 30px;
+  }
+
+  .dialog-inner::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .dialog-grid{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+  }
+
+  .dialog-content{
+    padding-bottom:10px;
+  }
+
+  .dialog-fullname{
+    font-size: 40px;
+    margin-bottom: 4px;
+  }
+
+  .dialog-title{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+
+  .dialog-bio{
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .dialog-photo{
+    padding-top: 72px;
+    justify-self: center;
+  }
+  .dialog-img{
+    border-radius: 20px;
+    display: block;
+    width:100%;
+    max-width: 200px;
+  }
+  .dialog-photo > div {
+    position: relative;
+  }
+  .dialog-photo > div::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 20%;
+    border-radius: 20px;
+    background-color: #EAF9F9;
+    z-index: -1;
+  }
+
+
+  @keyframes modal-fade-in {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100vh, 0);
+      display: none;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      display: block;
+    }
+  }
+
+  @keyframes modal-fade-out {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      display: block;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 100vh, 0);
+      display: none;
+    }
+  }
+
+/*───────────────────────────────────────────────────────────
+**  1280 viewport - Gather page constraint = 1165 iframe 
+**───────────────────────────────────────────────────────────*/
+  @media (max-width: 1165px) {
+
+    h2 {
+      font-size: 56px;
+    }
+
+    .speaker-header{
+      padding: 18px 14px 18px 10px;
+      border-radius: 0 0 18px 18px;
+    }
+    .speaker-name{
+      font-size: 2.5vw;
+    }
+    .open-icon {
+      width: 6vw;
+      height: 6vw;
+    }
+    
+
+  }
+
+/*───────────────────────────────────────────────────────────
+**  800 viewport - Gather page constraint = 725 iframe 
+**───────────────────────────────────────────────────────────*/
+  @media (max-width: 725px) {
+
+    h2{
+      font-size: 48px;
+    }
+
+    .speaker-grid{
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .speaker-card {
+      max-width: 180px
+    }
+
+    .speaker-name {
+      font-size: 18px;
+    }
+
+    .open-icon{
+      width: 48px;
+      height: 48px;
+    }
+
+    .dialog-grid{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .dialog-fullname{
+      font-size: max(30px, 5.5vw);
+      margin-bottom: .5em;
+    }
+
+    .dialog-title {
+      font-size: max(18px, 3.5vw)
+    }
+
+    .dialog-photo{
+      order: -1;
+      padding: 0;
+      justify-self: start;
+    }
+    .dialog-img {
+      max-width: 164px;
+    }
+
+  }
+/*───────────────────────────────────────────────────────────
+**  430 viewport - Gather page constraint = 390 iframe 
+**───────────────────────────────────────────────────────────*/
+  @media (max-width: 390px) {
+
+    h2{
+      font-size: 10vw;
+    }
+
+    .speaker-grid {
+      grid-template-rows: 220px 220px;
+      align-items: center;
+    }
+
+    .speaker-name {
+      font-size: 4.5vw;
+    }
+
+    .open-icon{
+      width: 10vw;
+      height: 10vw;
+    }
+
+    dialog{
+      margin-bottom: 0;
+      width:100%;
+      border-radius: 30px 30px 0 0;
+      padding-right: 10px;
+    }
+
+    .dialog-inner{
+      padding: 0 20px 0 28px;
+    }
+
+    .dialog-bio{
+      font-size: 16px;
+    }
+
+  }
+</style>
+</head>
+<body>
+
+  <section>
+    <div class="sec-content">
+      <h2>
+        Speakers
+      </h2>
+      <div class="speaker-grid">
+        <div class="speaker-card" data-name="Philipp Schindler">
+          <div class="speaker-profile">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_philipp_2x_202x172.png" alt="Philipp Schindler">
+          </div>
+          
+          <div class="speaker-header">
+            <h3 class="speaker-name">Philipp Schindler</h3>
+            <div class="expand-icon">
+              <svg class="open-icon" alt="expand" width="64px" height="64px">
+                <use href="#svgplus" x="0" y="0" />
+              </svg>
+            </div>
+          </div>
+        
+        </div>
+  
+        <div class="speaker-card"  data-name="Vidhya Srinivasan">
+          <div class="speaker-profile">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_vidhya_2x_202x172.png" alt="Vidhya Srinivasan">
+          </div>
+          
+          <div class="speaker-header">
+            <h3 class="speaker-name">Vidhya<br>Srinivasan</h3>
+            <div class="expand-icon">
+              <svg class="open-icon" alt="expand" width="64px" height="64px">
+                <use href="#svgplus" x="0" y="0" />
+              </svg>
+            </div>
+          </div>
+        
+        </div>
+  
+        <div class="speaker-card"  data-name="Selin Song">
+          <div class="speaker-profile">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_selin_2x_202x172.png" alt="Selin Song">
+          </div>
+          
+          <div class="speaker-header">
+            <h3 class="speaker-name">Selin<br>Song</h3>
+            <div class="expand-icon">
+              <svg class="open-icon" alt="expand" width="64px" height="64px">
+                <use href="#svgplus" x="0" y="0" />
+              </svg>
+            </div>
+          </div>
+        
+        </div>
+  
+        <div class="speaker-card"  data-name="Sean Downey">
+          <div class="speaker-profile">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_sean_2x_202x172.png" alt="Sean Downey">
+          </div>
+          
+          <div class="speaker-header">
+            <h3 class="speaker-name">Sean<br>Downey</h3>
+            <div class="expand-icon">
+              <svg class="open-icon" alt="expand" width="64px" height="64px">
+                <use href="#svgplus" x="0" y="0" />
+              </svg>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      <h2 style="margin-bottom:.2em"></h2>
+
+
+
+
+    </div>
+  </section>
+
+
+  <dialog id="speaker-modal">
+
+    <div class="dialog-header">
+      <button type="button" class="dialog-close" data-dismiss="modal" role="button"><svg class="close-icon" alt="close">
+        <use href="#svgx" x="0" y="0" />
+      </svg></button>
+    </div>
+
+    <div class="dialog-inner">
+      <div class="dialog-grid">
+        <div class="dialog-content">
+          <h3 class="dialog-fullname">Name Name</h3>
+          <div class="dialog-title">Title title title, Google</div>
+          <div class="dialog-bio">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique magni vitae laudantium quae, nihil tempore magnam non? At odit eligendi laboriosam assumenda sit fuga qui, praesentium ab deserunt perferendis repellendus.</div>
+        </div>
+        <div class="dialog-photo">
+          <div><img class="dialog-img" src="" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+  </dialog>
+
+
+
+  <div class="svgs" style="display: none;height:0;overflow: hidden;">
+
+    <svg id="svgplus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+      <rect width="64" height="64" rx="32" fill="#63BDFD"/>
+      <g clip-path="url(#clip0_315_28492)">
+        <path d="M31.0044 45.1001H30.5044V44.6001V33.1572H19.0498H18.5498V32.6572V30.9296V30.4296H19.0498H30.5044V18.9955V18.4955H31.0044H32.732H33.232V18.9955V30.4296H44.6021H45.1021V30.9296V32.6572V33.1572H44.6021H33.232V44.6001V45.1001H32.732H31.0044Z" fill="#202124" stroke="#202124"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_315_28492">
+          <rect width="28" height="28" fill="white" transform="translate(18 18)"/>
+        </clipPath>
+      </defs>
+    </svg>
+    <svg id="svgx" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 65" fill="none">
+      <g clip-path="url(#clip0_1106_7357)">
+        <path d="M19.7004 42.3625L19.4175 42.0797L19.7004 41.7968L29.9737 31.5235L19.6901 21.2399L19.4072 20.957L19.6901 20.6742L21.2171 19.1472L21.4999 18.8643L21.7828 19.1472L32.0664 29.4308L42.3319 19.1653L42.6147 18.8825L42.8976 19.1653L44.4246 20.6923L44.7074 20.9752L44.4246 21.258L34.1591 31.5235L44.368 41.7325L44.6509 42.0153L44.368 42.2982L42.841 43.8252L42.5582 44.108L42.2753 43.8252L32.0664 33.6162L21.7931 43.8895L21.5102 44.1724L21.2274 43.8895L19.7004 42.3625Z" fill="#202124" stroke="#202124" stroke-width="0.8"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_1106_7357">
+          <rect width="35" height="35" fill="white" transform="translate(32 7.07373) rotate(45)"/>
+        </clipPath>
+      </defs>
+    </svg>
+
+  </div>
+  
+  <script>
+    var speakerData = {
+      "Matt Madrigal":{
+        "img": "https://assets.swoogo.com/uploads/medium/3739272-660c30db15db7.png",
+        "title": "VP/GM Merchant Shopping",
+        "bio": `Matt Madrigal is the Vice President and General Manager of Merchant Shopping at Google. In this role, Matt leads the product and engineering teams that build Google Shopping’s tools, partner integrations, and infrastructure to help businesses and merchants grow and thrive. Bringing an extensive background in retail, platforms, and technology, Matt is passionate about helping businesses through digital transformation.
+
+        Prior to joining Google, Matt was the Chief Technology and Product Officer at Fanatics, where he played a key role in shaping the mobile strategy and expanding their product development and data capabilities for both the consumer and partner sides of the business. Prior to that, he was the SVP of eCommerce & Marketing for Williams-Sonoma, Inc. and he spent 8 years leading engineering and product for all of eBay’s digital marketing and onsite advertising technology functions, including the analytical & data platforms that powered the company’s global Internet marketing efforts. While at eBay, he was also instrumental in the creation of Triton, one of the most respected SEM platforms in the industry. A graduate of the University of California, Berkeley, Matt was also a senior consultant with KANA Software and began his career as an analyst at Accenture.`
+      },
+      "Philipp Schindler":{
+        img: "https://assets.swoogo.com/uploads/medium/3734952-660add0c34fca.png",
+        title: "Senior Vice President, Chief Business Officer, Google",
+        bio: `As Google’s Senior Vice President and Chief Business Officer, Philipp leads the company’s Global Sales & Operations, overseeing global and regional sales activities for Google and YouTube, global technical and consumer support and operations, commercialization, sales and partnership strategy across all Google’s ads and commerce products, and partnership for Android, Chrome, and Hardware. He was previously in charge of Google's Global Sales & Operations, based in Mountain View, and Google’s business in Northern and Central Europe, based in London.
+
+        Prior to joining Google in 2005, Philipp was a Senior Vice President at AOL Germany, running the company's marketing and sales activities and serving as a member of their management board for six years. In this capacity, Philipp was responsible for one of the largest marketing and sales budgets in the country, developed many significant sales partnerships, and was responsible for direct marketing, traditional brand marketing, customer relationship management, business intelligence and data mining, and pricing. While in this role at AOL, Philipp won the Golden Effie as well as several other industry awards.
+
+        Philipp earned a Diplom Kaufmann degree with distinction from the European Business School (EBS) in Oestrich-Winkel, Germany. He is also a scholar of the “Studienstiftung des deutschen Volkes”. He has won numerous industry recognitions, including Wall Street Journal’s Top 25 European Technology Leaders (2011), one of Germany’s top 10 leaders under 40 by Capital Magazine (2009), and Germany’s most influential media personality voted by Germany’s largest advertising magazine W&V (2006). He currently lives in Menlo Park, California with his wife and 3 children.`
+      },
+      "Vidhya Srinivasan":{
+        img: "https://assets.swoogo.com/uploads/medium/3734949-660adcffbea07.png",
+        title: "Vice President/General Manager, Ads",
+        bio: `Vidhya is a Vice President and General Manager at Google, and oversees Google’s Advertising products including search, display, shopping, travel and video advertising, as well as analytics.
+
+        Throughout her time at Google, Vidhya has held several different leadership roles in Ads. Most recently, she guided Ads to adopt Generative AI, serving new ads experiences on Google properties and assistive AI for advertisers. She’s also led critical launches like the revamp of Google Analytics, the new Search Ads 360, pixel-less measurement for YouTube advertising, Performance Max and Ads Data Hub.
+
+        Prior to joining Google, Vidhya led engineering, product management, and operations for Amazon Redshift, an exabyte-scale data warehouse reimagined for the cloud. She’s also held both technical and leadership roles at IBM.
+
+        She holds a Masters in Computer Science from Georgia Tech and a Bachelors in Computer Science from IIT-Madras. Vidhya is the proud mother of four children, two precocious young girls and two teenage boys.`
+      },
+      "Selin Song":{
+        img: "https://assets.swoogo.com/uploads/medium/3739270-660c30ca0430d.png",
+        title: "President, Google Customer Solutions",
+        bio: `Selin is a global business executive and versatile problem solver with 20+ years of sales, strategy, and operations expertise scaling Google Customer Solutions (GCS), Google’s SMB ad sales business serving millions of customers worldwide. She currently serves as global president of GCS. From her first entry-level temp job at Google in 2003 approving ads to her stints leading the Revenue Strategy and Operations team, and both the APAC and EMEA sales teams in GCS, Selin has dedicated her career to helping small businesses around the world use Google solutions to grow and thrive.
+
+        A true global leader who has lived and worked in 4 countries (United States, India, Singapore, Ireland), Selin is passionate about bringing a global lens to her leadership to help drive growth and impact for customers, foster innovation at scale, and build a culture of high energy, positivity, and inclusion. Known for her people-first leadership, Selin is a champion for DEI and recognized for cultivating strong, inclusive teams and attracting and developing exceptional talent from early-tenured talent to first-time managers to senior leaders. Before her current role as global president, Selin was VP of GCS EMEA, where she concurrently served as Google Ireland Site Lead. In this role, she built the largest and most diverse Google site outside of the U.S., sponsored the GCS Black+ Advisory Board, and created Google’s first Women Director+ groups in APAC and EMEA.
+
+        Selin holds a Bachelor’s degree in Communication and a Master’s degree in Sociology from Stanford University.
+
+        Selin is looking forward to settling back in the US after 5 years abroad and re-establishing routines with her husband Nic (a former Googler!) and daughters Mila and Kaia.`
+      },
+      "Sean Downey":{
+        img: "https://assets.swoogo.com/uploads/medium/3734960-660add3cad4e1.png",
+        title: "President, Americas & Global Partners, Google",
+        bio: `As President of Americas & Global Partners at Google, Sean leads the company’s advertising business in North and South America. Before this role he served as the Vice President of the Google Marketing Platform for the Americas, helping Marketers, Agencies and Partners leverage data and technology to advance their Digital Marketing Maturity and buy and measure media more efficiently.
+
+        Prior to joining Google in 2008, Sean was the Vice President of Buy Side Sales at DoubleClick, where he led their agency and advertiser business. Sean has also worked in various ad technology and software startups, and over the course of his career has brought various evolving advertising technologies to market such as rich media and programmatic buying and analytics.
+
+        Sean earned his BS in Business Administration from the State University of New York College at Fredonia. He lives in the Greater Boston area where he is raising three children.`
+      }
+    }
+
+    document.querySelectorAll(".speaker-card").forEach(el =>{
+      el.addEventListener("click", function(){
+        event.preventDefault()
+        var name = el.dataset.name
+        var dialog = document.querySelector("#speaker-modal")
+        dialog.querySelector(".dialog-fullname").innerText = name
+        dialog.querySelector(".dialog-img").src = speakerData[name].img
+        dialog.querySelector(".dialog-title").innerText = speakerData[name].title
+        dialog.querySelector(".dialog-bio").innerText = speakerData[name].bio
+        dialog.showModal()
+      })
+    })
+
+    document.querySelector('#speaker-modal .dialog-close').addEventListener("click",function(){
+      this.closest("#speaker-modal").close()
+    })
+  </script>
+
+</body>
+</html>
