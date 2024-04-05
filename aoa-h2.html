@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://assets.swoogo.com/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html,
+    * {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --font-primary: 'Google Sans';
+      --font-secondary: 'Google Sans Display';
+      /*Theme color*/
+      --primary-color: #3C4043;
+      --hover-primary-color: #0058E5;
+      --focus-primary-color: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #4285F4;
+      --secondary-color: #4285F4;
+      --gray-dark: #3C4043;
+      --gray: #f1f3f4;
+      /*--black: #000;*/
+      --black: #202124;
+      --white: #fff;
+      --dark-green: #0D652D;
+      --gradi1: linear-gradient(139.94deg, #1a73e8 -484.78%, #FFFFFF 109.02%), #F4F4F6;
+      --gradi2: linear-gradient(99.18deg, #533E8A 13.36%, #CB348E 54.59%, #DD326D 87.85%, #F22F46 96.45%), #1a73e8;
+      --red: #EA4335;
+      --gray-border: rgba(60, 64, 67, 0.4);
+      --dark-blue: #174EA6;
+      --yellow: #FBBC04;
+      --green: #34A853;
+      --light-blue: #E8F0FE;
+      --Green-Off-white: #ECF3EE;
+      --blue-core: #4285F4;
+      --blue-600: #1A73E8;
+      --Gray-Core: #575759;
+
+
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      color: var(--primary-color);
+      font-family: var(--font-primary) !important;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 120%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: relative;
+      height:100%;
+    }
+
+    * {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .widget {
+      border: 0 !important;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h5,
+    h6 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+
+    h2.sec-title {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    h1,
+    .h1 {
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 100%;
+    }
+
+    h2,
+    .h2 {
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 100%;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+    }
+
+    h2.title {
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      /* 33.6px */
+      letter-spacing: -0.5px;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+      color: var(--black);
+    }
+
+    h3,
+    .h3 {
+      color: var(--Black);
+      font-size: 120px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 95px;
+      /* 79.167% */
+      letter-spacing: -7.2px;
+    }
+
+    h4,
+    .h4 {
+      font-size: 28px;
+      letter-spacing: -.25px;
+      line-height: 34px;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+    }
+
+    h5,
+    .h5 {
+      font-size: 20px;
+      letter-spacing: normal;
+      line-height: 28px;
+      font-weight: 400;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+    }
+
+    h6,
+    .h6 {
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 120%;
+    }
+
+    a,
+    a:focus,
+    a:hover,
+    a:active {
+      color: var(--secondary-color);
+    }
+
+    a:hover a:active {
+      text-decoration: underline;
+    }
+
+    a:focus {
+      border: 1px solid #1A73E8;
+      border-radius: 2px;
+      outline: none;
+    }
+
+
+    .mb-0 {
+      margin-bottom: 0 !important;
+    }
+    .speaker-section{
+      height:100%;
+    }
+
+    .container-fluid{
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    /*Only Tablet*/
+    @media (min-width: 768px) and (max-width: 991.9px) {
+      h2 {
+        font-size: 60px;
+      }
+
+      .body-medium {
+        font-size: 20px;
+      }
+
+      .hidden-sm {
+        display: none !important;
+      }
+
+    }
+
+
+    @media (max-width: 767.9px) {
+      .container-fluid {
+        padding: 0 18px;
+      }
+
+      .body-2 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      .body-small {
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+      }
+
+      .hidden-xs {
+        display: none !important;
+      }
+
+      .header .container {
+        padding: 20px 0;
+      }
+
+      h2,
+      .h2 {
+        font-size: 40px;
+        line-height: 45px;
+        margin-bottom: 0;
+      }
+
+      .sec-gap {
+        padding: 50px 0;
+      }
+
+      h2.sec-title {
+        font-size: 54px;
+        line-height: 50px;
+        letter-spacing: -3.24px;
+      }
+
+    }
+
+    /* Small Devices, Tablets */
+
+    @media only screen and (min-width: 768px) {
+      .body-2 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      .h3,
+      h3 {
+        font-size: 54px;
+        line-height: 48px;
+        /* 88.889% */
+        letter-spacing: -3.24px;
+      }
+
+      .sec-gap {
+        padding: 40px 0;
+      }
+
+      h2.sec-title {
+        font-size: 54px;
+        line-height: 48px;
+        letter-spacing: -3.24px;
+      }
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 688px;
+        padding: 0;
+      }
+
+      /*Speaker Section*/
+      .speaker-container-fluid {
+        max-width: 768px;
+      }
+
+    }
+
+
+    /* Medium Devices, Desktops */
+
+    @media only screen and (min-width: 992px) {
+      .body-2 {
+        font-size: 21px;
+        line-height: 24px;
+      }
+
+      .h3,
+      h3 {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -4.32px;
+      }
+
+      .sec-gap {
+        padding: 60px 0;
+      }
+
+      h2.sec-title {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -4.32px;
+      }
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 872px;
+        padding: 0;
+      }
+
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 872px;
+        padding: 0;
+      }
+
+    }
+
+    /* Large Devices, Wide Screens */
+
+    @media only screen and (min-width: 1440px) {
+
+      .body-2 {
+        font-size: 28px;
+        line-height: 34px;
+      }
+
+      h2.sec-title {
+        font-size: 120px;
+        line-height: 95px;
+        letter-spacing: -7.2px;
+      }
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 1280px;
+        padding: 0;
+      }
+
+    }
+
+
+    /* Extra Large Devices, Wide Screens */
+
+    @media only screen and (min-width: 1920px) {
+
+      .speaker-container-fluid {
+        max-width: 1920px;
+      }
+
+    }
+
+  </style>
+
+  <style>
+
+    @media only screen and (min-width : 768px) {
+      .speaker-section h2.sec-title {
+        font-size: 54px;
+        line-height: 48px;
+        letter-spacing: -3.24px;
+      }
+
+    }
+
+    @media only screen and (min-width : 992px) {
+      .speaker-section h2.sec-title {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -4.32px;
+      }
+
+    }
+
+    @media only screen and (min-width : 1440px) {
+      .speaker-section h2.sec-title {
+        font-size: 80px;
+        line-height: 70px;
+        letter-spacing: -3.6px;
+      }
+    }
+  </style>
+
+  <script src="https://assets.swoogo.com/plugins/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <section class="speaker-section">
+    <div class="container-fluid">
+      <div class="content clearfix">
+        <div id="w_46748642" class="widget v_58753266 swoogo-text clearfix">
+          <div class="mt-none mb-none  paragraph">
+            <h2 class="sec-title">Practioner Content</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
