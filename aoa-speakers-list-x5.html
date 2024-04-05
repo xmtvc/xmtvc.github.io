@@ -1,0 +1,3500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://assets.swoogo.com/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html,
+    * {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --font-primary: 'Google Sans';
+      --font-secondary: 'Google Sans Display';
+      /*Theme color*/
+      --primary-color: #3C4043;
+      --hover-primary-color: #0058E5;
+      --focus-primary-color: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #4285F4;
+      --secondary-color: #4285F4;
+      --gray-dark: #3C4043;
+      --gray: #f1f3f4;
+      /*--black: #000;*/
+      --black: #202124;
+      --white: #fff;
+      --dark-green: #0D652D;
+      --gradi1: linear-gradient(139.94deg, #1a73e8 -484.78%, #FFFFFF 109.02%), #F4F4F6;
+      --gradi2: linear-gradient(99.18deg, #533E8A 13.36%, #CB348E 54.59%, #DD326D 87.85%, #F22F46 96.45%), #1a73e8;
+      --red: #EA4335;
+      --gray-border: rgba(60, 64, 67, 0.4);
+      --dark-blue: #174EA6;
+      --yellow: #FBBC04;
+      --green: #34A853;
+      --light-blue: #E8F0FE;
+      --Green-Off-white: #ECF3EE;
+      --blue-core: #4285F4;
+      --blue-600: #1A73E8;
+      --Gray-Core: #575759;
+
+
+    }
+
+    html {
+      height: 600px;
+      background-color: #4285F4;
+    }
+
+    body {
+      background-color: #4285F4;
+      color: var(--primary-color);
+      font-family: var(--font-primary) !important;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 120%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: relative;
+      height: 600px;
+    }
+
+    * {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .widget {
+      border: 0 !important;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h5,
+    h6 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .grey-bg {
+      background: #f1f3f4;
+    }
+
+    .color-white {
+      color: #fff;
+    }
+
+    h2.sec-title {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    h1,
+    .h1 {
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 100%;
+    }
+
+    h2,
+    .h2 {
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 100%;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+    }
+
+    h2.title {
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      /* 33.6px */
+      letter-spacing: -0.5px;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+      color: var(--black);
+    }
+
+    h3,
+    .h3 {
+      color: var(--Black);
+      font-size: 120px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 95px;
+      /* 79.167% */
+      letter-spacing: -7.2px;
+    }
+
+    h4,
+    .h4 {
+      font-size: 28px;
+      letter-spacing: -.25px;
+      line-height: 34px;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+    }
+
+    h5,
+    .h5 {
+      font-size: 20px;
+      letter-spacing: normal;
+      line-height: 28px;
+      font-weight: 400;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+    }
+
+    h6,
+    .h6 {
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 120%;
+    }
+
+    a,
+    a:focus,
+    a:hover,
+    a:active {
+      color: var(--secondary-color);
+    }
+
+    a:hover a:active {
+      text-decoration: underline;
+    }
+
+    a:focus {
+      border: 1px solid #1A73E8;
+      border-radius: 2px;
+      outline: none;
+    }
+
+
+    .mb-0 {
+      margin-bottom: 0 !important;
+    }
+
+    /*Popup Modal*/
+
+    dialog {
+      background-color: transparent;
+      border: none;
+      filter: drop-shadow(0px 12px 24px #1616163d);
+      border: 0;
+      border-radius: 40px;
+      padding: 0;
+      transition: opacity .8s ease-in-out;
+      height: calc(100vh - 30px);
+    }
+
+    dialog::backdrop {
+      backdrop-filter: blur(15px);
+      background-color: #FFF7;
+    }
+
+    dialog {
+      animation: modal-fade-out 0.7s ease-out;
+    }
+
+    dialog[open] {
+      animation: modal-fade-in 0.7s ease-out;
+    }
+
+    /* Animation keyframes */
+
+    @keyframes modal-fade-in {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 100vh, 0);
+        display: none;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        display: block;
+      }
+    }
+
+    @keyframes modal-fade-out {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        display: block;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(0, 100vh, 0);
+        display: none;
+      }
+    }
+
+    .modal-dialog {
+      margin: 0;
+    }
+
+    .modal.in {
+      display: block;
+    }
+
+    .modal-dialog {
+      max-width: 1280px;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .modal-backdrop.fade {
+      transform: translate3d(0, 100%, 0);
+      visibility: visible;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    .modal-backdrop.in {
+      transform: scale3d(1, 1, 1) translate3d(0, 0px, 0);
+    }
+
+    .modal-backdrop.fade {
+      opacity: unset;
+    }
+
+    .modal-backdrop {
+      background: rgba(255, 255, 255, 0.50);
+      backdrop-filter: blur(15px);
+    }
+
+    .modal-header {
+      display: none;
+    }
+
+    .open-as-modal.animate-btn,
+    .open-as-modal.clicked {
+      pointer-events: none;
+    }
+
+    .modal-content {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      border: 0;
+      border-radius: 40px 40px 0px 0px;
+
+    }
+
+    .modal-title,
+    .modal-footer {
+      display: none;
+    }
+
+    .confirmation-modal-custom .modal-body {
+      width: 100%;
+      float: none;
+      padding: 0 !important;
+    }
+
+    .fade {
+      -webkit-transition-duration: .8s !important;
+      transition-duration: .8s !important;
+      -webkit-transition-timing-function: ease-in-out !important;
+      transition-timing-function: ease-in-out !important;
+    }
+
+    .modal.fade .modal-dialog {
+      -webkit-transition-duration: .8s !important;
+      transition-duration: .8s !important;
+      -webkit-transition-timing-function: ease-in-out !important;
+      transition-timing-function: ease-in-out !important;
+    }
+
+    /* Buttons
+--------------------------------------------------------------------------------*/
+
+    .fileinput-remove.fileinput-remove-button {
+      background-color: var(--white) !important;
+      border-color: #dadce0 !important;
+      color: var(--primary-color) !important;
+    }
+
+    .registration-pg .btn {
+      text-align: center;
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 64px;
+      font-family: var(--font-primary), Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 29px;
+      padding: 14px 42px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn-standard {
+      /* border-color: var(--secondary-color);
+  background-color: var(--secondary-color);*/
+      border-color: var(--blue-600);
+      color: var(--white);
+      background-color: var(--blue-600);
+    }
+
+    .hero-area .btn-standard {
+      border-color: var(--blue-600);
+      background-color: var(--blue-600);
+
+    }
+
+    .btn-standard:focus,
+    .btn-standard:visited {
+      outline: 1px solid #1A73E8 !important;
+      outline-offset: 1px !important;
+      border: 0;
+      border-radius: 70px;
+      background: var(--focus-primary-color);
+      border-color: var(--focus-primary-color);
+      color: var(--white);
+      z-index: 9;
+    }
+
+    .btn-standard:active {
+      background-color: var(--hover-primary-color);
+      color: var(--white);
+    }
+
+    .btn-standard:hover,
+    #btn-standard_hover {
+      background-color: var(--hover-primary-color);
+      border-color: var(--hover-primary-color);
+      color: var(--white);
+      box-shadow: none;
+    }
+
+    .btn-alternate {
+      background-color: var(--white);
+      border-color: #dadce0;
+      color: var(--primary-color);
+    }
+
+    .btn-alternate:focus,
+    .btn-alternate:hover,
+    #btn-alternate_hover {
+      box-shadow: none;
+      background-color: #f6f9fe;
+      border-color: var(--primary-color);
+      color: #174ea6;
+    }
+
+    .btn-disabled,
+    .btn.disabled,
+    .btn[disabled],
+    fieldset[disabled] .btn {
+      background: #E8E8E8;
+      border: 1px solid transparent;
+      color: #818385;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-disabled:hover,
+    #btn-disabled_hover {
+      background: #E8E8E8;
+      color: #818385;
+      text-decoration: none;
+      box-shadow: none;
+    }
+
+    button.btn.btn-default.apply-btn {
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      font-size: 18px;
+      line-height: 120%;
+      padding: 18px;
+      max-height: 58px;
+    }
+
+    .alert-success {
+      color: #fff;
+      background-color: #34a853;
+      border-color: #34a853;
+    }
+
+    /*.site-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}*/
+
+    body.site-background .live--chat--aside--button {
+      z-index: 1;
+    }
+
+    .animate-btn {
+      animation: buttonAnimation .5s ease;
+    }
+
+    @keyframes buttonAnimation {
+      from {
+        scale: 1.2;
+        opacity: 0;
+      }
+
+      to {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+
+
+    /*=========Speakers Section============*/
+    .speaker-section {
+      background: var(--blue-core);
+    }
+
+    /*Only Tablet*/
+    @media (min-width: 768px) and (max-width: 991.9px) {
+      h2 {
+        font-size: 60px;
+      }
+
+      .body-medium {
+        font-size: 20px;
+      }
+
+      .hidden-sm {
+        display: none !important;
+      }
+
+    }
+
+
+    @media (max-width: 767.9px) {
+      .container-fluid {
+        padding: 0 18px;
+      }
+
+      .body-2 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      .body-small {
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+      }
+
+      .hidden-xs {
+        display: none !important;
+      }
+
+      .header .container {
+        padding: 20px 0;
+      }
+
+      h2,
+      .h2 {
+        font-size: 40px;
+        line-height: 45px;
+        margin-bottom: 0;
+      }
+
+      .sec-gap {
+        padding: 50px 0;
+      }
+
+      h2.sec-title {
+        font-size: 54px;
+        line-height: 50px;
+        letter-spacing: -3.24px;
+      }
+
+      /* Speaker Section */
+      .speaker-container-fluid {
+        max-width: 100%;
+        padding: 0 18px;
+      }
+
+    }
+
+    /* Small Devices, Tablets */
+
+    @media only screen and (min-width: 768px) {
+      .body-2 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      .h3,
+      h3 {
+        font-size: 54px;
+        line-height: 48px;
+        /* 88.889% */
+        letter-spacing: -3.24px;
+      }
+
+      .sec-gap {
+        padding: 40px 0;
+      }
+
+      h2.sec-title {
+        font-size: 54px;
+        line-height: 48px;
+        letter-spacing: -3.24px;
+      }
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 688px;
+        padding: 0;
+      }
+
+      /*Speaker Section*/
+      .speaker-container-fluid {
+        max-width: 768px;
+      }
+
+    }
+
+
+    /* Medium Devices, Desktops */
+
+    @media only screen and (min-width: 992px) {
+      .body-2 {
+        font-size: 21px;
+        line-height: 24px;
+      }
+
+      .h3,
+      h3 {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -4.32px;
+      }
+
+      .sec-gap {
+        padding: 60px 0;
+      }
+
+      h2.sec-title {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -4.32px;
+      }
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 872px;
+        padding: 0;
+      }
+
+
+      /*Speaker Section*/
+      .speaker-container-fluid {
+        max-width: 992px;
+      }
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 872px;
+        padding: 0;
+      }
+
+      /*Speaker Section*/
+      .speaker-container-fluid {
+        max-width: 1200px;
+      }
+    }
+
+    /* Large Devices, Wide Screens */
+
+    @media only screen and (min-width: 1440px) {
+
+      .body-2 {
+        font-size: 28px;
+        line-height: 34px;
+      }
+
+      h2.sec-title {
+        font-size: 120px;
+        line-height: 95px;
+        letter-spacing: -7.2px;
+      }
+
+      /*Custom Container*/
+      .container-fluid {
+        max-width: 1280px;
+        padding: 0;
+      }
+
+      /*=========Speakers Section============*/
+      .speaker-container-fluid {
+        max-width: 1440px;
+      }
+
+    }
+
+
+    /* Extra Large Devices, Wide Screens */
+
+    @media only screen and (min-width: 1920px) {
+
+      .speaker-container-fluid {
+        max-width: 1920px;
+      }
+
+    }
+
+    /*=====================Modal Responsive Style ============================ */
+
+    @media (max-width: 767.9px) {
+
+      /*Popup Modal*/
+      .modal-body {
+        min-height: calc(100vh - 15vh);
+        padding: 0;
+      }
+
+      .modal-open .modal {
+        overflow: hidden;
+      }
+
+      .modal-dialog {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .modal-content {
+        max-width: 680px;
+        border-radius: 40px 40px 0px 0px;
+        box-shadow: none;
+        margin: 0 auto;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+
+      /*Modal*/
+      .modal-content {
+        max-width: 688px !important;
+        margin: 0 auto;
+        background: #fff;
+      }
+
+      .modal-body {
+        padding: 40px 6px 0 0;
+        width: 100%;
+        float: none;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+
+      /*Modal*/
+      .modal-content {
+        max-width: 871px !important;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+      /*Modal*/
+      .modal-content {
+        max-width: 912px !important;
+        margin: 0 auto;
+      }
+    }
+
+    @media only screen and (min-width: 1440px) {
+
+      /*Modal*/
+      .modal-content {
+        max-width: 1280px !important;
+        margin: 0 auto;
+        background: #fff url(https://assets.swoogo.com/uploads/3646287-65e8a01600ca6.svg) no-repeat;
+        background-position: top left;
+        background-size: 200px;
+      }
+
+      .modal-body {
+        width: calc(100% - 200px);
+        float: right;
+        padding: 50px 10px 0 0px;
+      }
+
+
+    }
+
+
+    @media (max-width: 871px) {
+      .registration-pg .form-title {
+        margin-bottom: 28px;
+      }
+
+      .registration-pg .form-title h2 {
+        font-size: 52px;
+        /*line-height: 40px;*/
+        letter-spacing: -3px;
+      }
+
+      .form-header {
+        padding: 0 34px 0 40px;
+      }
+
+      .registration-pg #form-wrap {
+        padding: 0 34px 0 40px;
+      }
+
+      .registration-pg .btn {
+        font-size: 24px;
+        line-height: 28px;
+        padding: 31px 0;
+        /*margin-top: 28px !important;*/
+      }
+    }
+  </style>
+  <style>
+    .speaker-section {
+      overflow: hidden;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-gap: 21px;
+    }
+
+    .speaker-card {
+      position: relative;
+      border: 1px solid transparent;
+    }
+
+    .speaker-profile {
+      opacity: 1;
+      border-radius: 20px;
+      background: var(--Blue-Off-white, #EAF9F9);
+      transform: translateY(22px);
+    }
+
+    .speaker-card.expand .speaker-profile {
+      opacity: 0;
+      display: none;
+    }
+
+    .speaker-profile img {
+      width: 100%;
+      max-height: 298px;
+      min-height: 298px;
+      object-fit: cover;
+      object-position: top;
+      transform: translateY(-22px);
+    }
+
+    .speaker-slider .speaker-profile img {
+      max-height: 236px;
+      min-height: 236px;
+    }
+
+    .speaker-profile img:hover {
+      cursor: pointer;
+    }
+
+    .speaker-detail {
+      position: relative;
+      border-radius: 0 0 20px 20px;
+      background: var(--White, #FFF);
+      padding: 30px 0;
+      z-index: 9;
+      overflow: hidden;
+    }
+
+    .speaker-card.expand .speaker-detail {
+      border-radius: 20px;
+      margin-top: 22px;
+      max-height: calc(441px - 25px);
+    }
+
+    .speaker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+
+    .expand .speaker-header {
+      margin-bottom: 12px;
+    }
+
+    h3.speaker-name {
+      color: var(--Black, #202124);
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: -3px;
+      max-width: 50px;
+      overflow: visible;
+    }
+
+    h3.speaker-name span {
+      display: block;
+    }
+
+    .full-link {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+      cursor: pointer;
+    }
+
+    .full-link:focus {
+      border-color: transparent;
+    }
+
+    .speaker-link {
+      cursor: pointer;
+    }
+
+    .speaker-card .speaker-link img {
+      width: 64px !important;
+      height: 64px;
+    }
+
+    .speaker-card .speaker-link .open-icon {
+      display: block;
+      opacity: 1;
+    }
+
+    .speaker-card .speaker-link .close-icon {
+      display: none;
+    }
+
+    .speaker-card.expand .speaker-link .open-icon {
+      display: none;
+    }
+
+    .speaker-card.expand .speaker-link .close-icon {
+      display: block;
+    }
+
+    .speaker-bio {
+      display: none;
+      opacity: 0;
+      margin-right: 6px;
+      padding-right: 12px;
+      padding-left: 24px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 280px;
+      padding-bottom: 0;
+    }
+
+    .speaker-bio::-webkit-scrollbar-track {
+      background-color: transparent;
+      border-radius: 10px;
+    }
+
+    .speaker-bio::-webkit-scrollbar-thumb {
+      background-color: #D9D9D9;
+      border-radius: 10px;
+    }
+
+    .speaker-bio::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .speaker-card.expand .speaker-bio {
+      display: block;
+      opacity: 1;
+      max-height: 220px;
+    }
+
+    .speaker-bio .speaker-post {
+      color: var(--Black, #202124);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+    }
+
+    .speaker-bio p {
+      color: var(--Black, #202124);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+    }
+
+    /* 3 Column Speaker */
+    .grid-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 24px;
+    }
+
+    .grid-3 .speaker-profile img {
+      max-height: 405px;
+      min-height: 405px;
+    }
+
+    .grid-3 .speaker-card.expand .speaker-detail {
+      margin-top: 42px;
+      max-height: calc(461px + 42px);
+      padding-bottom: 20px;
+    }
+
+    .grid-3 .speaker-detail {
+      padding: 30px 0 33px;
+    }
+
+    .grid-3 .speaker-header {
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+
+    .grid-3 .speaker-card.expand .speaker-header {
+      max-height: 60px;
+      min-height: 60px;
+    }
+
+    .grid-3 .speaker-bio {
+      margin-right: 10px;
+      padding-right: 22px;
+      padding-left: 40px;
+    }
+
+    .grid-3 .speaker-card.expand .speaker-bio {
+      max-height: 377px;
+    }
+
+    .coming-soon-card {
+      display: flex;
+      position: relative;
+      margin-top: 22px;
+      padding: 40px 59px 41px 40px;
+      border-radius: 24px;
+      background: var(--White, #FFF);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .has-more .coming-soon-card {
+      margin-top: 19px;
+      padding: 26px 26px 26px 45px;
+    }
+
+    .coming-soon-card h3 {
+      color: var(--Black, #202124);
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 83%;
+      letter-spacing: -5.324px;
+    }
+
+    .has-more .coming-soon-card h3 {
+      font-size: 60px;
+      line-height: 83%;
+      letter-spacing: -3px;
+    }
+
+    .coming-soon-card p {
+      color: var(--Black, #202124);
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%;
+      letter-spacing: -0.963px;
+    }
+
+    /* 4 Column Speaker */
+    .grid-4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    /* 5 Column Speaker */
+    .grid-5 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .grid-5 .speaker-profile img {
+      max-height: 236px;
+      min-height: 236px;
+    }
+
+    .grid-5 .speaker-detail {
+      padding: 25px 0 21px;
+    }
+
+    .grid-5 .speaker-header {
+      padding-right: 11px;
+      padding-left: 16px;
+      gap: 12px;
+    }
+
+    .grid-5 h3.speaker-name {
+      font-size: 32px;
+      line-height: 35px;
+      letter-spacing: -1px;
+    }
+
+    .grid-5 .speaker-card .speaker-link img {
+      width: 51px !important;
+      height: 51px;
+    }
+
+    .grid-5 .speaker-card.expand .speaker-detail {
+      max-height: calc(353px - 23px);
+    }
+
+    .grid-5 .speaker-card.expand .speaker-bio {
+      max-height: 213px;
+    }
+
+    /* Slider Speaker */
+    .speaker-slider .speaker-profile {
+      transform: translateY(26px);
+    }
+
+    .speaker-slider .speaker-profile img {
+      transform: translateY(-26px);
+    }
+
+    .speaker-slider .speaker-detail {
+      padding: 25px 0 21px;
+    }
+
+    .speaker-slider .speaker-card.expand .speaker-detail {
+      margin-top: 26px;
+      max-height: calc(352px - 26px);
+    }
+
+    .speaker-slider .speaker-header {
+      padding-right: 11px;
+      padding-left: 16px;
+      gap: 10px;
+    }
+
+    .speaker-slider h3.speaker-name {
+      font-size: 32px;
+      line-height: 35px;
+      letter-spacing: -1px;
+    }
+
+    .speaker-slider .speaker-card .speaker-link img {
+      width: 51px !important;
+      height: 51px;
+    }
+
+    .speaker-slider .owl-stage-outer {
+      overflow: visible !important;
+    }
+
+    .speaker-slider .owl-nav .owl-prev {
+      position: absolute;
+      left: -40px;
+    }
+
+    /* .speaker-slider-five .owl-nav .owl-prev,
+.speaker-slider-six .owl-nav .owl-prev{
+display: none !important;
+} */
+    .speaker-slider .owl-nav .owl-next,
+    .speaker-slider-five .owl-nav .owl-next,
+    .speaker-slider-six .owl-nav .owl-next {
+      position: absolute;
+      right: -40px;
+    }
+
+    /* .speaker-slider .owl-carousel .owl-stage-outer, */
+    .five-itme-speaker .owl-carousel .owl-stage-outer,
+    .six-itme-speaker .owl-carousel .owl-stage-outer {
+      overflow: visible !important;
+    }
+
+    /* .speaker-slider .owl-item.cloned, */
+    .five-itme-speaker .owl-item.cloned,
+    .six-itme-speaker .owl-item.cloned {
+      opacity: 0;
+    }
+
+    .speaker-slider .owl-item.active+.owl-item.cloned,
+    .five-itme-speaker .owl-item.active+.owl-item.cloned,
+    .six-itme-speaker .owl-item.active+.owl-item.cloned {
+      opacity: 1;
+    }
+
+    .speaker-layout-logic.d-none-lg {
+      display: none;
+    }
+
+    @media only screen and (max-width: 1439px) {
+      .speaker-grid {
+        grid-gap: 18px;
+      }
+
+      .speaker-card.expand {
+        min-height: auto;
+      }
+
+      .speaker-profile img {
+        max-height: 201px;
+        min-height: 201px;
+      }
+
+      .speaker-detail {
+        padding: 22px 0 18px;
+        border-radius: 0 0 18px 18px;
+      }
+
+      .speaker-header {
+        padding-right: 10px;
+        padding-left: 14px;
+        gap: 5px;
+      }
+
+      h3.speaker-name {
+        font-size: 28px;
+        line-height: 30px;
+        letter-spacing: -1px;
+      }
+
+      .speaker-card .speaker-link img {
+        width: 44px !important;
+        height: 44px;
+      }
+
+      .speaker-card.expand .speaker-detail {
+        max-height: calc(301px - 22px);
+        border-radius: 18px;
+      }
+
+      .speaker-bio {
+        min-height: 175px;
+        max-height: 175px;
+        margin-right: 2px;
+        padding-right: 8px;
+        padding-left: 14px;
+      }
+
+      .speaker-bio .speaker-post {
+        margin-bottom: 10px;
+      }
+
+      /* 3 Column Speaker */
+      .grid-3 {
+        gap: 18px;
+      }
+
+      .grid-3 .speaker-profile img {
+        max-height: 270px;
+        min-height: 270px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-detail {
+        margin-top: 22px;
+      }
+
+      .grid-3 .speaker-header {
+        padding-right: 24px;
+        padding-left: 24px;
+      }
+
+      .grid-3 .speaker-bio {
+        padding-right: 14px;
+        padding-left: 24px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-bio {
+        max-height: 249px;
+        min-height: 249px;
+      }
+
+      .coming-soon-card {
+        padding: 24px 32px 24px 34px;
+      }
+
+      .has-more .coming-soon-card {
+        border-radius: 18px;
+        padding: 24px 26px 28px 24px;
+      }
+
+      .coming-soon-card h3 {
+        font-size: 52px;
+        letter-spacing: -3px;
+      }
+
+      .has-more .coming-soon-card h3 {
+        font-size: 36px;
+        line-height: 90%;
+        letter-spacing: -1.4px;
+      }
+
+      .coming-soon-card p {
+        font-size: 18px;
+        letter-spacing: -0.4px;
+      }
+
+      /* 5 Column Speaker */
+      .grid-5 .speaker-profile img {
+        max-height: 164px;
+        min-height: 164px;
+      }
+
+      .grid-5 .speaker-detail {
+        padding: 11px 0 10px;
+      }
+
+      .grid-5 .speaker-header {
+        padding-right: 14px;
+        padding-left: 14px;
+        gap: 12px;
+      }
+
+      .grid-5 h3.speaker-name {
+        font-size: 21px;
+        line-height: 24px;
+      }
+
+      .grid-5 .speaker-card .speaker-link img {
+        width: 34px !important;
+        height: 34px;
+      }
+
+      .grid-5 .speaker-card.expand .speaker-detail {
+        max-height: calc(233px - 14px);
+        margin-top: 14px;
+      }
+
+      .grid-5 .speaker-card.expand .speaker-bio {
+        max-height: 145px;
+      }
+
+      .speaker-slider .speaker-profile {
+        transform: translateY(14px);
+        border-radius: 14px;
+      }
+
+      .speaker-slider .speaker-profile img {
+        max-height: 164px;
+        min-height: 164px;
+        transform: translateY(-14px);
+      }
+
+      .speaker-slider .speaker-detail {
+        padding: 11px 0 10px;
+        border-radius: 0 0 14px 14px;
+      }
+
+      .speaker-slider .speaker-card.expand .speaker-detail {
+        max-height: calc(236px - 14px);
+        margin-top: 14px;
+        border-radius: 14px;
+      }
+
+      .speaker-slider .speaker-header {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+
+      .speaker-slider h3.speaker-name {
+        font-size: 21px;
+        line-height: 24px;
+      }
+
+      .speaker-slider .speaker-card .speaker-link img {
+        width: 34px !important;
+        height: 34px;
+      }
+
+      .speaker-slider .speaker-card.expand .speaker-bio {
+        max-height: 160px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev {
+        left: -30px;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next {
+        right: -30px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev img,
+      .speaker-slider-five .owl-nav .owl-prev img,
+      .speaker-slider .owl-nav .owl-next img,
+      .speaker-slider-five .owl-nav .owl-next img {
+        max-width: 48px;
+      }
+    }
+
+    @media only screen and (max-width: 991.9px) {
+      .speaker-profile img {
+        max-height: 164px;
+        min-height: 164px;
+      }
+
+      .speaker-slider .speaker-profile img {
+        max-height: 164px;
+        min-height: 164px;
+      }
+
+      .speaker-detail {
+        padding: 10px 0 10px;
+        border-radius: 0 0 14px 14px;
+      }
+
+      .speaker-header {
+        padding-right: 14px;
+        padding-left: 14px;
+        gap: 1px;
+      }
+
+      .expand .speaker-header {
+        max-height: 48px;
+        min-height: 48px;
+      }
+
+      h3.speaker-name {
+        font-size: 21px;
+        line-height: 24px;
+        letter-spacing: -1px;
+      }
+
+      .speaker-card .speaker-link img {
+        width: 34px !important;
+        height: 34px;
+      }
+
+      .speaker-card.expand .speaker-detail {
+        border-radius: 14px !important;
+      }
+
+      .speaker-card.expand .speaker-bio {
+        max-height: 130px;
+        min-height: 130px;
+      }
+
+      .speaker-grid {
+        gap: 8px;
+      }
+
+      /* 3 Column Speaker */
+      .grid-3 {
+        gap: 14px;
+      }
+
+      .grid-3 .speaker-profile img {
+        max-height: 211px;
+        min-height: 211px;
+      }
+
+      .grid-3 .speaker-detail {
+        padding: 20px 0;
+        border-radius: 0 0 24px 24px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-header {
+        max-height: 48px;
+        min-height: 48px;
+      }
+
+      .grid-3 .speaker-header {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-detail {
+        border-radius: 24px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-bio {
+        max-height: 177px;
+        min-height: 177px;
+      }
+
+      .coming-soon-card {
+        padding: 20px;
+      }
+
+      .has-more .coming-soon-card {
+        padding: 14px 26px 14px 15px;
+      }
+
+      .coming-soon-card h3 {
+        font-size: 40px;
+        letter-spacing: -2px;
+      }
+
+      .has-more .coming-soon-card h3 {
+        font-size: 30px;
+        line-height: 83%;
+        letter-spacing: -1.5px;
+      }
+
+      .has-more .coming-soon-card p {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      /* 5 Column Speaker */
+      .grid-5 .speaker-profile img {
+        max-height: 129px;
+        min-height: 129px;
+      }
+
+      .grid-5 .speaker-card .speaker-link img {
+        width: 25px !important;
+        height: 25px;
+      }
+
+      .grid-5 .speaker-card.expand .speaker-detail {
+        max-height: calc(198px - 11px);
+        margin-top: 11px;
+      }
+
+      .grid-5 .speaker-card.expand .speaker-bio {
+        max-height: 106px;
+      }
+
+      /* Slider Speaker */
+      .speaker-slider .speaker-profile {
+        transform: translateY(16px);
+      }
+
+      .speaker-slider .speaker-profile img {
+        max-height: 168px;
+        min-height: 168px;
+        transform: translateY(-16px);
+      }
+
+      .speaker-slider .speaker-detail {
+        padding: 13px 0 14px;
+      }
+
+      .speaker-slider .speaker-card.expand .speaker-detail {
+        max-height: calc(231px - 16px);
+        margin-top: 16px;
+      }
+
+      .speaker-slider h3.speaker-name {
+        font-size: 18px;
+        line-height: 100%;
+      }
+
+      .speaker-slider .speaker-card.expand .speaker-bio {
+        max-height: 128px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev {
+        left: -24px;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next {
+        right: -24px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev img,
+      .speaker-slider-five .owl-nav .owl-prev img,
+      .speaker-slider .owl-nav .owl-next img,
+      .speaker-slider-five .owl-nav .owl-next img {
+        max-width: 39px;
+      }
+
+      .speaker-slider-six .owl-nav .owl-prev {
+        display: block !important;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991.8px) {
+      .speaker-layout-logic.d-none-md {
+        display: none;
+      }
+
+      .speaker-layout-logic.d-none-lg {
+        display: block;
+      }
+
+      .six-itme-speaker .owl-item.cloned {
+        opacity: 1;
+      }
+    }
+
+    @media only screen and (max-width: 767.9px) {
+
+      .grid-3,
+      .grid-4,
+      .grid-5 {
+        margin-top: 23px;
+      }
+
+      .speaker-profile img {
+        max-height: none !important;
+        min-height: auto !important;
+      }
+
+      .speaker-header {
+        padding-right: 11px;
+        padding-left: 16px;
+        gap: 12px;
+      }
+
+      .expand .speaker-header {
+        max-height: 100%;
+        min-height: auto;
+      }
+
+      h3.speaker-name {
+        font-size: 18px;
+        letter-spacing: -1.219px;
+        line-height: 100%;
+      }
+
+      .speaker-detail {
+        padding: 12px 0 12px;
+      }
+
+      .speaker-card.expand .speaker-detail {
+        margin-top: 12px;
+        max-height: 100%;
+      }
+
+      .speaker-card .speaker-link img {
+        width: 39px !important;
+        height: 39px;
+      }
+
+      .speaker-bio {
+        padding-right: 11px;
+        padding-left: 16px;
+      }
+
+      .speaker-card.expand .speaker-bio {
+        max-height: 129px;
+        min-height: 129px;
+      }
+
+      .speaker-bio .speaker-post {
+        margin-bottom: 12px;
+      }
+
+      .speaker-bio p {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 110%;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 15px;
+        row-gap: 15px;
+      }
+
+      .grid-3 .speaker-detail {
+        padding: 12px 0 12px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-detail {
+        margin-top: 4px;
+      }
+
+      .grid-3 .speaker-header {
+        padding-right: 11px;
+        padding-left: 16px;
+        gap: 12px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-header {
+        max-height: 100%;
+        min-height: auto;
+      }
+
+      .grid-3 .speaker-bio {
+        padding-right: 11px;
+        padding-left: 16px;
+      }
+
+      .grid-3 .speaker-card.expand .speaker-bio {
+        max-height: 107px;
+        min-height: 107px;
+      }
+
+      .coming-soon-card {
+        grid-column: 1 / -1;
+        border-radius: 14px;
+        padding: 24px 23px;
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .has-more .coming-soon-card {
+        grid-column: auto;
+        padding: 14.469px 20px 17.531px 15px;
+        text-align: left;
+      }
+
+      .coming-soon-card h3 {
+        font-size: 24px;
+        line-height: 90%;
+        letter-spacing: -1.4px;
+        margin-bottom: 12px;
+      }
+
+      .has-more .coming-soon-card h3 {
+        font-size: 30px;
+        line-height: 83%;
+        letter-spacing: -1.5px;
+      }
+
+      .coming-soon-card p {
+        font-size: 14px;
+      }
+
+      .grid-4,
+      .grid-5 {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .speaker-slider,
+      .speaker-slider-five {
+        display: none !important;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next {
+        right: -14px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev {
+        left: -14px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev img,
+      .speaker-slider .owl-nav .owl-next img,
+      .speaker-slider-five .owl-nav .owl-prev img,
+      .speaker-slider-five .owl-nav .owl-next img {
+        max-width: 30px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+
+      .speaker-slider,
+      .grid-5 {
+        margin-top: 14px;
+      }
+
+      .grid-4 {
+        margin-top: 17px;
+      }
+
+      .grid-3 {
+        margin-top: 12px;
+      }
+
+      .speaker-bio {
+        min-height: auto !important;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next,
+      .speaker-slider-six .owl-nav .owl-next,
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev,
+      .speaker-slider-six .owl-nav .owl-prev {
+        top: 110px;
+      }
+
+      .five-itme-speaker .owl-nav .owl-prev.disabled {
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+
+      .speaker-slider,
+      .grid-5 {
+        margin-top: 22px;
+      }
+
+      .grid-4 {
+        margin-top: 14px;
+      }
+
+      .grid-3 {
+        margin-top: 6px;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next,
+      .speaker-slider-six .owl-nav .owl-next,
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev,
+      .speaker-slider-six .owl-nav .owl-prev {
+        top: 110px;
+      }
+
+      .six-itme-speaker .owl-nav .owl-prev.disabled {
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width: 1440px) {
+
+      .speaker-slider,
+      .grid-5 {
+        margin-top: 34px;
+      }
+
+      .grid-4 {
+        margin-top: 38px;
+      }
+
+      .grid-3 {
+        margin-top: 18px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev {
+        left: -50px;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-prev {
+        right: -50px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev img,
+      .speaker-slider .owl-nav .owl-next img {
+        max-width: 64px;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next,
+      .speaker-slider-six .owl-nav .owl-next,
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev,
+      .speaker-slider-six .owl-nav .owl-prev {
+        top: 160px;
+      }
+    }
+
+    @media only screen and (min-width: 1920px) {
+      .swoogo-speakers {
+        position: relative !important;
+      }
+
+      .speaker-slider {
+        position: inherit !important;
+      }
+
+      .speaker-slider .owl-carousel .owl-stage-outer {
+        overflow: visible !important;
+        position: inherit !important;
+      }
+
+      .speaker-slider .owl-item.cloned {
+        opacity: 0;
+      }
+
+      .speaker-slider .owl-nav .owl-next {
+        right: 40px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev {
+        left: 40px;
+      }
+
+      .speaker-slider .owl-nav .owl-next,
+      .speaker-slider-five .owl-nav .owl-next,
+      .speaker-slider-six .owl-nav .owl-next,
+      .speaker-slider .owl-nav .owl-prev,
+      .speaker-slider-five .owl-nav .owl-prev,
+      .speaker-slider-six .owl-nav .owl-prev {
+        top: 192px;
+      }
+
+      .speaker-slider .owl-nav .owl-prev.disabled {
+        display: none;
+      }
+    }
+  </style>
+  <style>
+    .session-on-speaker-modal {
+      overflow: hidden !important;
+    }
+
+    .session-on-speaker-modal .modal-body {
+      width: calc(100% - 14px);
+      max-height: calc(100vh - 17vh);
+      overflow-y: scroll;
+      margin-right: 14px !important;
+    }
+
+    .session-on-speaker-modal .modal-body::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .session-on-speaker-modal .modal-body::-webkit-scrollbar-thumb {
+      background: #DADCE0;
+      border-radius: 30px;
+    }
+
+    .session-on-speaker-modal .modal-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .session-on-speaker-modal .modal-content {
+      background: #fff;
+      min-height: calc(100vh - 10vh);
+      border-radius: 40px;
+    }
+
+    .session-on-speaker-modal .modal-body.content .btn-back {
+      position: relative;
+      font-size: 18px;
+      line-height: 120%;
+      color: #3C4043;
+      border: 2px solid #3C4043;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .session-on-speaker-modal .modal-body.content .btn-back::before {
+      content: '';
+      background: url(https://assets.swoogo.com/uploads/2509394-643176efdb6c0.svg) no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 10px;
+      height: 17px;
+    }
+
+    .session-on-speaker-modal .modal-body.content .btn-back:hover {
+      text-decoration: none;
+    }
+
+    .session-on-speaker-modal .modal-header {
+      position: static;
+      display: block;
+      padding: 0;
+      border: 0;
+    }
+
+    .session-on-speaker-modal .modal-header .close {
+      position: absolute;
+      opacity: 1;
+      font-size: 0;
+      z-index: 999;
+    }
+
+    .session-on-speaker-modal .modal-header .close::before {
+      content: '';
+      background: url(https://assets.swoogo.com/uploads/3650733-65e9d2510dd02.svg) no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .session-on-speaker-modal .modal-body .row {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .session-on-speaker-modal .modal-body .row .col-sm-4 .row,
+    .session-on-speaker-modal .modal-body .row .col-sm-8 .row {
+      display: block;
+      margin-top: 0;
+    }
+
+    .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+      margin-left: auto;
+      border: 0;
+      padding: 0;
+      background: var(--Blue-Off-white, #EAF9F9);
+      margin-right: 0;
+      float: right;
+    }
+
+    .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+      width: 100%;
+    }
+
+    .session-on-speaker-modal .field-contact_fullName {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .session-on-speaker-modal .field-contact_job_title {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 500;
+      margin: 0 !important;
+    }
+
+    .session-on-speaker-modal .field-contact_bio {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    /* @media only screen and (max-width : 1199.2px) {
+.session-on-speaker-modal .modal-body.content .btn-back {
+  max-width: 94px;
+  min-height: 48px;
+  padding: 0 18px 0 36px;
+}
+
+.session-on-speaker-modal .modal-body.content .btn-back::before {
+  top: 15px;
+  left: 18px;
+}
+} */
+
+    @media only screen and (max-width : 767.2px) {
+      .session-on-speaker-modal .modal-content {
+        min-height: 100vh;
+      }
+
+      .session-on-speaker-modal .modal-header .close {
+        top: 18px;
+        right: 18px;
+        width: 45px;
+        height: 45px;
+        padding: 5px 4.322px 4.645px 5.322px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 45px;
+        height: 45px;
+      }
+
+      .session-on-speaker-modal .modal-body .row {
+        display: block;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 28px 1px;
+        margin: 32px 0;
+        max-height: calc(100vh - 10vh);
+      }
+
+      .session-on-speaker-modal .col-sm-4 {
+        padding: 0 28px 46px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        float: left;
+        max-width: 164px;
+        max-height: calc(161px - 16px);
+        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 15px;
+        transform: translateY(16px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 161px;
+        transform: translateY(-16px);
+        border-radius: 15px;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 36px;
+        line-height: 32px;
+        letter-spacing: -1.8px;
+        margin-bottom: 12px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        font-size: 16px;
+        line-height: 21px;
+        margin-top: 24px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .session-on-speaker-modal .modal-header .close {
+        top: 18px;
+        right: 30px;
+        width: 40px;
+        height: 40px;
+        padding: 2px 2.322px 2.645px 2.322px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 40px;
+        height: 40px;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 63px 1px 42px;
+        margin: 40px 0;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: -0.8px;
+        margin-bottom: 8px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 21px;
+        line-height: 28px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        font-size: 18px;
+        line-height: 24px;
+        margin-top: 24px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        max-width: 164px;
+        max-height: calc(161px - 16px);
+        margin-top: 72px;
+        border-radius: 15px;
+        transform: translateY(16px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 161px;
+        transform: translateY(-16px);
+        border-radius: 15px;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      .session-on-speaker-modal .modal-content {
+        max-width: 872px !important;
+      }
+
+      .session-on-speaker-modal .modal-header .close {
+        right: 34px;
+        width: 45px;
+        height: 45px;
+        padding: 3px 2.201px 2.402px 3.201px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 45px;
+        height: 45px;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 66px 1px 48px;
+        margin: 40px 0;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: -1.8px;
+        margin-bottom: 4px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        font-size: 21px;
+        line-height: 28px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        max-width: 200px;
+        max-height: calc(197px - 20px);
+        border-radius: 20px;
+        border-radius: 20px;
+        transform: translateY(20px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 197px;
+        transform: translateY(-20px);
+        border-radius: 20px;
+      }
+    }
+
+    @media only screen and (min-width: 1440px) {
+      .session-on-speaker-modal .modal-content {
+        max-width: 1280px !important;
+      }
+
+      .session-on-speaker-modal .modal-header .close {
+        right: 36px;
+        width: 64px;
+        height: 64px;
+        padding: 7px 7.251px 7.503px 7.251px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 64px;
+        height: 64px;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 87px 1px 48px;
+        margin: 48px 0;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 80px;
+        line-height: 70px;
+        letter-spacing: -3.6px;
+        margin-bottom: 28px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: -0.8px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        margin-top: 40px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        border-radius: 25px;
+        max-width: 300px;
+        max-height: calc(296px - 30px);
+        margin-top: 64px;
+        transform: translateY(30px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 296px;
+        transform: translateY(-30px);
+        border-radius: 25px;
+      }
+
+      @media only screen and (min-width: 1920px) {
+
+        .session-on-speaker-modal .col-sm-4 .col-sm-12,
+        .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+          border-radius: 30px;
+        }
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <style>
+    .speaker-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .speaker-wrap .speaker-profile-v2 {
+      transition: 500ms all ease;
+    }
+
+    .speaker-wrap .speaker-profile-v2 figure {
+      border-radius: 20px;
+      background: var(--Blue-Off-white, #EAF9F9);
+      transform: translateY(22px);
+    }
+
+    .speaker-wrap .speaker-profile-v2 img {
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .speaker-profile-v2.show-speaker {
+      opacity: 1;
+    }
+
+    .speaker-wrap .speaker-profile-v2 h4 {
+      position: relative;
+      background: var(--White, #FFF);
+      margin: 0 !important;
+      z-index: 9;
+    }
+
+    .speaker-wrap .speaker-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-content: center;
+    }
+
+    .speaker-wrap .speaker-list .speaker-item a {
+      position: relative;
+      display: inline-block;
+      font-style: normal;
+      font-weight: 500;
+      color: var(--Black, #202124);
+      border-radius: 40px;
+      width: 100%;
+      border: 1px solid transparent;
+      animation: none !important;
+    }
+
+    .speaker-wrap .speaker-list .speaker-item a:hover {
+      text-decoration: none;
+      background: var(--White, #FFF);
+    }
+
+    .speaker-wrap .speaker-list .speaker-item a:focus {
+      border-color: transparent;
+    }
+
+    .speaker-wrap .speaker-list .speaker-item a:hover::before {
+      content: '';
+      background: url(https://assets.swoogo.com/uploads/3650187-65e9a22a60038.svg);
+      background-size: contain;
+      position: absolute;
+    }
+
+    .speaker-slider .item {
+      width: 100%;
+    }
+
+    @media only screen and (max-width : 767.2px) {
+      .speaker-wrap {
+        display: none;
+      }
+
+      .speaker-wrap-mobile {
+        margin-top: 40px;
+        padding-left: 18px;
+      }
+
+      .speaker-item-xs {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .speaker-item-xs .spekaer-profile img {
+        max-width: 54px;
+        max-height: 54px;
+        border-radius: 4px;
+      }
+
+      .speaker-item-xs .spekaer-detail {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .speaker-item-xs .spekaer-detail h6 {
+        color: var(--Black, #202124);
+        font-family: "Google Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px;
+        letter-spacing: -0.5px;
+      }
+
+      .speaker-item-xs .spekaer-detail img {
+        max-width: 40px;
+      }
+
+      .speaker-wrap-mobile .owl-dots {
+        text-align: center;
+      }
+
+      .speaker-wrap-mobile .owl-dots .owl-dot {
+        margin-right: 14px;
+      }
+
+      .speaker-wrap-mobile .owl-dots .owl-dot span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #575759;
+        border-radius: 50%;
+      }
+
+      .speaker-wrap-mobile .owl-dots .owl-dot.active span {
+        background: #202124;
+      }
+    }
+
+    @media only screen and (min-width : 768px) {
+      .speaker-section h2.sec-title {
+        font-size: 54px;
+        line-height: 48px;
+        letter-spacing: -3.24px;
+      }
+
+      .speaker-wrap {
+        margin-top: 24px;
+      }
+
+      .speaker-wrap .speaker-list {
+        margin-top: 0px
+      }
+
+      .speaker-wrap .speaker-list {
+        grid-column-gap: 18px;
+      }
+
+      .speaker-wrap .speaker-list .speaker-item a {
+        padding: 10px 18px;
+        font-size: 21px;
+        line-height: 28px;
+        min-width: 232px;
+      }
+
+      .speaker-wrap .speaker-list .speaker-item a:hover::before {
+        width: 16px;
+        height: 16px;
+        top: 16px;
+        right: 18px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 {
+        max-width: 180px;
+        max-height: 252px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 h4 {
+        font-size: 21px;
+        line-height: 22px;
+        letter-spacing: -1px;
+        padding: 8px 24px;
+        border-radius: 0px 0px 12px 12px;
+        min-height: 60px;
+      }
+
+      .speaker-wrap-mobile {
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width : 992px) {
+      .speaker-section h2.sec-title {
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -4.32px;
+      }
+
+      .speaker-wrap {
+        margin-top: 40px;
+      }
+
+      .speaker-wrap .speaker-list {
+        grid-column-gap: 40px;
+      }
+
+      .speaker-wrap .speaker-list .speaker-item a {
+        padding: 14px 24px;
+        font-size: 24px;
+        line-height: 30px;
+        min-width: 280px;
+      }
+
+      .speaker-wrap .speaker-list .speaker-item a:hover::before {
+        width: 18px;
+        height: 18px;
+        top: 20px;
+        right: 24px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 {
+        max-width: 220px;
+        max-height: 316px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 h4 {
+        font-size: 28px;
+        line-height: 30px;
+        padding: 18px 30px;
+        border-radius: 0px 0px 16px 16px;
+        min-height: 96px;
+      }
+    }
+
+    @media only screen and (min-width : 1440px) {
+      .speaker-section h2.sec-title {
+        font-size: 80px;
+        line-height: 70px;
+        letter-spacing: -3.6px;
+      }
+
+      .speaker-wrap {
+        margin-top: 0;
+      }
+
+      .speaker-wrap .speaker-list {
+        margin-top: 40px;
+      }
+
+      .speaker-wrap .speaker-list {
+        grid-column-gap: 80px;
+      }
+
+      .speaker-wrap .speaker-list .speaker-item a {
+        padding: 18px 30px;
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: -0.8px;
+        min-width: 360px;
+      }
+
+      .speaker-wrap .speaker-list .speaker-item a:hover::before {
+        width: 24px;
+        height: 24px;
+        top: 26px;
+        right: 30px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 {
+        max-width: 300px;
+        max-height: 436px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 img {
+        width: 300px;
+        height: 300px;
+      }
+
+      .speaker-wrap .speaker-profile-v2 h4 {
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: -1.8px;
+        padding: 24px 40px;
+        border-radius: 0px 0px 20px 20px;
+        min-height: 136px;
+      }
+    }
+  </style>
+  <style>
+    .session-on-speaker-modal {
+      overflow: hidden !important;
+    }
+
+    .session-on-speaker-modal .modal-body {
+      width: calc(100% - 14px);
+      max-height: calc(100vh - 17vh);
+      overflow-y: scroll;
+      margin-right: 14px !important;
+    }
+
+    .session-on-speaker-modal .modal-body::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .session-on-speaker-modal .modal-body::-webkit-scrollbar-thumb {
+      background: #DADCE0;
+      border-radius: 30px;
+    }
+
+    .session-on-speaker-modal .modal-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .session-on-speaker-modal .modal-content {
+      background: #fff;
+      min-height: calc(100vh - 10vh);
+      border-radius: 40px;
+    }
+
+    .session-on-speaker-modal .modal-body.content .btn-back {
+      position: relative;
+      font-size: 18px;
+      line-height: 120%;
+      color: #3C4043;
+      border: 2px solid #3C4043;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .session-on-speaker-modal .modal-body.content .btn-back::before {
+      content: '';
+      background: url(https://assets.swoogo.com/uploads/2509394-643176efdb6c0.svg) no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 10px;
+      height: 17px;
+    }
+
+    .session-on-speaker-modal .modal-body.content .btn-back:hover {
+      text-decoration: none;
+    }
+
+    .session-on-speaker-modal .modal-header {
+      position: static;
+      display: block;
+      padding: 0;
+      border: 0;
+    }
+
+    .session-on-speaker-modal .modal-header .close {
+      position: absolute;
+      opacity: 1;
+      font-size: 0;
+      z-index: 999;
+    }
+
+    .session-on-speaker-modal .modal-header .close::before {
+      content: '';
+      background: url(https://assets.swoogo.com/uploads/3650733-65e9d2510dd02.svg) no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .session-on-speaker-modal .modal-body .row {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .session-on-speaker-modal .modal-body .row .col-sm-4 .row,
+    .session-on-speaker-modal .modal-body .row .col-sm-8 .row {
+      display: block;
+      margin-top: 0;
+    }
+
+    .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+      margin-left: auto;
+      border: 0;
+      padding: 0;
+      background: var(--Blue-Off-white, #EAF9F9);
+      margin-right: 0;
+      float: right;
+    }
+
+    .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+      width: 100%;
+    }
+
+    .session-on-speaker-modal .field-contact_fullName {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .session-on-speaker-modal .field-contact_job_title {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 500;
+      margin: 0 !important;
+    }
+
+    .session-on-speaker-modal .field-contact_bio {
+      color: var(--Black, #202124);
+      font-family: "Google Sans";
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    /* @media only screen and (max-width : 1199.2px) {
+.session-on-speaker-modal .modal-body.content .btn-back {
+  max-width: 94px;
+  min-height: 48px;
+  padding: 0 18px 0 36px;
+}
+
+.session-on-speaker-modal .modal-body.content .btn-back::before {
+  top: 15px;
+  left: 18px;
+}
+} */
+
+    @media only screen and (max-width: 767.2px) {
+      .session-on-speaker-modal .modal-content {
+        min-height: auto;
+        height: 100%;
+        padding-top: 32px;
+      }
+
+      .session-on-speaker-modal .modal-header .close {
+        top: 18px;
+        right: 18px;
+        width: 45px;
+        height: 45px;
+        padding: 5px 4.322px 4.645px 5.322px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 45px;
+        height: 45px;
+      }
+
+      .session-on-speaker-modal .modal-body .row {
+        display: block;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 28px 32px;
+        margin: 0 0;
+        max-height:none;
+        height: 100%;
+      }
+
+      .session-on-speaker-modal .col-sm-4 {
+        padding: 0 28px 46px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        float: left;
+        max-width: 164px;
+        max-height: calc(161px - 16px);
+        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 15px;
+        transform: translateY(16px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 161px;
+        transform: translateY(-16px);
+        border-radius: 15px;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 36px;
+        line-height: 32px;
+        letter-spacing: -1.8px;
+        margin-bottom: 12px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        font-size: 16px;
+        line-height: 21px;
+        margin-top: 24px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .session-on-speaker-modal .modal-header .close {
+        top: 18px;
+        right: 30px;
+        width: 40px;
+        height: 40px;
+        padding: 2px 2.322px 2.645px 2.322px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 40px;
+        height: 40px;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 63px 1px 42px;
+        margin: 40px 0;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: -0.8px;
+        margin-bottom: 8px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 21px;
+        line-height: 28px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        font-size: 18px;
+        line-height: 24px;
+        margin-top: 24px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        max-width: 164px;
+        max-height: calc(161px - 16px);
+        margin-top: 72px;
+        border-radius: 15px;
+        transform: translateY(16px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 161px;
+        transform: translateY(-16px);
+        border-radius: 15px;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      .session-on-speaker-modal .modal-content {
+        max-width: 872px !important;
+      }
+
+      .session-on-speaker-modal .modal-header .close {
+        right: 34px;
+        width: 45px;
+        height: 45px;
+        padding: 3px 2.201px 2.402px 3.201px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 45px;
+        height: 45px;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 66px 1px 48px;
+        margin: 40px 0;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: -1.8px;
+        margin-bottom: 4px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        font-size: 21px;
+        line-height: 28px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        max-width: 200px;
+        max-height: calc(197px - 20px);
+        border-radius: 20px;
+        border-radius: 20px;
+        transform: translateY(20px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 197px;
+        transform: translateY(-20px);
+        border-radius: 20px;
+      }
+    }
+
+    @media only screen and (min-width: 1440px) {
+      .session-on-speaker-modal .modal-content {
+        max-width: 1280px !important;
+      }
+
+      .session-on-speaker-modal .modal-header .close {
+        right: 36px;
+        width: 64px;
+        height: 64px;
+        padding: 7px 7.251px 7.503px 7.251px;
+      }
+
+      .session-on-speaker-modal .modal-header .close:before {
+        width: 64px;
+        height: 64px;
+      }
+
+      .session-on-speaker-modal .modal-body.content {
+        padding: 0 87px 1px 48px;
+        margin: 48px 0;
+      }
+
+      .session-on-speaker-modal .field-contact_fullName {
+        font-size: 80px;
+        line-height: 70px;
+        letter-spacing: -3.6px;
+        margin-bottom: 28px !important;
+      }
+
+      .session-on-speaker-modal .field-contact_job_title {
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: -0.8px;
+      }
+
+      .session-on-speaker-modal .field-contact_bio {
+        margin-top: 40px;
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 {
+        border-radius: 25px;
+        max-width: 300px;
+        max-height: calc(296px - 30px);
+        margin-top: 64px;
+        transform: translateY(30px);
+      }
+
+      .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+        max-height: 296px;
+        transform: translateY(-30px);
+        border-radius: 25px;
+      }
+
+      @media only screen and (min-width: 1920px) {
+
+        .session-on-speaker-modal .col-sm-4 .col-sm-12,
+        .session-on-speaker-modal .col-sm-4 .col-sm-12 .img-circle {
+          border-radius: 30px;
+        }
+      }
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="https://assets.swoogo.com/assets/866cdbe3/jquery-with-js.js"></script>
+  <script src="https://assets.swoogo.com/plugins/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <section class="speaker-section sec-gap">
+    <div class="container-fluid">
+
+      <div class="content clearfix">
+        <div id="w_46748642" class="widget v_58753266 swoogo-text clearfix">
+          <div class="mt-none mb-none  paragraph">
+            <h2 class="sec-title">Speakers</h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content clearfix">
+
+      <div id="w_48030072" class="widget v_60353499 swoogo-spacer">
+        <div class="resize-target" style="height:50px;"></div>
+
+      </div>
+      <div id="w_47930215" class="widget hidden-xs v_60231199 layout-twig swoogo-speakers mt-medium mb-none">
+        <div class="clearfix mt-medium mb-none">
+          <div id="speaker_list_47930215" data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="2000">
+
+            <div class="container-fluid">
+              <div class="speaker-wrap">
+                <div class="speaker-list">
+                  <div class="speaker-item">
+                    <a href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158925/philipp-schindler" class="open-as-modal speaker-link" data-image="https://assets.swoogo.com/uploads/medium/3734952-660add0c34fca.png" data-name="Philipp
+                    Schindler" data-company="" data-job-title="Senior Vice President, Chief Business Officer, Google">Philipp
+                      Schindler</a>
+                  </div>
+
+                  <div class="speaker-item">
+                    <a href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158924/vidhya-srinivasan" class="open-as-modal speaker-link" data-image="https://assets.swoogo.com/uploads/medium/3734949-660adcffbea07.png" data-name="Vidhya
+                    Srinivasan" data-company="" data-job-title="Vice President/General Manager, Ads">Vidhya
+                      Srinivasan</a>
+                  </div>
+
+                  <div class="speaker-item">
+                    <a href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158928/selin-song" class="open-as-modal speaker-link" data-image="https://assets.swoogo.com/uploads/medium/3739270-660c30ca0430d.png" data-name="Selin
+                    Song" data-company="" data-job-title="President, Google Customer Solutions">Selin
+                      Song</a>
+                  </div>
+
+                  <div class="speaker-item">
+                    <a href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158929/sean-downey" class="open-as-modal speaker-link" data-image="https://assets.swoogo.com/uploads/medium/3734960-660add3cad4e1.png" data-name="Sean
+                    Downey" data-company="" data-job-title="President, Americas &amp; Global Partners, Goolgle">Sean
+                      Downey</a>
+                  </div>
+
+                  <div class="speaker-item">
+                    <a href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158930/matt-madrigal" class="open-as-modal speaker-link" data-image="https://assets.swoogo.com/uploads/medium/3739272-660c30db15db7.png" data-name="Matt
+                    Madrigal" data-company="" data-job-title="VP/GM Merchant Shopping">Matt
+                      Madrigal</a>
+                  </div>
+
+                </div>
+                <div class="speaker-profile-v2 hover-speaker-image">
+                  <figure>
+                    <img src="https://assets.swoogo.com/uploads/medium/3734952-660add0c34fca.png">
+                  </figure>
+                  <h4>Philipp Schindler</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="speaker-wrap-mobile">
+              <div class="speaker-slider owl-carousel owl-loaded owl-drag">
+
+                <div class="owl-stage-outer">
+                  <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+                    <div class="owl-item">
+                      <div class="item">
+
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158925/philipp-schindler">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3734952-660add0c34fca.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Philipp
+                              Schindler</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158924/vidhya-srinivasan">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3734949-660adcffbea07.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Vidhya
+                              Srinivasan</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158928/selin-song">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3739270-660c30ca0430d.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Selin
+                              Song</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158929/sean-downey">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3734960-660add3cad4e1.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Sean
+                              Downey</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158930/matt-madrigal">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3739272-660c30db15db7.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Matt
+                              Madrigal</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+
+                        <!-- <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1159029/speaker-6">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3735165-660aea6206b6f.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Speaker
+                              6</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a> -->
+
+                      </div>
+                    </div>
+                    <!-- <div class="owl-item">
+                      <div class="item">
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1159031/speaker-7">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3735168-660aea857258d.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Speaker
+                              7</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+
+                        <a class="speaker-item-xs open-as-modal speaker-link" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1159034/speaker-8">
+                          <div class="spekaer-profile">
+                            <img src="https://assets.swoogo.com/uploads/medium/3735170-660aeaaa30c11.png">
+                          </div>
+                          <div class="spekaer-detail">
+                            <h6>Speaker
+                              8</h6>
+                            <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg">
+                          </div>
+                        </a>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
+                <div class="owl-dots" style="display: none;"><button role="button" class="owl-dot active"><span></span></button></div>
+              </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+            <script>
+              $(document).ready(function () {
+                $(".speaker-item a")
+                  .mouseenter(function () {
+                    var SpeakerImage = $(this).data("image");
+                    var SpeakerName = $(this).data("name");
+                    // var SpeakerCompany = $(this).data("company");
+                    var SpeakerJobtitle = $(this).data("job-title");
+                    $(".speaker-item").removeClass("active");
+                    $(this).closest(".speaker-item").addClass("active");
+                    $(".hover-speaker-image img").attr("src", SpeakerImage);
+                    $(".hover-speaker-image h4").html(SpeakerName);
+                    // $(".hover-speaker-image p").html(SpeakerJobtitle + "," + SpeakerCompany);
+                    $(".speaker-profile-v2").addClass("show-speaker");
+                  })
+                  .mouseleave(function () {
+                    $(".speaker-profile-v2").removeClass("show-speaker");
+                  });
+                $(".speaker-slider").owlCarousel({
+                  loop: true,
+                  margin: 20,
+                  nav: false,
+                  dots: true,
+                  responsiveClass: true,
+                  responsive: {
+                    0: {
+                      items: 1.12,
+                      dots: true,
+                    },
+                  },
+                  onInitialized: function (event) {
+                    // Check the total number of items in the carousel
+                    var itemCount = event.item.count;
+
+                    // Hide dots if there are two or fewer items
+                    if (itemCount <= 2) {
+                      $('.owl-dots').hide();
+                    } else {
+                      $('.owl-dots').show();
+                    }
+                  }
+                });
+                $(document).on("click", ".speaker-link", function () {
+                  $("#swoogo-modal").addClass("session-on-speaker-modal");
+                });
+                $(window).on("hidden.bs.modal", function (e) {
+                  $("#swoogo-modal").removeClass("session-on-speaker-modal");
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+      <div id="w_48380576" class="widget hidden-sm hidden-md hidden-lg v_60804338 layout-twig swoogo-speakers mt-medium mb-none">
+        <div class="clearfix mt-medium mb-none">
+          <div id="speaker_list_48380576" data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="2000">
+            <style>
+              @media only screen and (max-width : 767.2px) {
+                .keynote-speaker-mobile .speaker-link {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: 12px;
+                  border: 1px solid transparent;
+                  animation: none !important;
+                }
+
+                .keynote-speaker-mobile .speaker-link:focus {
+                  border-color: transparent;
+                }
+
+                .keynote-speaker-mobile .speaker-info {
+                  display: flex;
+                  align-items: center;
+
+                  justify-content: space-between;
+                  gap: 14px;
+                  width: 100%;
+                }
+
+                .keynote-speaker-mobile .speaker-info .profile-img {
+                  position: relative;
+                  opacity: 1;
+                  border-radius: 4px;
+                  background: lightgray -10.596px -3.194px / 151.985% 121.429% no-repeat;
+                  min-width: 54px;
+                  min-height: 49px;
+                  transform: translateY(5px);
+                }
+
+                .keynote-speaker-mobile .speaker-info .profile-img img {
+                  object-fit: cover;
+                  object-position: top;
+                  max-width: 54px;
+                  max-height: 54px;
+                  min-width: 54px;
+                  min-height: 54px;
+                  position: absolute;
+                  top: -5px;
+                }
+
+                .keynote-speaker-mobile .speaker-info h6 {
+                  color: var(--Black, #202124);
+                  font-size: 24px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: 28px;
+                  letter-spacing: -0.5px;
+                  width: 100%;
+                }
+
+                .keynote-speaker-mobile img.plus-icon {
+                  max-width: 40px;
+                }
+
+                .keynote-speaker-mobile .owl-dots {
+                  text-align: center;
+                }
+
+                .keynote-speaker-mobile .owl-dots .owl-dot {
+                  margin-right: 14px;
+                }
+
+                .keynote-speaker-mobile .owl-dots .owl-dot span {
+                  position: absolute;
+                  width: 10px;
+                  height: 10px;
+                  background: #9AA0A6;
+                  border-radius: 50%;
+                }
+
+                .keynote-speaker-mobile .owl-dots .owl-dot.active span {
+                  background: #174EA6;
+                }
+              }
+            </style>
+            <div class="keynote-speaker-mobile">
+              <div class="keynote-speaker-slider owl-carousel owl-loaded owl-drag">
+
+
+                <div class="owl-stage-outer">
+                  <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+                    <div class="owl-item">
+                      <div class="item">
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Vidhya Srinivasan" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158924/vidhya-srinivasan">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3734949-660adcffbea07.png">
+                            </div>
+                            <h6>Vidhya Srinivasan</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Philipp Schindler" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158925/philipp-schindler">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3734952-660add0c34fca.png">
+                            </div>
+                            <h6>Philipp Schindler</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Selin Song" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158928/selin-song">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3739270-660c30ca0430d.png">
+                            </div>
+                            <h6>Selin Song</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Sean Downey" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158929/sean-downey">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3734960-660add3cad4e1.png">
+                            </div>
+                            <h6>Sean Downey</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Matt Madrigal" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1158930/matt-madrigal">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3739272-660c30db15db7.png">
+                            </div>
+                            <h6>Matt Madrigal</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                        <!-- <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Speaker 6" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1159029/speaker-6">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3735165-660aea6206b6f.png">
+                            </div>
+                            <h6>Speaker 6</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a> -->
+                      </div>
+                    </div>
+                    <!-- <div class="owl-item">
+                      <div class="item">
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Speaker 7" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1159031/speaker-7">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3735168-660aea857258d.png">
+                            </div>
+                            <h6>Speaker 7</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-speaker="Speaker 8" href="https://www.googlemarketinglive.com/bay-view-2024/speaker/1159034/speaker-8">
+                          <div class="speaker-info">
+                            <div class="profile-img">
+                              <img src="https://assets.swoogo.com/uploads/medium/3735170-660aeaaa30c11.png">
+                            </div>
+                            <h6>Speaker 8</h6>
+                          </div>
+                          <img src="https://assets.swoogo.com/uploads/2453902-6415eefc9019a.svg" class="plus-icon">
+                        </a>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
+                <div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div>
+              </div>
+            </div>
+
+            <script>
+              $(document).ready(function () {
+
+                $(".keynote-speaker-slider").owlCarousel({
+                  loop: true,
+                  margin: 20,
+                  nav: false,
+                  dots: true,
+                  responsiveClass: true,
+                  stagePadding: 30,
+                  responsive: {
+                    0: {
+                      items: 1,
+                      dots: true,
+                    },
+                  },
+                });
+
+                $(document).on("click", ".speaker-link", function () {
+                  $("#swoogo-modal").addClass("session-on-speaker-modal");
+                });
+                $(window).on("hidden.bs.modal", function (e) {
+                  $("#swoogo-modal").removeClass("session-on-speaker-modal");
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+  <dialog class="modal session-on-speaker-modal" id="speaker-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" role="button">x</button>
+          <h4 class="modal-title">Speaker Details</h4>
+        </div>
+        <div class="modal-body content">
+
+          <link type="image/png" href="//assets.swoogo.com/uploads/tiny/2365252-63eb2c01cd927.png" rel="shortcut icon">
+
+          <input type="hidden" id="registrant-device" name="Registrant[device]" value="pc"> <noscript>
+            <input type="hidden" name="Registrant[js_disabled]" value="1"> </noscript>
+
+          <div class="content clearfix" role="main">
+            <div id="w_44164029" class="widget v_55506324 swoogo-text clearfix">
+              <div class="mt-none mb-none   paragraph">
+                <div class="btn-back-div">
+                  <a class="btn-back open-as-modal hidden">
+                    Back
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div id="w_44164024" class="widget v_55506319 swoogo-cols">
+              <div class="row   ">
+                <div class="col-sm-4">
+                  <div id="w_44163568" class="widget v_55505863 swoogo-speaker-info">
+                    <style id="w_44163568_styles"></style>
+                    <div class="paragraph mt-none mb-none   standard-text">
+                      <div class="row">
+                        <div class="col-sm-12"><img class="img-responsive center-block img-circle field-img" src="" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div id="w_44164025" class="widget v_55506320 swoogo-speaker-info">
+                    <style id="w_44164025_styles"></style>
+                    <div class="paragraph mt-none mb-none   standard-text">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="speaker more-info-data field-contact_fullName mb-large"></div>
+                          <div class="speaker more-info-data field-contact_job_title mb-large"></div>
+                          <div class="speaker more-info-data field-contact_bio mb-large">
+                            <p style="white-space: pre-line"></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-standard" data-dismiss="modal" role="button">Close</button></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    var speakerData = {
+      "Matt Madrigal": {
+        "img": "https://assets.swoogo.com/uploads/medium/3739272-660c30db15db7.png",
+        "title": "VP/GM Merchant Shopping",
+        "bio": `Matt Madrigal is the Vice President and General Manager of Merchant Shopping at Google. In this role, Matt leads the product and engineering teams that build Google Shopping’s tools, partner integrations, and infrastructure to help businesses and merchants grow and thrive. Bringing an extensive background in retail, platforms, and technology, Matt is passionate about helping businesses through digital transformation.
+
+        Prior to joining Google, Matt was the Chief Technology and Product Officer at Fanatics, where he played a key role in shaping the mobile strategy and expanding their product development and data capabilities for both the consumer and partner sides of the business. Prior to that, he was the SVP of eCommerce & Marketing for Williams-Sonoma, Inc. and he spent 8 years leading engineering and product for all of eBay’s digital marketing and onsite advertising technology functions, including the analytical & data platforms that powered the company’s global Internet marketing efforts. While at eBay, he was also instrumental in the creation of Triton, one of the most respected SEM platforms in the industry. A graduate of the University of California, Berkeley, Matt was also a senior consultant with KANA Software and began his career as an analyst at Accenture.`
+      },
+      "Philipp Schindler": {
+        img: "https://assets.swoogo.com/uploads/medium/3734952-660add0c34fca.png",
+        title: "Senior Vice President, Chief Business Officer, Google",
+        bio: `As Google’s Senior Vice President and Chief Business Officer, Philipp leads the company’s Global Sales & Operations, overseeing global and regional sales activities for Google and YouTube, global technical and consumer support and operations, commercialization, sales and partnership strategy across all Google’s ads and commerce products, and partnership for Android, Chrome, and Hardware. He was previously in charge of Google's Global Sales & Operations, based in Mountain View, and Google’s business in Northern and Central Europe, based in London.
+
+        Prior to joining Google in 2005, Philipp was a Senior Vice President at AOL Germany, running the company's marketing and sales activities and serving as a member of their management board for six years. In this capacity, Philipp was responsible for one of the largest marketing and sales budgets in the country, developed many significant sales partnerships, and was responsible for direct marketing, traditional brand marketing, customer relationship management, business intelligence and data mining, and pricing. While in this role at AOL, Philipp won the Golden Effie as well as several other industry awards.
+
+        Philipp earned a Diplom Kaufmann degree with distinction from the European Business School (EBS) in Oestrich-Winkel, Germany. He is also a scholar of the “Studienstiftung des deutschen Volkes”. He has won numerous industry recognitions, including Wall Street Journal’s Top 25 European Technology Leaders (2011), one of Germany’s top 10 leaders under 40 by Capital Magazine (2009), and Germany’s most influential media personality voted by Germany’s largest advertising magazine W&V (2006). He currently lives in Menlo Park, California with his wife and 3 children.`
+      },
+      "Vidhya Srinivasan": {
+        img: "https://assets.swoogo.com/uploads/medium/3734949-660adcffbea07.png",
+        title: "Vice President/General Manager, Ads",
+        bio: `Vidhya is a Vice President and General Manager at Google, and oversees Google’s Advertising products including search, display, shopping, travel and video advertising, as well as analytics.
+
+        Throughout her time at Google, Vidhya has held several different leadership roles in Ads. Most recently, she guided Ads to adopt Generative AI, serving new ads experiences on Google properties and assistive AI for advertisers. She’s also led critical launches like the revamp of Google Analytics, the new Search Ads 360, pixel-less measurement for YouTube advertising, Performance Max and Ads Data Hub.
+
+        Prior to joining Google, Vidhya led engineering, product management, and operations for Amazon Redshift, an exabyte-scale data warehouse reimagined for the cloud. She’s also held both technical and leadership roles at IBM.
+
+        She holds a Masters in Computer Science from Georgia Tech and a Bachelors in Computer Science from IIT-Madras. Vidhya is the proud mother of four children, two precocious young girls and two teenage boys.`
+      },
+      "Selin Song": {
+        img: "https://assets.swoogo.com/uploads/medium/3739270-660c30ca0430d.png",
+        title: "President, Google Customer Solutions",
+        bio: `Selin is a global business executive and versatile problem solver with 20+ years of sales, strategy, and operations expertise scaling Google Customer Solutions (GCS), Google’s SMB ad sales business serving millions of customers worldwide. She currently serves as global president of GCS. From her first entry-level temp job at Google in 2003 approving ads to her stints leading the Revenue Strategy and Operations team, and both the APAC and EMEA sales teams in GCS, Selin has dedicated her career to helping small businesses around the world use Google solutions to grow and thrive.
+
+        A true global leader who has lived and worked in 4 countries (United States, India, Singapore, Ireland), Selin is passionate about bringing a global lens to her leadership to help drive growth and impact for customers, foster innovation at scale, and build a culture of high energy, positivity, and inclusion. Known for her people-first leadership, Selin is a champion for DEI and recognized for cultivating strong, inclusive teams and attracting and developing exceptional talent from early-tenured talent to first-time managers to senior leaders. Before her current role as global president, Selin was VP of GCS EMEA, where she concurrently served as Google Ireland Site Lead. In this role, she built the largest and most diverse Google site outside of the U.S., sponsored the GCS Black+ Advisory Board, and created Google’s first Women Director+ groups in APAC and EMEA.
+
+        Selin holds a Bachelor’s degree in Communication and a Master’s degree in Sociology from Stanford University.
+
+        Selin is looking forward to settling back in the US after 5 years abroad and re-establishing routines with her husband Nic (a former Googler!) and daughters Mila and Kaia.`
+      },
+      "Sean Downey": {
+        img: "https://assets.swoogo.com/uploads/medium/3734960-660add3cad4e1.png",
+        title: "President, Americas & Global Partners, Google",
+        bio: `As President of Americas & Global Partners at Google, Sean leads the company’s advertising business in North and South America. Before this role he served as the Vice President of the Google Marketing Platform for the Americas, helping Marketers, Agencies and Partners leverage data and technology to advance their Digital Marketing Maturity and buy and measure media more efficiently.
+
+        Prior to joining Google in 2008, Sean was the Vice President of Buy Side Sales at DoubleClick, where he led their agency and advertiser business. Sean has also worked in various ad technology and software startups, and over the course of his career has brought various evolving advertising technologies to market such as rich media and programmatic buying and analytics.
+
+        Sean earned his BS in Business Administration from the State University of New York College at Fredonia. He lives in the Greater Boston area where he is raising three children.`
+      }
+    }
+    document.querySelectorAll(".speaker-card .open-as-modal").forEach(el => {
+      el.addEventListener("click", function () {
+        event.preventDefault()
+        var name = el.closest(".speaker-card").dataset.speaker
+        var dialog = document.querySelector("#speaker-modal")
+        dialog.querySelector(".field-contact_fullName").innerText = name
+        dialog.querySelector(".field-img").src = speakerData[name].img
+        dialog.querySelector(".field-contact_job_title").innerText = speakerData[name].title
+        dialog.querySelector(".field-contact_bio > p").innerText = speakerData[name].bio
+        dialog.showModal()
+        dialog.classList.add('in')
+      })
+    })
+    document.querySelectorAll(".speaker-item .open-as-modal").forEach(el => {
+      el.addEventListener("click", function () {
+        event.preventDefault()
+        var name = el.dataset.name.replace(/\s+/, " ")
+        console.log(name)
+        var dialog = document.querySelector("#speaker-modal")
+        dialog.querySelector(".field-contact_fullName").innerText = name
+        dialog.querySelector(".field-img").src = speakerData[name].img
+        dialog.querySelector(".field-contact_job_title").innerText = speakerData[name].title
+        dialog.querySelector(".field-contact_bio > p").innerText = speakerData[name].bio
+        dialog.showModal()
+        dialog.classList.add('in')
+      })
+    })
+    document.querySelectorAll(".keynote-speaker-mobile .open-as-modal").forEach(el => {
+      el.addEventListener("click", function () {
+        event.preventDefault()
+        var name = el.dataset.speaker
+        var dialog = document.querySelector("#speaker-modal")
+        dialog.querySelector(".field-contact_fullName").innerText = name
+        dialog.querySelector(".field-img").src = speakerData[name].img
+        dialog.querySelector(".field-contact_job_title").innerText = speakerData[name].title
+        dialog.querySelector(".field-contact_bio > p").innerText = speakerData[name].bio
+        dialog.showModal()
+        dialog.classList.add('in')
+      })
+    })
+
+    document.querySelector('#speaker-modal .close').addEventListener("click", function () {
+      this.closest("#speaker-modal").classList.remove('in')
+      this.closest("#speaker-modal").close()
+    })
+  </script>
+
+
+</body>
+
+</html>
