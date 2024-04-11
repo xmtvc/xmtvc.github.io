@@ -78,7 +78,7 @@
 
   .sec-content{
     margin: 0 auto;
-    padding: 0 18px;
+    padding: 0 4.5%;
   }
 
   .speaker-grid{
@@ -87,7 +87,7 @@
     gap: 15px;
     max-height: 564px;
     justify-items: center;
-    max-width: 1280px;
+    max-width: 1128px;
   }
 
   .speaker-card{
@@ -106,20 +106,21 @@
     gap: 8px;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 14px 18px 10px;
+    padding: 22px 11px 18px 16px;
     border-radius: 0 0 18px 18px;
   }
 
   .speaker-name{
-    font-size:28px;
+    font-size:30px;
     letter-spacing: -1px;
   }
 
   .open-icon{
     display: block;
     overflow: visible;
+    width: 46px;
+    height: 46px;
   }
-
 
   dialog{
     position: fixed;
@@ -136,7 +137,7 @@
   }
 
   dialog::backdrop{
-    background-color: #FFF7;
+    background-color: #FFF8;
   }
 
   dialog {
@@ -145,6 +146,10 @@
 
   dialog[open] {
     animation: modal-fade-in 0.7s ease-out;
+  }
+
+  body:has(dialog[open]) section{
+    filter: blur(15px);
   }
 
   .dialog-close{
@@ -279,8 +284,8 @@
       font-size: 2.5vw;
     }
     .open-icon {
-      width: 6vw;
-      height: 6vw;
+      width: max(36px,4vw);
+      height:  max(36px,4vw);
     }
     
 
@@ -292,7 +297,7 @@
   @media (max-width: 725px) {
 
     h2{
-      font-size: 48px;
+      font-size: 54px;
     }
 
     .speaker-grid{
@@ -309,10 +314,16 @@
     }
 
     .open-icon{
-      width: 48px;
-      height: 48px;
+      width: 36px;
+      height: 36px;
     }
 
+    dialog{
+      margin-bottom: 0;
+      width:100%;
+      border-radius: 30px 30px 0 0;
+      padding-right: 10px;
+    }
     .dialog-grid{
       grid-template-columns: 1fr;
       grid-template-rows: auto;
@@ -338,12 +349,12 @@
 
   }
 /*───────────────────────────────────────────────────────────
-**  430 viewport - Gather page constraint = 390 iframe 
+**  480 viewport - Gather page constraint = 425 iframe 
 **───────────────────────────────────────────────────────────*/
-  @media (max-width: 390px) {
+  @media (max-width: 425px) {
 
     h2{
-      font-size: 10vw;
+      font-size: 12.5vw;
     }
 
     .speaker-grid {
@@ -356,16 +367,10 @@
     }
 
     .open-icon{
-      width: 10vw;
-      height: 10vw;
+      width: 8.5vw;
+      height: 8.5vw;
     }
 
-    dialog{
-      margin-bottom: 0;
-      width:100%;
-      border-radius: 30px 30px 0 0;
-      padding-right: 10px;
-    }
 
     .dialog-inner{
       padding: 0 20px 0 28px;
@@ -388,7 +393,7 @@
       <div class="speaker-grid">
         <div class="speaker-card" data-name="Philipp Schindler">
           <div class="speaker-profile">
-            <img src="https://services.google.com/fh/files/events/gml24_spk_philipp_2x_202x172.png" alt="Philipp Schindler">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_philipp_2x_202x172.png" alt="Philipp Schindler" width="404" height="342">
           </div>
           
           <div class="speaker-header">
@@ -399,12 +404,11 @@
               </svg>
             </div>
           </div>
-        
         </div>
   
         <div class="speaker-card"  data-name="Vidhya Srinivasan">
           <div class="speaker-profile">
-            <img src="https://services.google.com/fh/files/events/gml24_spk_vidhya_2x_202x172.png" alt="Vidhya Srinivasan">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_vidhya_2x_202x172.png" alt="Vidhya Srinivasan" width="404" height="342">
           </div>
           
           <div class="speaker-header">
@@ -415,12 +419,11 @@
               </svg>
             </div>
           </div>
-        
         </div>
   
         <div class="speaker-card"  data-name="Selin Song">
           <div class="speaker-profile">
-            <img src="https://services.google.com/fh/files/events/gml24_spk_selin_2x_202x172.png" alt="Selin Song">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_selin_2x_202x172.png" alt="Selin Song" width="404" height="342">
           </div>
           
           <div class="speaker-header">
@@ -431,12 +434,11 @@
               </svg>
             </div>
           </div>
-        
         </div>
   
         <div class="speaker-card"  data-name="Sean Downey">
           <div class="speaker-profile">
-            <img src="https://services.google.com/fh/files/events/gml24_spk_sean_2x_202x172.png" alt="Sean Downey">
+            <img src="https://services.google.com/fh/files/events/gml24_spk_sean_2x_202x172.png" alt="Sean Downey" width="404" height="342">
           </div>
           
           <div class="speaker-header">
@@ -447,13 +449,9 @@
               </svg>
             </div>
           </div>
-        
         </div>
       </div>
       <h2 style="margin-bottom:.2em"></h2>
-
-
-
 
     </div>
   </section>
