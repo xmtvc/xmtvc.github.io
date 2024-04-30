@@ -3056,6 +3056,7 @@ display: none !important;
 
     document.querySelector('#speaker-modal .dialog-close').addEventListener("click",function(){
       this.closest("#speaker-modal").close()
+      this.closest("#speaker-modal").querySelector('.dialog-inner').scrollTop = 0
     })
   </script>
 
