@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Home - Google Marketing Live 2024</title>
+ <link rel="preload" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400&amp;display=swap" as="style">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400&amp;display=swap">
+ <link href="//fonts.googleapis.com/css?family=Roboto+Mono|Google+Sans:400,500,600,700|Roboto:100,200,300,400,500,600,700&amp;lang=en" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Google+Material+Icons:wght@400;500;700" rel="stylesheet">
+
+ <style>
+  * {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   box-sizing: border-box;
+  }
+  body {
+    color: #37474f;
+    font-family: Google Sans, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: .2px;
+    line-height: 1.2;
+    min-width: 360px;
+    overflow-x: hidden;
+}
+html {
+    background-color: #fff;
+}
+app-root, body, html {
+    min-height: 100vh;
+    height: auto;
+}
+
+
+
+.page-constraint {
+    position: relative;
+    max-width: 1440px;
+    padding: 0 50px;
+    margin: 0 auto;
+    width: 100%;
+}
+@media screen and (max-width: 1025px) {
+    .page-constraint {
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .page-constraint {
+        padding: 0 20px;
+    }
+}
+
+ .content .page-constraint {
+    background-color: #f8f9fa;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding-right: 0;
+}
+@media screen and (max-width: 600px) {
+     .content .page-constraint {
+        padding-left: 0;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+}
+ .content .page-constraint.clear-background {
+    background-color: transparent;
+}
+
+
+
+ .content .page-constraint .event-description,  .content .page-constraint .hero-image {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    min-height: 546px;
+}
+
+@media screen and (max-width: 1025px) {
+
+.content .page-constraint .event-description,  .content .page-constraint .hero-image {
+   padding: 20px 0 0 0;
+   min-height: 300px !important;
+}
+}
+
+@media screen and (max-width: 600px) {
+
+.content .page-constraint .event-description,  .content .page-constraint .hero-image {
+   width: 100%;
+   min-height: 300px !important;
+}
+}
+
+.content .page-constraint .event-description {
+    margin: 50px 0;
+    padding-right: 100px;
+    color: #4a4a4a;
+    min-height: 400px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1025px) {
+
+.content .page-constraint .event-description {
+margin: 50px 0;
+padding-right: 50px;
+}
+}
+@media screen and (max-width: 1000px) {
+
+.content .page-constraint .event-description {
+   -ms-flex-preferred-size: 60%;
+   flex-basis: 60%;
+}
+}
+
+@media screen and (max-width: 600px) {
+
+.content .page-constraint .event-description {
+margin: 0;
+padding: 30px 20px;
+}
+}
+
+.content .page-constraint .event-description .description {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+}
+.cta {
+    margin: 35px 20px 0 0;
+}
+
+.button, a, button {
+    cursor: pointer;
+    transition: color .2s ease-out, background-color .2s ease-out, border-color .2s ease-out;
+}
+.button, button {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    font-family: Google Sans, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    padding: 12px 24px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all .2s ease-in-out, visibility 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+    outline-offset: 1px;
+    color: #fff;
+}
+button {
+    margin: 0;
+}
+
+
+@media screen and (max-width: 1025px) {
+
+ .content .page-constraint .hero-image {
+    padding: 0;
+}
+}
+@media screen and (max-width: 1000px) {
+
+ .content .page-constraint .hero-image {
+    -ms-flex-preferred-size: 40%;
+    flex-basis: 40%;
+}
+}
+
+ .content .page-constraint .hero-image .image {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+@media screen and (max-width: 1025px) {
+     .content .page-constraint .hero-image .image {
+        width: 100%;
+        min-height: 300px !important;
+    }
+}
+
+ </style>
+</head>
+<body>
+
+ <app-event-hero>
+  <div class="content">
+   <div class="page-constraint clear-background">
+    <div _ngcontent-c46="" class="event-description">
+     <div class="display-name-image">
+      <app-retina-image><!----><img class="image retina base" srcset="https://gatherplatform.withgoogle.com//api/assets?path=/gs/gweb-gc-gather-production.appspot.com/files/ABPtcPqqPktcdIcVbun9dDFn8-zND9zW76QdZOXVCLCGRsyprL_JZ5Cnf7BKR3s2_S5uBnb5trI.X9uB1LPZYs7bXjPk 2x" src="https://gatherplatform.withgoogle.com//api/assets?path=/gs/gweb-gc-gather-production.appspot.com/files/ABPtcPrWv9J6kIH6jAp5j3dPj39-mVeYoYeYBCB9ItX5wkQdPraKH3HBZXFtcu-jq26oevBY7OA.xwR2J3sK6AlnKXLk" alt="">
+  
+      </app-retina-image>
+     </div>
+     <div _ngcontent-c46="" class="description formatted-html">
+      <div>May 21, 2024 | 9 a.m. PT<br aria-hidden="true">Live from Mountain View, CA<br aria-hidden="true"><br aria-hidden="true">Register now for Google Marketing Live! Get a front row seat to see Google’s newest Ads innovations and learn how you can put Google AI to work for your business. Watch the live keynote and access on-demand content to see how to drive next-level growth for your business.</div>
+     </div>
+  
+     <app-event-cta _ngcontent-c46="" _nghost-c22="" class="">
+      <div _ngcontent-c22="" class="cta">
+       <button _ngcontent-c22="" class="fade-in hero-button button">
+        Register
+       </button>
+  
+      </div>
+     </app-event-cta>
+    </div>
+    <div _ngcontent-c46="" class="hero-image">
+     <img _ngcontent-c46="" class="image" src="https://gatherplatform.withgoogle.com/api/assets?path=/gs/gweb-gc-gather-production.appspot.com/files/ABPtcPrtlRMaMX5WZfwjAZTQc-M3AOw9ynUuY1lY2A-IPcx56bkkd1wB5jG-TfqWnTxbZ2aCq8A.qVYB5MG-45FT91VS">
+   </div>
+   </div>
+  </div>
+ </app-event-hero>
+
+ <div class="page-constraint">
+  <div class="content">
+   <div class="module">
+    <iframe _ngcontent-c50="" frameborder="0" src="https://xmtvc.github.io/empty.html" style="width: 100%; height: 72px;">
+    </iframe>
+    <iframe _ngcontent-c50="" frameborder="0" src="https://xmtvc.github.io/aoa-speaker-list.html" style="width: 100%; height: 600px;">
+    </iframe>
+    <iframe _ngcontent-c50="" frameborder="0" src="https://xmtvc.github.io/aoa-h2.html" style="width: 100%; height: 235px;">
+    </iframe>
+
+   </div>
+  </div>
+ </div>
+ 
+</body>
+</html>
