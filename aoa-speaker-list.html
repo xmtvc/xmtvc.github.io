@@ -78,7 +78,6 @@
 
   html {
     height: 600px;
-    border-radius: 30px;
     background: white;
 
   }
@@ -338,10 +337,6 @@
   }
 </style>
  <style>
-  html,
-  * {
-   scroll-behavior: smooth;
-  }
 
   * {
    -webkit-font-smoothing: antialiased;
@@ -992,8 +987,8 @@ Nicky graduated from the University of Pennsylvania with a B.S. and M.S. in Comp
     })
 
     document.querySelector('#speaker-modal .dialog-close').addEventListener("click",function(){
-      this.closest("#speaker-modal").close()
-      this.closest("#speaker-modal").querySelector('.dialog-inner').scrollTop = 0
+     this.closest("#speaker-modal").querySelector('.dialog-inner').scrollTop = 0
+     this.closest("#speaker-modal").close()
     })
   </script>
 
