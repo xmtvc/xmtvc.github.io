@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Speakers</title>
+ <style>
+
+  img {
+   vertical-align: middle;
+   border: 0;
+  }
+ 
+  figure {
+   display: block;
+   margin: 0;
+ 
+  }
+ 
+  a {
+   text-decoration: none;
+   background-color: transparent;
+  }
+ 
+  @media (max-width: 767.98px) {
+   .hidden-xs {
+    display: none !important
+   }
+  }
+ 
+  @media (min-width: 768px) {
+   .hidden-s-m-l {
+    display: none !important
+   }
+  }
+ 
+ </style>
+ <style>
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    --primary-color: #3C4043;
+    --hover-primary-color: #0058E5;
+    --focus-primary-color: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #4285F4;
+    --secondary-color: #4285F4;
+    --gray: #f1f3f4;
+    --black: #202124;
+    --white: #fff;
+    --gray-border: rgba(60, 64, 67, 0.4);
+    --blue-core: #4285F4;
+    --blue-600: #1A73E8;
+    --blue-highlight: #63BDFD;
+  }
+
+  *{
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: var(--black);
+    font-family: 'Google Sans' !important;
+    font-weight: 400;
+    font-size: 18px;
+    height: 100%;
+    line-height: 120%;
+    margin:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 72px;
+  }
+
+  h1, h2, h3, h5, h6 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h2{
+    font-size: 72px;
+  }
+
+  .framewrap {
+   height: 893px;
+   display: grid;
+   grid-template-columns: 100%;
+   grid-template-rows: 600px 1fr;
+  }
+
+  section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .speaker-section{
+    background-color: #4285F4;
+    border-radius: 30px;
+  }
+
+  .sec-content{
+    margin: 0 auto;
+    padding: 0 4.5%;
+  }
+
+  dialog{
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 500px;
+    border: 12px solid white;
+    border-radius: 30px 30px;
+    background-color: white;
+    filter: drop-shadow(0px 12px 24px #1616163d);
+    padding: 0;
+    width: 90%;
+    max-width: 900px;
+    transition: opacity .8s ease-in-out;
+  }
+
+  dialog::backdrop{
+    background-color: #FFF8;
+  }
+
+  dialog {
+    animation: modal-fade-out 0.7s ease-out;
+  }
+
+  dialog[open] {
+    animation: modal-fade-in 0.7s ease-out;
+  }
+
+  body:has(dialog[open]) section{
+    filter: blur(15px);
+  }
+
+  .dialog-close{
+    position: absolute;
+    font-size: 0;
+    width: 44px;
+    height: 44px;
+    top: 10px;
+    right: 10px;
+    border: 0;
+    background: none;
+    padding: 0;
+  }
+
+  .close-icon{
+    width:100%;
+    height: 100%;
+  }
+
+  .dialog-inner{
+    height:100%;
+    padding: 32px 48px 0 36px;
+    overflow: auto;;
+  }
+
+  .dialog-inner::-webkit-scrollbar {
+      width: 2px;
+    }
+
+  .dialog-inner::-webkit-scrollbar-thumb {
+    background: #DADCE0;
+    border-radius: 30px;
+  }
+
+  .dialog-inner::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .dialog-grid{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+  }
+
+  .dialog-content{
+    padding-bottom:10px;
+  }
+
+  .dialog-fullname{
+    font-size: 40px;
+    margin-bottom: 4px;
+  }
+
+  .dialog-title{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+
+  .dialog-bio{
+    font-size: 20px;
+    line-height: 1.4;
+    padding-bottom: 1em;;
+  }
+
+  .dialog-photo{
+    padding-top: 72px;
+    justify-self: center;
+  }
+  .dialog-img{
+    border-radius: 20px;
+    display: block;
+    width:100%;
+    max-width: 200px;
+  }
+  .dialog-photo > div {
+    position: relative;
+  }
+  .dialog-photo > div::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 20%;
+    border-radius: 20px;
+    background-color: #EAF9F9;
+    z-index: -1;
+  }
+
+
+  @keyframes modal-fade-in {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100vh, 0);
+      display: none;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      display: block;
+    }
+  }
+
+  @keyframes modal-fade-out {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      display: block;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 100vh, 0);
+      display: none;
+    }
+  }
+
+  .section2 {
+   margin: 0 auto;
+   align-self: end;
+   text-align: center;
+   max-width: 900px;
+  }
+
+
+/*───────────────────────────────────────────────────────────
+**  1280 viewport - Gather page constraint = 1165 iframe 
+**───────────────────────────────────────────────────────────*/
+  @media (max-width: 1180px) {
+
+   h2 {
+     font-size: 56px;
+   }
+
+   .section2 {
+    max-width: 740px;
+   }
+  
+  }
+
+/*───────────────────────────────────────────────────────────
+**  800 viewport - Gather page constraint = 725 iframe 
+**───────────────────────────────────────────────────────────*/
+  @media (max-width: 725px) {
+
+    h2{
+      font-size: 54px;
+    }
+
+    dialog{
+      margin-bottom: 0;
+      height: 560px;
+      width:100%;
+      border-radius: 30px 30px 0 0;
+    }
+    .dialog-grid{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .dialog-fullname{
+      font-size: max(30px, 5.5vw);
+      margin-bottom: .5em;
+    }
+
+    .dialog-title {
+      font-size: max(18px, 3.5vw)
+    }
+
+    .dialog-photo{
+      order: -1;
+      padding: 0;
+      justify-self: start;
+    }
+    .dialog-img {
+      max-width: 164px;
+    }
+
+  }
+/*───────────────────────────────────────────────────────────
+**  480 viewport - Gather page constraint = 425 iframe 
+**───────────────────────────────────────────────────────────*/
+  @media (max-width: 425px) {
+
+    h2{
+      font-size: 12.5vw;
+      text-align: center;
+    }
+
+    .dialog-inner{
+      padding: 0 20px 0 28px;
+    }
+
+    .dialog-bio{
+      font-size: 16px;
+    }
+
+  }
+ </style>
+ <style>
+  * {
+   -webkit-font-smoothing: antialiased;
+  }
+
+  a:hover a:active {
+   text-decoration: underline;
+  }
+
+  a:focus {
+   border: 1px solid #1A73E8;
+   border-radius: 2px;
+   outline: none;
+  }
+  .speaker-section {
+   overflow: hidden;
+   height: 600px;
+  }
+
+  .speaker-link {
+   cursor: pointer;
+  }
+
+  .speaker-wrap {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   gap: 4vw;
+  }
+
+  .speaker-profile-v2 > figure {
+    position: relative;
+    margin-top: -8%;
+  }
+  .speaker-profile-v2 > figure::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 85%;
+    top: 15%;
+    border-radius: 20px 20px 0 0;
+    background-color: #EAF9F9;
+    z-index: 0;
+  }
+
+  .speaker-wrap .speaker-profile-v2 img {
+   position: relative;
+   z-index: 0;
+   object-fit: cover;
+   object-position: top;
+  }
+
+  .speaker-profile-v2.show-speaker {
+   opacity: 1;
+  }
+
+  .speaker-wrap .speaker-profile-v2 h4 {
+   position: relative;
+   background: var(--White, #FFF);
+   margin: 0 !important;
+   z-index: 9;
+  }
+
+  .speaker-wrap .speaker-list {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   align-content: center;
+  }
+
+  .speaker-wrap .speaker-list .speaker-item a {
+   position: relative;
+   display: inline-block;
+   font-style: normal;
+   font-weight: 500;
+   color: var(--Black, #202124);
+   border-radius: 40px;
+   width: 100%;
+   border: 1px solid transparent;
+   animation: none !important;
+  }
+
+  .speaker-wrap .speaker-list .speaker-item a:hover {
+   text-decoration: none;
+   background: var(--White, #FFF);
+  }
+
+  .speaker-wrap .speaker-list .speaker-item a:focus {
+   border-color: transparent;
+  }
+
+  .speaker-wrap .speaker-list .speaker-item a:hover::before {
+   content: '';
+   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M11.1467 23.2H10.7467V22.8V12.9633H0.899902H0.499902V12.5633V11.0824V10.6824H0.899902H10.7467V0.853249V0.453249H11.1467H12.6275H13.0275V0.853249V10.6824H22.8019H23.2019V11.0824V12.5633V12.9633H22.8019H13.0275V22.8V23.2H12.6275H11.1467Z' fill='%23202124' stroke='black' stroke-width='0.8'/%3E%3C/svg%3E");
+   background-size: contain;
+   position: absolute;
+  }
+
+  @media only screen and (max-width : 767.98px) {
+   .speaker-wrap {
+    display: none;
+   }
+
+   .speaker-wrap-mobile {
+    margin-top: 40px;
+    padding-left: 18px;
+   }
+
+   .speaker-item-xs {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+   }
+
+   .speaker-item-xs .spekaer-profile img {
+    max-width: 54px;
+    max-height: 54px;
+    border-radius: 4px;
+   }
+
+   .speaker-item-xs .spekaer-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+   }
+
+   .speaker-item-xs .spekaer-detail h6 {
+    color: var(--Black, #202124);
+    font-family: "Google Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.5px;
+   }
+
+   .speaker-item-xs .spekaer-detail img {
+    max-width: 40px;
+   }
+  }
+
+  @media only screen and (min-width : 768px) {
+
+   .speaker-wrap {
+    margin-top: 24px;
+   }
+
+   .speaker-wrap .speaker-list {
+    margin-top: 0px
+   }
+
+   .speaker-wrap .speaker-list {
+    grid-column-gap: 18px;
+   }
+
+   .speaker-wrap .speaker-list .speaker-item a {
+    padding: 10px 18px;
+    font-size: 21px;
+    line-height: 28px;
+    min-width: 232px;
+   }
+
+   .speaker-wrap .speaker-list .speaker-item a:hover::before {
+    width: 16px;
+    height: 16px;
+    top: 16px;
+    right: 18px;
+   }
+
+   .speaker-wrap .speaker-profile-v2 {
+    max-width: 180px;
+    max-height: 252px;
+   }
+
+   .speaker-wrap .speaker-profile-v2 img {
+    width: 180px;
+    height: 180px;
+   }
+
+   .speaker-wrap .speaker-profile-v2 h4 {
+    font-size: 21px;
+    line-height: 22px;
+    letter-spacing: -1px;
+    padding: 8px 24px;
+    border-radius: 0px 0px 12px 12px;
+    min-height: 60px;
+   }
+
+   .speaker-wrap-mobile {
+    display: none;
+   }
+  }
+
+  @media only screen and (min-width : 992px) {
+
+   .speaker-wrap {
+    margin-top: 40px;
+   }
+
+   .speaker-wrap .speaker-list {
+    grid-column-gap: 40px;
+   }
+
+   .speaker-wrap .speaker-list .speaker-item a {
+    padding: 14px 24px;
+    font-size: 24px;
+    line-height: 30px;
+    min-width: 280px;
+   }
+
+   .speaker-wrap .speaker-list .speaker-item a:hover::before {
+    width: 18px;
+    height: 18px;
+    top: 20px;
+    right: 24px;
+   }
+
+   .speaker-wrap .speaker-profile-v2 {
+    max-width: 220px;
+    max-height: 316px;
+   }
+
+   .speaker-wrap .speaker-profile-v2 img {
+    width: 220px;
+    height: 220px;
+   }
+
+   .speaker-wrap .speaker-profile-v2 h4 {
+    font-size: 28px;
+    line-height: 30px;
+    padding: 18px 30px;
+    border-radius: 0px 0px 16px 16px;
+    min-height: 96px;
+   }
+  }
+
+  @media only screen and (max-width : 767.98px) {
+
+   .keynote-speaker-mobile{
+    margin-top: 16px;
+   }
+   .keynote-speaker-mobile .speaker-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+    animation: none !important;
+    height: 44px;
+   }
+
+   .keynote-speaker-mobile .speaker-link:focus {
+    border-color: transparent;
+   }
+
+   .keynote-speaker-mobile .speaker-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3vw;
+    width: 100%;
+   }
+
+   .keynote-speaker-mobile .speaker-info .profile-img {
+    position: relative;
+    opacity: 1;
+    border-radius: 4px;
+    background: lightgray -10.596px -3.194px / 151.985% 121.429% no-repeat;
+    min-width: 40px;
+    min-height: 35px;
+    transform: translateY(1px);
+   }
+
+   .keynote-speaker-mobile .speaker-info .profile-img img {
+    object-fit: cover;
+    object-position: top;
+    max-width: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    position: absolute;
+    top: -5px;
+    border-radius: 4px;
+   }
+
+   .keynote-speaker-mobile .speaker-info h6 {
+    color: var(--Black, #202124);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.5px;
+    width: 100%;
+   }
+
+   .keynote-speaker-mobile .plus-icon {
+    max-width: 40px;
+    min-width: 40px;
+    height: 40px;
+    margin-left: calc(30vw - 90px);
+   }
+
+  }
+  @media only screen and (max-width: 425px) {
+   .keynote-speaker-mobile .speaker-info h6 {
+    font-size: 5.5vw;
+   }
+  }
+
+ </style>
+
+</head>
+
+<body>
+<div class="framewrap">
+ 
+ <section class="speaker-section sec-gap">
+ <div class="sec-content">
+ 
+   <h2>Speakers</h2>
+   <div id="w_47930215" class="hidden-xs">
+    <div id="speaker_list_47930215">
+ 
+     <div class="speaker-wrap">
+      <div class="speaker-list">
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_philipp-schindler_bg-a_1.5x_300x297.png" data-name="Philipp Schindler">Philipp
+         Schindler</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_vidhya-srinivasan_bg-a_1.5x_300x297.png" data-name="Vidhya Srinivasan">Vidhya
+         Srinivasan</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_sylvanus-bent_bg-a_1.5x_300x297.png" data-name="Sylvanus Bent">Sylvanus Bent</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_tim-frank_bg-a_1.5x_300x297.png" data-name="Tim Frank">Tim Frank</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_nicky_rettke_bg-a_1.5x_300x297.png" data-name="Nicky Rettke">Nicky Rettke</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_matt_madrigal_bg-a_1.5x_300x297.png" data-name="Matt Madrigal">Matt Madrigal</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_gaurav_bhaya_bg-a_1.5x_300x297.png" data-name="Gaurav Bhaya">Gaurav Bhaya</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_selin_song_bg-a_1.5x_300x297.png" data-name="Selin Song">Selin Song</a>
+       </div>
+ 
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-image="https://services.google.com/fh/files/events/gml24_sean_downey_bg-a_1.5x_300x297.png" data-name="Sean Downey">Sean
+         Downey</a>
+       </div>
+ 
+      </div>
+      <div class="speaker-profile-v2 hover-speaker-image">
+       <figure>
+        <img src="https://services.google.com/fh/files/events/gml24_matt_madrigal_bg-a_1.5x_300x297.png">
+       </figure>
+       <h4>Matt Madrigal</h4>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="hidden-s-m-l">
+ 
+      <div class="keynote-speaker-mobile">
+       <div class="keynote-speaker-slider">
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Philipp Schindler">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_philipp-schindler_bg-a_2x_44x44.png">
+          </div>
+          <h6>Philipp Schindler</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Vidhya Srinivasan">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_vidhya-srinivasan_bg-a_2x_44x44.png">
+          </div>
+          <h6>Vidhya Srinivasan</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Sylvanus Bent">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_sylvanus-bent_bg-a_2x_44x44.png">
+          </div>
+          <h6>Sylvanus Bent</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Tim Frank">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_tim-frank_bg-a_2x_44x44.png">
+          </div>
+          <h6>Tim Frank</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Nicky Rettke">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_nicky_rettke_bg-a_2x_44x44.png">
+          </div>
+          <h6>Nicky Rettke</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Matt Madrigal">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_matt_madrigal_bg-a_2x_44x44.png">
+          </div>
+          <h6>Matt Madrigal</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Gaurav Bhaya">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_gaurav_bhaya_bg-a_2x_44x44.png">
+          </div>
+          <h6>Gaurav Bhaya</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Selin Song">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_selin_song_bg-a_2x_44x44.png">
+          </div>
+          <h6>Selin Song</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Sean Downey">
+         <div class="speaker-info">
+          <div class="profile-img">
+           <img src="https://services.google.com/fh/files/events/gml24_sean_downey_bg-a_2x_44x44.png">
+          </div>
+          <h6>Sean Downey</h6>
+         </div>
+         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+ 
+       </div>
+      </div>
+   </div>
+ </div>
+ </section>
+ 
+  <div class="section2">
+   <h2>
+    Unpack how to put
+    Google AI to work for you
+   </h2>
+  </div>
+</div>
+
+
+ <dialog id="speaker-modal">
+
+  <div class="dialog-header">
+    <button type="button" class="dialog-close" data-dismiss="modal" role="button"><svg class="close-icon" alt="close">
+      <use href="#svgx" x="0" y="0" />
+    </svg></button>
+  </div>
+
+  <div class="dialog-inner">
+    <div class="dialog-grid">
+      <div class="dialog-content">
+        <h3 class="dialog-fullname">Name Name</h3>
+        <div class="dialog-title">Title title title, Google</div>
+        <div class="dialog-bio">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique magni vitae laudantium quae, nihil tempore magnam non? At odit eligendi laboriosam assumenda sit fuga qui, praesentium ab deserunt perferendis repellendus.</div>
+      </div>
+      <div class="dialog-photo">
+        <div><img class="dialog-img" src="" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+</dialog>
+
+  <div class="svgs" style="display: none;height:0;overflow: hidden;">
+
+    <svg id="svgplus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+      <rect width="64" height="64" rx="32" fill="#63BDFD"/>
+      <g clip-path="url(#clip0_315_28492)">
+        <path d="M31.0044 45.1001H30.5044V44.6001V33.1572H19.0498H18.5498V32.6572V30.9296V30.4296H19.0498H30.5044V18.9955V18.4955H31.0044H32.732H33.232V18.9955V30.4296H44.6021H45.1021V30.9296V32.6572V33.1572H44.6021H33.232V44.6001V45.1001H32.732H31.0044Z" fill="#202124" stroke="#202124"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_315_28492">
+          <rect width="28" height="28" fill="white" transform="translate(18 18)"/>
+        </clipPath>
+      </defs>
+    </svg>
+    <svg id="svgx" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 65" fill="none">
+      <g clip-path="url(#clip0_1106_7357)">
+        <path d="M19.7004 42.3625L19.4175 42.0797L19.7004 41.7968L29.9737 31.5235L19.6901 21.2399L19.4072 20.957L19.6901 20.6742L21.2171 19.1472L21.4999 18.8643L21.7828 19.1472L32.0664 29.4308L42.3319 19.1653L42.6147 18.8825L42.8976 19.1653L44.4246 20.6923L44.7074 20.9752L44.4246 21.258L34.1591 31.5235L44.368 41.7325L44.6509 42.0153L44.368 42.2982L42.841 43.8252L42.5582 44.108L42.2753 43.8252L32.0664 33.6162L21.7931 43.8895L21.5102 44.1724L21.2274 43.8895L19.7004 42.3625Z" fill="#202124" stroke="#202124" stroke-width="0.8"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_1106_7357">
+          <rect width="35" height="35" fill="white" transform="translate(32 7.07373) rotate(45)"/>
+        </clipPath>
+      </defs>
+    </svg>
+    <svg id="svgmore" xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
+     <path d="M21.9649 9.89575H20.1008V19.0654H10.915V20.9308H20.1008V30.1072H21.9649V20.9308H31.0862V19.0654H21.9649V9.89575Z" fill="#3C4043"/>
+     </svg>
+
+  </div>
+  
+  <script>
+    var speakerData = {
+      "Matt Madrigal":{
+        "img": "https://services.google.com/fh/files/events/gml24_matt_madrigal_bg-a_1.5x_300x297.png",
+        "title": "Vice President/General Manager Merchant Shopping, Google",
+        "bio": `Matt Madrigal is the Vice President & General Manager of Merchant Shopping at Google. In this role, Matt leads the product and engineering teams that build Google Shopping’s tools, partner integrations, and infrastructure to help businesses and merchants grow and thrive. Bringing an extensive background in retail, platforms, and technology, Matt is passionate about helping businesses through digital transformation.
+
+Prior to Google, Matt was the Chief Technology and Product Officer at Fanatics, where he played a key role in shaping mobile strategy and expanding product development and data capabilities for the consumer and partner sides of the business.
+
+Before Fanatics, he was the SVP of eCommerce & Marketing for Williams-Sonoma, Inc. He spent eight years leading engineering and product for all of eBay’s digital marketing and onsite advertising technology functions, including the analytical and data platforms that powered the company’s global internet marketing efforts. A graduate of the University of California, Berkeley, Matt was also a senior consultant with KANA Software and began his career as an analyst at Accenture.`
+      },
+      "Philipp Schindler":{
+        img: "https://services.google.com/fh/files/events/gml24_philipp-schindler_bg-a_1.5x_300x297.png",
+        title: "Senior Vice President, Chief Business Officer, Google",
+        bio: `As Google’s Senior Vice President & Chief Business Officer, Philipp Schindler leads Global Sales & Operations. He oversees global and regional sales activities for Google and YouTube, including global technical and consumer support and operations, commercialization, sales and partnership strategy across all Google’s ads and commerce products, and partnership for Android, Chrome, and Hardware. He was previously in charge of Google's Global Sales & Operations, based in Mountain View, California, and Google’s business in Northern and Central Europe, based in London.
+
+Prior to joining Google in 2005, Philipp was a Senior Vice President at AOL Germany, running the company's marketing and sales activities and serving as a member of their management board for six years. In this capacity, Philipp was responsible for one of the largest marketing and sales budgets in the country. While in this role at AOL, Philipp won the Golden Effie as well as several other industry awards.
+
+Philipp earned a Diplom Kaufmann degree with Distinction from the European Business School (EBS) in Oestrich-Winkel, Germany. He is also a scholar of the “Studienstiftung des deutschen Volkes.” He has won numerous industry recognitions, including Wall Street Journal’s Top 25 European Technology Leaders (2011), one of Germany’s top 10 leaders under 40 by Capital Magazine (2009), and Germany’s Most Influential Media Personality voted by Germany’s largest advertising magazine W&V (2006). He currently lives in Menlo Park, California, with his wife and three children.`
+      },
+      "Vidhya Srinivasan":{
+        img: "https://services.google.com/fh/files/events/gml24_vidhya-srinivasan_bg-a_1.5x_300x297.png",
+        title: "Vice President/General Manager, Ads, Google",
+        bio: `Vidhya Srinivasan is a Vice President & General Manager, Ads at Google, overseeing Google’s Advertising products including search, display, shopping, analytics, travel, and video advertising.
+
+Throughout her time at Google, Vidhya has held several different leadership roles in Ads. Most recently, she guided Ads to adopt Generative AI, serving new ads experiences on Google properties and Assistive AI for advertisers. She’s also led critical launches like the revamp of Google Analytics, the new Search Ads 360, pixel-less measurement for YouTube advertising, Performance Max and Ads Data Hub.
+
+Prior to Google, Vidhya led engineering, product management, and operations for Amazon Redshift, an exabyte-scale data warehouse reimagined for the cloud. She’s also held both technical and leadership roles at IBM.
+
+She holds a Masters in Computer Science from Georgia Tech and a Bachelors in Computer Science from Indian Institute of Technology (IIT) Madras. Vidhya is the proud mother of four children, two precocious young girls and two teenage boys.`
+      },
+      "Selin Song":{
+        img: "https://services.google.com/fh/files/events/gml24_selin_song_bg-a_1.5x_300x297.png",
+        title: "President, Google Customer Solutions",
+        bio: `Selin Song is a global business executive with over 20 years of expertise in Sales, Strategy, and Operations. She currently serves as Global President of Google Customer Solutions (GCS), Google’s SMB ad sales business, serving millions of customers worldwide.
+
+From her first entry-level temp job at Google in 2003 approving ads to her stints leading the Revenue Strategy & Operations team, and both the APAC and EMEA Sales teams in GCS, Selin has dedicated her career to helping small businesses around the world use Google solutions to grow and thrive.
+
+A true global leader, Selin has lived and worked in four countries (the US, India, Singapore, and Ireland). She is passionate about driving growth and impact for customers, fostering innovation at scale, and building a culture of high energy, positivity, and inclusion. Known for her people-first leadership, Selin is a champion for DEI and is recognized for cultivating strong, inclusive teams and attracting and developing exceptional talent.
+
+Before her current role, Selin was VP of GCS EMEA, where she concurrently served as Google Ireland Site Lead. In this role, she built the largest and most diverse Google site outside of the US, sponsored the GCS Black+ Advisory Board, and created Google’s first Women Director+ groups in APAC and EMEA.
+
+Selin holds a Bachelor’s degree in Communication and a Master’s degree in Sociology from Stanford University. She lives in California with her husband Nic (a former Googler!) and daughters, Mila and Kaia.`
+      },
+      "Sean Downey":{
+        img: "https://services.google.com/fh/files/events/gml24_sean_downey_bg-a_1.5x_300x297.png",
+        title: "President, Americas & Global Partners, Google",
+        bio: `As President of Americas & Global Partners at Google, Sean Downey leads the company’s advertising business in North and South America. Before this role, he served as the Vice President of Google Marketing Platform for the Americas helping Marketers, Agencies, and Partners leverage data and technology to advance their Digital Marketing Maturity and buy and measure media more efficiently. 
+
+Prior to joining Google in 2008, Sean was the Vice President of Buy Side Sales at DoubleClick, where he led their agency and advertiser business. Sean has also worked in various ad technology and software startups, and over the course of his career has brought various evolving advertising technologies to market, such as rich media and programmatic buying and analytics.
+
+Sean earned his BS in Business Administration from the State University of New York College at Fredonia. He lives in the Greater Boston area where he is raising three children.`
+      },
+      "Sylvanus Bent":{
+        img: "https://services.google.com/fh/files/events/gml24_sylvanus-bent_bg-a_1.5x_300x297.png",
+        title: "Group Product Manager, Google",
+        bio: `Sylvanus Bent III is a Group Product Manager for Search Ads at Google. He has been at Google for seven years and leads the Search Creative Automation team focusing on helping advertisers improve their creative performance, with products like responsive search ads, ad strength, and automatically created assets. Prior to Google, he was a Product Manager at Medallia, a SaaS hypergrowth startup that achieved unicorn status. Sylvanus graduated from Stanford University with a Bachelor of Science Engineering Degree in Biomedical Computation.`
+      },
+      "Tim Frank": {
+       img: "https://services.google.com/fh/files/events/gml24_tim-frank_bg-a_1.5x_300x297.png",
+       title: "Senior Director, Ads Product Management, Google",
+       bio: `Tim Frank is the Product Lead for the Advertiser & Customer Engagement Platforms within Google Ads. Tim has held various leadership positions within Ads over the last 10+ years. He is passionate about computer/human interaction, applied AI/ML, and feedback incentive systems, which are foundational for customer success.
+
+Tim has more than 20 years of experience in general product leadership functions delivering technology-led step changes in Ads, Sales & Marketing, Space Technologies, and Golf.
+
+Tim holds a BS in Electrical Engineering from UCLA, an MS in System Engineering from USC, an MBA from UCLA Anderson, and he completed the Stanford Executive Program at the Stanford Graduate School of Business. Tim lives in Palo Alto with his wife and two children.`
+      },
+      "Nicky Rettke": {
+       img: "https://services.google.com/fh/files/events/gml24_nicky_rettke_bg-a_1.5x_300x297.png",
+       title: "Vice President, Product Management, Ads, YouTube",
+       bio: `Nicky Rettke is a Vice President of Product Management for YouTube Ads, focused on building end-to-end solutions for performance advertisers and scaling video advertising to businesses of all sizes. Nicky has been at Google since 2008 and led the efforts around YouTube mobile ads before building YouTube's direct response business.
+
+Nicky graduated from the University of Pennsylvania with a B.S. and M.S. in Computer Telecommunications Engineering.`
+      },
+      "Gaurav Bhaya": {
+       img: "https://services.google.com/fh/files/events/gml24_gaurav_bhaya_bg-a_1.5x_300x297.png",
+       title: "Vice President, General Manager, Buying Platforms, Measurement & Customer Engagement, Google",
+       bio: `As a Vice President & General Manager in Google Ads, Gaurav Bhaya oversees the product, engineering and data science teams for many Ads products including Adwords, Performance Max, Google Analytics, Campaign Manager, Display and Video 360, and Ads Data Hub. Gaurav has been enabling marketers to successfully drive effective ROI for their business through AI powered campaigns and measurement solutions that enable advanced audience creation, x-channel measurement, lift and incrementality, data-driven attribution, experimentation, and large-scale data analytics.`
+      }
+    }
+
+    document.querySelectorAll('.speaker-item a').forEach(item => {
+     item.addEventListener("mouseover",function(){
+      document.querySelectorAll(".speaker-item").forEach(itemb =>{
+       itemb.classList.remove('active')
+      })
+      var name = this.dataset.name;
+      var brName = name.replace(/ /, "<br>")
+      document.querySelector(".hover-speaker-image img").src = speakerData[name].img
+      document.querySelector(".hover-speaker-image h4").innerHTML = brName
+      this.closest(".speaker-item").classList.add('active')
+      document.querySelector(".speaker-profile-v2").classList.add('show-speaker')
+      this.addEventListener("mouseout",function(){
+       document.querySelector(".speaker-profile-v2").classList.remove('show-speaker')
+      })
+     })
+    })
+
+    document.querySelectorAll(".speaker-link").forEach(el =>{
+      el.addEventListener("click", function(){
+        event.preventDefault()
+        var name = el.dataset.name
+        var dialog = document.querySelector("#speaker-modal")
+        dialog.querySelector(".dialog-fullname").innerText = name
+        dialog.querySelector(".dialog-img").src = speakerData[name].img
+        dialog.querySelector(".dialog-title").innerText = speakerData[name].title
+        dialog.querySelector(".dialog-bio").innerText = speakerData[name].bio
+        dialog.showModal()
+      })
+    })
+
+    document.querySelector('#speaker-modal .dialog-close').addEventListener("click",function(){
+     this.closest("#speaker-modal").querySelector('.dialog-inner').scrollTop = 0
+     this.closest("#speaker-modal").close()
+    })
+  </script>
+
+
+</body>
+
+</html>
