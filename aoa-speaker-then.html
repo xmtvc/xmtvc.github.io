@@ -124,22 +124,23 @@
   }
 
   dialog{
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    height: 500px;
-    border: 12px solid white;
-    border-radius: 30px 30px;
-    background-color: white;
-    filter: drop-shadow(0px 12px 24px #1616163d);
-    padding: 0;
-    width: 90%;
-    max-width: 900px;
-    transition: opacity .8s ease-in-out;
+   margin-top: 122px; 
+   position: fixed;
+   top: 0;
+   z-index: 10;
+   height: 500px;
+   border: 12px solid white;
+   border-radius: 30px 30px;
+   background-color: white;
+   filter: drop-shadow(0px 12px 24px #1616163d);
+   padding: 0;
+   width: 90%;
+   max-width: 900px;
+   transition: opacity .8s ease-in-out;
   }
 
   dialog::backdrop{
-    background-color: #FFF8;
+    background-color: transparent;
   }
 
   dialog {
@@ -150,7 +151,13 @@
     animation: modal-fade-in 0.7s ease-out;
   }
 
-  body:has(dialog[open]) section{
+  .speaker-section {
+   transition: opacity .3s;
+  }
+  body:has(dialog[open]) .speaker-section {
+    opacity: .5;
+  }
+  body:has(dialog[open]) .speaker-section .sec-content{
     filter: blur(15px);
   }
 
