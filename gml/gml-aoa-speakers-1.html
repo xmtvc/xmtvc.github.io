@@ -1,675 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Speakers</title>
- <style>
-
-  img {
-   vertical-align: middle;
-   border: 0;
-  }
- 
-  figure {
-   display: block;
-   margin: 0;
- 
-  }
- 
-  a {
-   text-decoration: none;
-   background-color: transparent;
-  }
- 
-  @media (max-width: 767.98px) {
-   .hidden-xs {
-    display: none !important
-   }
-  }
- 
-  @media (min-width: 768px) {
-   .hidden-s-m-l {
-    display: none !important
-   }
-  }
- 
- </style>
- <style>
-  @font-face {
-    font-family: 'Google Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Google Sans';
-    font-style: normal;
-    font-weight: 500;
-    src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Google Sans';
-    font-style: normal;
-    font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-
-  :root {
-    --primary-color: #3C4043;
-    --hover-primary-color: #0058E5;
-    --focus-primary-color: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #4285F4;
-    --secondary-color: #4285F4;
-    --gray: #f1f3f4;
-    --black: #202124;
-    --white: #fff;
-    --gray-border: rgba(60, 64, 67, 0.4);
-    --blue-core: #4285F4;
-    --blue-600: #1A73E8;
-    --blue-highlight: #63BDFD;
-  }
-
-  *{
-    box-sizing: border-box;
-  }
-  
-  body {
-    color: var(--black);
-    font-family: 'Google Sans' !important;
-    font-weight: 400;
-    font-size: 18px;
-    height: 100%;
-    line-height: 120%;
-    margin:0;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding-top: 72px;
-  }
-
-  h1, h2, h3, h5, h6 {
-    margin: 0;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  h2 {
-    margin: 0;
-    color: #202124;
-    font: 700 140px/1.2 'Google Sans', sans-serif;
-    letter-spacing: -8.4px;
-  }
-
-  .framewrap {
-   height: 893px;
-   display: grid;
-   grid-template-columns: 100%;
-   grid-template-rows: 600px 1fr;
-  }
-
-  section {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .sec-content{
-    margin: 0 auto;
-    padding: 0 4.5%;
-  }
-
-  dialog{
-   margin-top: 122px; 
-   position: fixed;
-   top: 0;
-   z-index: 10;
-   height: 500px;
-   border: 12px solid white;
-   border-radius: 30px 30px;
-   background-color: white;
-   filter: drop-shadow(0px 12px 24px #1616163d);
-   padding: 0;
-   width: 90%;
-   max-width: 900px;
-   transition: opacity .8s ease-in-out;
-  }
-
-  dialog::backdrop{
-    background-color: transparent;
-  }
-
-  dialog {
-    animation: modal-fade-out 0.7s ease-out;
-  }
-
-  dialog[open] {
-    animation: modal-fade-in 0.7s ease-out;
-  }
-
-  .speaker-section {
-   transition: opacity .3s;
-  }
-  body:has(dialog[open]) .speaker-section {
-    opacity: .5;
-  }
-  body:has(dialog[open]) .speaker-section .sec-content{
-    filter: blur(15px);
-  }
-
-  .dialog-close{
-    position: absolute;
-    font-size: 0;
-    width: 44px;
-    height: 44px;
-    top: 10px;
-    right: 10px;
-    border: 0;
-    background: none;
-    padding: 0;
-  }
-
-  .close-icon{
-    width:100%;
-    height: 100%;
-  }
-
-  .dialog-inner{
-    height:100%;
-    padding: 32px 48px 0 36px;
-    overflow: auto;;
-  }
-
-  .dialog-inner::-webkit-scrollbar {
-      width: 2px;
-    }
-
-  .dialog-inner::-webkit-scrollbar-thumb {
-    background: #DADCE0;
-    border-radius: 30px;
-  }
-
-  .dialog-inner::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .dialog-grid{
-    height: 100%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 18px;
-  }
-
-  .dialog-content{
-    padding-bottom:10px;
-  }
-
-  .dialog-fullname{
-    font-size: 40px;
-    margin-bottom: 4px;
-  }
-
-  .dialog-title{
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 1em;
-  }
-
-  .dialog-bio{
-    font-size: 20px;
-    line-height: 1.4;
-    padding-bottom: 1em;;
-  }
-
-  .dialog-photo{
-    padding-top: 72px;
-    justify-self: center;
-  }
-  .dialog-img{
-    border-radius: 20px;
-    display: block;
-    width:100%;
-    max-width: 200px;
-  }
-  .dialog-photo > div {
-    position: relative;
-  }
-
-  @keyframes modal-fade-in {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 100vh, 0);
-      display: none;
-    }
-
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speakers</title>
+    <style>
+   
+     img {
+      vertical-align: middle;
+      border: 0;
+     }
+    
+     figure {
       display: block;
-    }
-  }
-
-  @keyframes modal-fade-out {
-    0% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      display: block;
-    }
-
-    100% {
-      opacity: 0;
-      transform: translate3d(0, 100vh, 0);
-      display: none;
-    }
-  }
-
-  .section2 {
-   margin: 0 auto;
-   align-self: end;
-   text-align: center;
-   max-width: 900px;
-  }
-
-
-/*───────────────────────────────────────────────────────────
-**  1280 viewport - Gather page constraint = 1165 iframe 
-**───────────────────────────────────────────────────────────*/
-  @media (max-width: 1180px) {
-
-   h2 {
-    font-size: 100px;
-   }
-
-   .section2 {
-    max-width: 740px;
-   }
-  
-  }
-
-/*───────────────────────────────────────────────────────────
-**  959 iframe 
-**───────────────────────────────────────────────────────────*/
-@media screen and (max-width: 959px) {
-  .section-title {
-        font-size: 70px;
+      margin: 0;
+    
+     }
+    
+     a {
+      text-decoration: none;
+      background-color: transparent;
+     }
+    
+     @media (max-width: 767.98px) {
+      .hidden-xs {
+       display: none !important
       }
-}
-
-/*───────────────────────────────────────────────────────────
-**  800 viewport - Gather page constraint = 725 iframe 
-**───────────────────────────────────────────────────────────*/
-  @media (max-width: 725px) {
-
-    h2 {
-      font-size: 60px;
-      letter-spacing: -2px;
-    }
-
-    dialog{
-     filter:none;
-     margin-top: 112px;
-     height: 560px;
-     width:100%;
-     border-radius: 30px 30px 0 0;
-    }
-    .dialog-grid{
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
-
-    .dialog-fullname{
-      font-size: max(30px, 5.5vw);
-      margin-bottom: .5em;
-    }
-
-    .dialog-title {
-      font-size: max(18px, 3.5vw)
-    }
-
-    .dialog-photo{
-      order: -1;
+     }
+    
+     @media (min-width: 768px) {
+      .hidden-s-m-l {
+       display: none !important
+      }
+     }
+    
+    </style>
+    <style>
+     @font-face {
+       font-family: 'Google Sans';
+       font-style: normal;
+       font-weight: 400;
+       src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+     }
+     @font-face {
+       font-family: 'Google Sans';
+       font-style: normal;
+       font-weight: 500;
+       src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+     }
+     @font-face {
+       font-family: 'Google Sans';
+       font-style: normal;
+       font-weight: 700;
+       src: url(https://fonts.gstatic.com/s/googlesans/v59/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+     }
+   
+     :root {
+       --primary-color: #3C4043;
+       --hover-primary-color: #0058E5;
+       --focus-primary-color: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #4285F4;
+       --secondary-color: #4285F4;
+       --gray: #f1f3f4;
+       --black: #202124;
+       --white: #fff;
+       --gray-border: rgba(60, 64, 67, 0.4);
+       --blue-core: #4285F4;
+       --blue-600: #1A73E8;
+       --blue-highlight: #63BDFD;
+     }
+   
+     *{
+       box-sizing: border-box;
+     }
+     
+     body {
+       color: var(--black);
+       font-family: 'Google Sans' !important;
+       font-weight: 400;
+       font-size: 18px;
+       height: 100%;
+       line-height: 120%;
+       margin:0;
+       overflow-x: hidden;
+       overflow-y: hidden;
+       padding-top: 72px;
+     }
+   
+     h1, h2, h3, h5, h6 {
+       margin: 0;
+       font-weight: 700;
+       line-height: 1.2;
+     }
+   
+     h2 {
+       margin: 0;
+       color: #202124;
+       font: 700 140px/1.2 'Google Sans', sans-serif;
+       letter-spacing: -8.4px;
+     }
+     /* Not needed? */
+     /* 
+     .framewrap {
+      height: 893px;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 600px 1fr;
+     }
+     */
+   
+     section {
+       height: 100%;
+       width: 100%;
+       display: flex;
+       align-items: center;
+     }
+   
+     .sec-content{
+       margin: 0 auto;
+       padding: 0 40px;
+       width: 100%;
+     }
+   
+     dialog{
+      margin-top: 122px; 
+      position: fixed;
+      top: 0;
+      z-index: 10;
+      height: 500px;
+      border: 12px solid white;
+      border-radius: 30px 30px;
+      background-color: white;
+      filter: drop-shadow(0px 12px 24px #1616163d);
       padding: 0;
-      justify-self: start;
-    }
-    .dialog-img {
-      max-width: 164px;
-    }
-
-  }
-/*───────────────────────────────────────────────────────────
-**  480 viewport - Gather page constraint = 425 iframe 
-**───────────────────────────────────────────────────────────*/
-  @media (max-width: 425px) {
-
-    h2 {
-      font-size: 12.5vw;
+      width: 90%;
+      max-width: 900px;
+      transition: opacity .8s ease-in-out;
+     }
+   
+     dialog::backdrop{
+       background-color: transparent;
+     }
+   
+     dialog {
+       animation: modal-fade-out 0.7s ease-out;
+     }
+   
+     dialog[open] {
+       animation: modal-fade-in 0.7s ease-out;
+     }
+   
+     .speaker-section {
+      transition: opacity .3s;
+     }
+     body:has(dialog[open]) .speaker-section {
+       opacity: .5;
+     }
+     body:has(dialog[open]) .speaker-section .sec-content{
+       filter: blur(15px);
+     }
+   
+     .dialog-close{
+       position: absolute;
+       font-size: 0;
+       width: 44px;
+       height: 44px;
+       top: 10px;
+       right: 10px;
+       border: 0;
+       background: none;
+       padding: 0;
+     }
+   
+     .close-icon{
+       width:100%;
+       height: 100%;
+     }
+   
+     .dialog-inner{
+       height:100%;
+       padding: 32px 48px 0 36px;
+       overflow: auto;;
+     }
+   
+     .dialog-inner::-webkit-scrollbar {
+         width: 2px;
+       }
+   
+     .dialog-inner::-webkit-scrollbar-thumb {
+       background: #DADCE0;
+       border-radius: 30px;
+     }
+   
+     .dialog-inner::-webkit-scrollbar-track {
+       background: transparent;
+     }
+   
+     .dialog-grid{
+       height: 100%;
+       display: grid;
+       grid-template-columns: 2fr 1fr;
+       gap: 18px;
+     }
+   
+     .dialog-content{
+       padding-bottom:10px;
+     }
+   
+     .dialog-fullname{
+       font-size: 40px;
+       margin-bottom: 4px;
+     }
+   
+     .dialog-title{
+       font-size: 24px;
+       font-weight: 500;
+       margin-bottom: 1em;
+     }
+   
+     .dialog-bio{
+       font-size: 20px;
+       line-height: 1.4;
+       padding-bottom: 1em;;
+     }
+   
+     .dialog-photo{
+       padding-top: 72px;
+       justify-self: center;
+     }
+     .dialog-img{
+       border-radius: 20px;
+       display: block;
+       width:100%;
+       max-width: 200px;
+     }
+     .dialog-photo > div {
+       position: relative;
+     }
+   
+     @keyframes modal-fade-in {
+       0% {
+         opacity: 0;
+         transform: translate3d(0, 100vh, 0);
+         display: none;
+       }
+   
+       100% {
+         opacity: 1;
+         transform: translate3d(0, 0, 0);
+         display: block;
+       }
+     }
+   
+     @keyframes modal-fade-out {
+       0% {
+         opacity: 1;
+         transform: translate3d(0, 0, 0);
+         display: block;
+       }
+   
+       100% {
+         opacity: 0;
+         transform: translate3d(0, 100vh, 0);
+         display: none;
+       }
+     }
+   
+     .section2 {
+      margin: 0 auto;
+      align-self: end;
       text-align: center;
-    }
+      max-width: 900px;
+     }
+   
+   
+   /*───────────────────────────────────────────────────────────
+   **  1280 viewport - Gather page constraint = 1180 iframe (without scrollbar)
+   **───────────────────────────────────────────────────────────*/
+     @media (max-width: 1180px) {
+   
+      h2 {
+       font-size: 110px;
+      }
+   
+      .section2 {
+       max-width: 740px;
+      }
+     
+     }
+   
+   /*───────────────────────────────────────────────────────────
+   **   1025 viewport - Gather page constraints 965 iframe 
+   **───────────────────────────────────────────────────────────*/
+     @media screen and (max-width: 965px) {
+       h2 {
+         font-size: clamp(80px, 10vw, 100px);
+         letter-spacing: -4px;
+       }
+     }
+   
+   /*───────────────────────────────────────────────────────────
+   **  800 viewport - Gather page constraint = 725 iframe 
+   **───────────────────────────────────────────────────────────*/
+     @media (max-width: 725px) {
+   
+     .sec-content {
+       padding: 0;
+      }
+   
+       h2 {
+         font-size: 80px;
+         letter-spacing: -2px;
+       }
+   
+       dialog{
+        filter:none;
+        margin-top: 112px;
+        height: 560px;
+        width:100%;
+        border-radius: 30px 30px 0 0;
+       }
+       .dialog-grid{
+         grid-template-columns: 1fr;
+         grid-template-rows: auto;
+       }
+   
+       .dialog-fullname{
+         font-size: max(30px, 5.5vw);
+         margin-bottom: .5em;
+       }
+   
+       .dialog-title {
+         font-size: max(18px, 3.5vw)
+       }
+   
+       .dialog-photo{
+         order: -1;
+         padding: 0;
+         justify-self: start;
+       }
+       .dialog-img {
+         max-width: 164px;
+       }
+   
+     }
+   /*───────────────────────────────────────────────────────────
+   **  480 viewport - Gather page constraint = 425 iframe 
+   **───────────────────────────────────────────────────────────*/
+     @media (max-width: 425px) {
+   
+       h2 {
+         font-size: 12.5vw;
+         text-align: center;
+       }
+   
+       .dialog-inner{
+         padding: 0 20px 0 28px;
+       }
+   
+       .dialog-bio{
+         font-size: 16px;
+       }
+   
+     }
+    </style>
+    <style>
+     * {
+      -webkit-font-smoothing: antialiased;
+     }
+   
+     a:hover a:active {
+      text-decoration: underline;
+     }
+   
+     a:focus {
+      border: 1px solid #1A73E8;
+      border-radius: 2px;
+      outline: none;
+     }
+     .speaker-section {
+      overflow: hidden;
+     }
+   
+     .speaker-link {
+      cursor: pointer;
+     }
+   
+     .speaker-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+     }
+   
+     .speaker-profile-v2 > figure {
+       position: relative;
+       margin-top: -8%;
+     }
+   
+     .speaker-wrap .speaker-profile-v2 img {
+      position: relative;
+      z-index: 0;
+      object-fit: contain;
+      object-position: top;
+     }
+   
+     .speaker-profile-v2.show-speaker {
+      opacity: 1;
+     }
+   
+     .speaker-wrap .speaker-profile-v2 h4 {
+      position: relative;
+      background: var(--White, #FFF);
+      margin: 0 !important;
+      z-index: 9;
+     }
+   
+     .speaker-wrap .speaker-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+      align-content: center;
+     }
+   
+     .speaker-wrap .speaker-list .speaker-item a {
+      position: relative;
+      display: inline-block;
+      font-style: normal;
+      font-weight: 500;
+      color: var(--Black, #202124);
+      border-radius: 40px;
+      width: 100%;
+      border: 1px solid transparent;
+      animation: none !important;
+     }
+   
+     .speaker-wrap .speaker-list .speaker-item a:hover {
+      text-decoration: none;
+      background: var(--White, #FFF);
+     }
+   
+     .speaker-wrap .speaker-list .speaker-item a:focus {
+      border-color: transparent;
+     }
+   
+     .speaker-wrap .speaker-list .speaker-item a:hover::before {
+      content: '';
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none"><path d="M32.0508 15.5C24.5905 15.5 18.5508 9.45348 18.5508 2" stroke="%23202124" stroke-width="4" stroke-miterlimit="10"/><path d="M0.86113 15.5L32.0508 15.5" stroke="%23202124" stroke-width="4" stroke-miterlimit="10"/><path d="M32.0508 15.5C24.5905 15.5 18.5508 21.5465 18.5508 29" stroke="%23202124" stroke-width="4" stroke-miterlimit="10"/></svg>');
+      background-size: contain;
+      position: absolute;
+     }
+   
+     @media only screen and (max-width : 767.98px) {
 
-    .dialog-inner{
-      padding: 0 20px 0 28px;
-    }
-
-    .dialog-bio{
-      font-size: 16px;
-    }
-
-  }
- </style>
- <style>
-  * {
-   -webkit-font-smoothing: antialiased;
-  }
-
-  a:hover a:active {
-   text-decoration: underline;
-  }
-
-  a:focus {
-   border: 1px solid #1A73E8;
-   border-radius: 2px;
-   outline: none;
-  }
-  .speaker-section {
-   overflow: hidden;
-   height: 600px;
-  }
-
-  .speaker-link {
-   cursor: pointer;
-  }
-
-  .speaker-wrap {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-  }
-
-  .speaker-profile-v2 > figure {
-    position: relative;
-    margin-top: -8%;
-  }
-
-  .speaker-wrap .speaker-profile-v2 img {
-   position: relative;
-   z-index: 0;
-   object-fit: contain;
-   object-position: top;
-  }
-
-  .speaker-profile-v2.show-speaker {
-   opacity: 1;
-  }
-
-  .speaker-wrap .speaker-profile-v2 h4 {
-   position: relative;
-   background: var(--White, #FFF);
-   margin: 0 !important;
-   z-index: 9;
-  }
-
-  .speaker-wrap .speaker-list {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-auto-rows: 1fr;
-   align-content: center;
-  }
-
-  .speaker-wrap .speaker-list .speaker-item a {
-   position: relative;
-   display: inline-block;
-   font-style: normal;
-   font-weight: 500;
-   color: var(--Black, #202124);
-   border-radius: 40px;
-   width: 100%;
-   border: 1px solid transparent;
-   animation: none !important;
-  }
-
-  .speaker-wrap .speaker-list .speaker-item a:hover {
-   text-decoration: none;
-   background: var(--White, #FFF);
-  }
-
-  .speaker-wrap .speaker-list .speaker-item a:focus {
-   border-color: transparent;
-  }
-
-  .speaker-wrap .speaker-list .speaker-item a:hover::before {
-   content: '';
-   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none"><path d="M32.0508 15.5C24.5905 15.5 18.5508 9.45348 18.5508 2" stroke="%23202124" stroke-width="4" stroke-miterlimit="10"/><path d="M0.86113 15.5L32.0508 15.5" stroke="%23202124" stroke-width="4" stroke-miterlimit="10"/><path d="M32.0508 15.5C24.5905 15.5 18.5508 21.5465 18.5508 29" stroke="%23202124" stroke-width="4" stroke-miterlimit="10"/></svg>');
-   background-size: contain;
-   position: absolute;
-  }
-
-  @media only screen and (max-width : 767.98px) {
-   .speaker-wrap {
-    display: none;
-   }
-
-   .speaker-wrap-mobile {
-    margin-top: 40px;
-    padding-left: 18px;
-   }
-
-   .speaker-item-xs {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    margin-bottom: 12px;
-   }
-
-   .speaker-item-xs .spekaer-profile img {
-    max-width: 54px;
-    max-height: 54px;
-    border-radius: 4px;
-   }
-
-   .speaker-item-xs .spekaer-detail {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-   }
-
-   .speaker-item-xs .spekaer-detail h6 {
-    color: var(--Black, #202124);
-    font-family: "Google Sans";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: -0.5px;
-   }
-
-   .speaker-item-xs .spekaer-detail img {
-    max-width: 40px;
-   }
-  }
-
-  @media only screen and (min-width : 768px) {
-
-   .speaker-wrap {
-    margin-top: 24px;
-   }
-
-   .speaker-wrap .speaker-list {
-    margin-top: 0px
-   }
-
-   .speaker-wrap .speaker-list {
-    grid-column-gap: 18px;
-   }
-
-   .speaker-wrap .speaker-list .speaker-item a {
-    padding: 10px 0;
-    font-size: 21px;
-    line-height: 28px;
-    min-width: 232px;
-   }
-
-   .speaker-job{
-    color: #202124;
-    letter-spacing: normal;
-    margin-top: 3px;
-    max-width: 275px;
-    font: 500 12px/1.5 'Google Sans', sans-serif;
-  }
-
-   .speaker-wrap .speaker-list .speaker-item a:hover::before {
-    width: 16px;
-    height: 16px;
-    top: 16px;
-    right: 18px;
-   }
-
-   .speaker-wrap .speaker-profile-v2 {
-    /* max-width: 180px; */
-    /* max-height: 252px; */
-   }
-
-   .speaker-wrap .speaker-profile-v2 img {
-    width: 240px;
-    height: 200px;
-   }
-
-   .speaker-wrap .speaker-profile-v2 h4 {
-    font-size: 21px;
-    line-height: 22px;
-    letter-spacing: -1px;
-    padding: 8px 24px;
-    border-radius: 0px 0px 12px 12px;
-    min-height: 60px;
-   }
-
-   .speaker-wrap-mobile {
-    display: none;
-   }
-  }
-
-  @media only screen and (min-width : 992px) {
-
-   .speaker-wrap {
-    margin-top: 40px;
-   }
-
-   .speaker-wrap .speaker-list {
-    grid-column-gap: 40px;
-   }
-
-   .speaker-wrap .speaker-list .speaker-item a {
-    padding: 14px 0;
-    font-size: 24px;
-    line-height: 30px;
-    min-width: 280px;
-   }
-
-   .speaker-wrap .speaker-list .speaker-item a:hover::before {
-    width: 18px;
-    height: 18px;
-    top: 20px;
-    right: 24px;
-   }
-
-   .speaker-wrap .speaker-profile-v2 {
-    /* max-width: 220px; */
-    /* max-height: 316px; */
-   }
-
-   .speaker-wrap .speaker-profile-v2 img {
-    width: 484px;
-    height: auto;
-    max-width: 100%;
-   }
-
-   .speaker-wrap .speaker-profile-v2 h4 {
-    font-size: 28px;
-    line-height: 30px;
-    padding: 18px 30px;
-    border-radius: 0px 0px 16px 16px;
-    min-height: 96px;
-   }
-  }
-
-  @media only screen and (max-width : 767.98px) {
-
-   .keynote-speaker-mobile{
-    margin-top: 16px;
-   }
-   .keynote-speaker-mobile .speaker-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    border: 1px solid transparent;
-    animation: none !important;
-    height: 44px;
-   }
-
-   .keynote-speaker-mobile .speaker-link:focus {
-    border-color: transparent;
-   }
-
-   .keynote-speaker-mobile .speaker-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3vw;
-    width: 100%;
-   }
-
-   .keynote-speaker-mobile .speaker-info .profile-img {
-    position: relative;
-    opacity: 1;
-    border-radius: 4px;
-    background: lightgray -10.596px -3.194px / 151.985% 121.429% no-repeat;
-    min-width: 40px;
-    min-height: 35px;
-    transform: translateY(1px);
-   }
-
-   .keynote-speaker-mobile .speaker-info .profile-img img {
-    object-fit: cover;
-    object-position: top;
-    max-width: 40px;
-    max-height: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    position: absolute;
-    top: -5px;
-    border-radius: 4px;
-   }
-
-   .keynote-speaker-mobile .speaker-info h6 {
-    color: var(--Black, #202124);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: -0.5px;
-    width: 100%;
-   }
-
-   .keynote-speaker-mobile .plus-icon {
-    max-width: 40px;
-    min-width: 40px;
-    height: 40px;
-    margin-left: calc(30vw - 90px);
-   }
-
-  }
-  @media only screen and (max-width: 425px) {
-   .keynote-speaker-mobile .speaker-info h6 {
-    font-size: 5.5vw;
-   }
-  }
-
- </style>
-
-</head>
+      h2 {
+        max-width: 500px;
+      }
+      .speaker-wrap {
+       display: none;
+      }
+   
+      .speaker-wrap-mobile {
+       margin-top: 40px;
+       padding-left: 18px;
+      }
+   
+      .speaker-item-xs {
+       display: flex;
+       gap: 14px;
+       align-items: center;
+       margin-bottom: 12px;
+      }
+   
+      .speaker-item-xs .spekaer-profile img {
+       max-width: 54px;
+       max-height: 54px;
+       border-radius: 4px;
+      }
+   
+      .speaker-item-xs .spekaer-detail {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       width: 100%;
+      }
+   
+      .speaker-item-xs .spekaer-detail h6 {
+       color: var(--Black, #202124);
+       font-family: "Google Sans";
+       font-size: 24px;
+       font-style: normal;
+       font-weight: 500;
+       line-height: 28px;
+       letter-spacing: -0.5px;
+      }
+   
+      .speaker-item-xs .spekaer-detail img {
+       max-width: 40px;
+      }
+     }
+   
+     @media only screen and (min-width : 768px) {
+   
+      .speaker-wrap {
+       margin-top: 24px;
+      }
+   
+      .speaker-wrap .speaker-list {
+       margin-top: 0px;
+       grid-column-gap: 18px;
+       flex-grow: 3;
+      }
+   
+      .speaker-wrap .speaker-list .speaker-item a {
+       padding: 10px 0;
+       font-size: 24px;
+       line-height: 28px;
+       min-width: 232px;
+      }
+   
+      .speaker-job{
+       color: #202124;
+       letter-spacing: normal;
+       margin-top: 3px;
+       max-width: 275px;
+       font: 500 16px/1.5 'Google Sans', sans-serif;
+     }
+   
+      .speaker-wrap .speaker-list .speaker-item a:hover::before {
+       width: 16px;
+       height: 16px;
+       top: 16px;
+       right: 18px;
+      }
+   
+      .speaker-wrap .speaker-profile-v2 {
+       flex-grow: 2;
+       /* max-width: 180px; */
+       /* max-height: 252px; */
+      }
+   
+      .speaker-wrap .speaker-profile-v2 img {
+       width: 240px;
+       height: 200px;
+      }
+   
+      .speaker-wrap .speaker-profile-v2 h4 {
+       font-size: 21px;
+       line-height: 22px;
+       letter-spacing: -1px;
+       padding: 8px 24px;
+       border-radius: 0px 0px 12px 12px;
+       min-height: 60px;
+      }
+   
+      .speaker-wrap-mobile {
+       display: none;
+      }
+     }
+   
+     @media only screen and (min-width : 966px) {
+   
+      .speaker-wrap {
+       margin-top: 40px;
+      }
+   
+      .speaker-wrap .speaker-list {
+       grid-column-gap: 40px;
+      }
+   
+      .speaker-wrap .speaker-list .speaker-item a {
+       padding: 14px 0;
+       font-size: 24px;
+       line-height: 30px;
+       min-width: 280px;
+      }
+   
+      .speaker-wrap .speaker-list .speaker-item a:hover::before {
+       width: 18px;
+       height: 18px;
+       top: 20px;
+       right: 24px;
+      }
+   
+      .speaker-job{
+         font-size: 16px;
+       }
+   
+      .speaker-wrap .speaker-profile-v2 {
+       /* max-width: 220px; */
+       /* max-height: 316px; */
+      }
+   
+      .speaker-wrap .speaker-profile-v2 img {
+       width: 484px;
+       height: auto;
+       max-width: 100%;
+      }
+   
+      .speaker-wrap .speaker-profile-v2 h4 {
+       font-size: 28px;
+       line-height: 30px;
+       padding: 18px 30px;
+       border-radius: 0px 0px 16px 16px;
+       min-height: 96px;
+      }
+     }
+   
+     @media only screen and (max-width : 767.98px) {
+   
+      .keynote-speaker-mobile{
+       margin-top: 16px;
+      }
+      .keynote-speaker-mobile .speaker-link {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       margin-bottom: 8px;
+       border: 1px solid transparent;
+       animation: none !important;
+       height: 44px;
+      }
+   
+      .keynote-speaker-mobile .speaker-link:focus {
+       border-color: transparent;
+      }
+   
+      .keynote-speaker-mobile .speaker-info {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       gap: 3vw;
+       width: 100%;
+      }
+   
+      .keynote-speaker-mobile .speaker-info .profile-img {
+       position: relative;
+       opacity: 1;
+       border-radius: 4px;
+       background: lightgray -10.596px -3.194px / 151.985% 121.429% no-repeat;
+       min-width: 40px;
+       min-height: 35px;
+       transform: translateY(1px);
+      }
+   
+      .keynote-speaker-mobile .speaker-info .profile-img img {
+       object-fit: cover;
+       object-position: top;
+       max-width: 40px;
+       max-height: 40px;
+       min-width: 40px;
+       min-height: 40px;
+       position: absolute;
+       top: -5px;
+       border-radius: 4px;
+      }
+   
+      .keynote-speaker-mobile .speaker-info h6 {
+       color: var(--Black, #202124);
+       font-size: 24px;
+       font-style: normal;
+       font-weight: 500;
+       line-height: 28px;
+       letter-spacing: -0.5px;
+       width: 100%;
+      }
+   
+      .keynote-speaker-mobile .plus-icon {
+       max-width: 40px;
+       min-width: 40px;
+       height: 40px;
+       margin-left: calc(30vw - 90px);
+      }
+   
+     }
+     @media only screen and (max-width: 425px) {
+      .keynote-speaker-mobile .speaker-info h6 {
+       font-size: 5.5vw;
+      }
+     }
+   
+    </style>
+   
+   </head>
 
 <body>
 <div class="framewrap">
@@ -755,29 +769,71 @@
         <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Philipp Schindler">
          <div class="speaker-info">
           <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_philipp-schindler_bg-a_2x_44x44.png">
+           <img src="https://xmtvc.github.io/gml/philipp-80x.png">
           </div>
           <h6>Philipp Schindler</h6>
          </div>
          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
         </a>
- 
+  
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Sean Downey">
+        <div class="speaker-info">
+          <div class="profile-img">
+          <img src="https://xmtvc.github.io/gml/sean-80x.png">
+          </div>
+          <h6>Sean Downey</h6>
+        </div>
+        <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+          
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Selin Song">
+          <div class="speaker-info">
+            <div class="profile-img">
+            <img src="https://xmtvc.github.io/gml/selin-80x.png">
+            </div>
+            <h6>Selin Song</h6>
+          </div>
+          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+
+         
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Gaurav Bhaya">
+          <div class="speaker-info">
+            <div class="profile-img">
+            <img src="https://xmtvc.github.io/gml/gaurav-80x.png">
+            </div>
+            <h6>Gaurav Bhaya</h6>
+          </div>
+          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
+
         <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Vidhya Srinivasan">
          <div class="speaker-info">
           <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_vidhya-srinivasan_bg-a_2x_44x44.png">
+           <img src="https://xmtvc.github.io/gml/vidhya-80x.png">
           </div>
           <h6>Vidhya Srinivasan</h6>
          </div>
          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
         </a>
+
+ 
+        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Nicky Rettke">
+          <div class="speaker-info">
+            <div class="profile-img">
+            <img src="https://xmtvc.github.io/gml/vidhya-80x.png">
+            </div>
+            <h6>Nicky Rettke</h6>
+          </div>
+          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+        </a>
  
         <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Sylvanus Bent">
          <div class="speaker-info">
           <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_sylvanus-bent_bg-a_2x_44x44.png">
+           <img src="https://xmtvc.github.io/gml/vidhya-80x.png">
           </div>
-          <h6>Sylvanus Bent</h6>
+          <h6>YouTube Creator</h6>
          </div>
          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
         </a>
@@ -785,63 +841,13 @@
         <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Tim Frank">
          <div class="speaker-info">
           <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_tim-frank_bg-a_2x_44x44.png">
+           <img src="https://xmtvc.github.io/gml/vidhya-80x.png">
           </div>
-          <h6>Tim Frank</h6>
+          <h6>Jenny Cheng</h6>
          </div>
          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
         </a>
- 
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Nicky Rettke">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_nicky_rettke_bg-a_2x_44x44.png">
-          </div>
-          <h6>Nicky Rettke</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
- 
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Matt Madrigal">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_matt_madrigal_bg-a_2x_44x44.png">
-          </div>
-          <h6>Matt Madrigal</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
- 
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Gaurav Bhaya">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_gaurav_bhaya_bg-a_2x_44x44.png">
-          </div>
-          <h6>Gaurav Bhaya</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
- 
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Selin Song">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_selin_song_bg-a_2x_44x44.png">
-          </div>
-          <h6>Selin Song</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
- 
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Sean Downey">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://services.google.com/fh/files/events/gml24_sean_downey_bg-a_2x_44x44.png">
-          </div>
-          <h6>Sean Downey</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
- 
+
        </div>
       </div>
    </div>
