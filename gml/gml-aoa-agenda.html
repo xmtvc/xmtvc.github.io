@@ -205,8 +205,11 @@
       font: 500 18px/28px 'Google Sans', sans-serif;
     }
 
+/*───────────────────────────────────────────────────────────
+**  1280 viewport - Gather page constraint = 1180 iframe (without scrollbar)
+**───────────────────────────────────────────────────────────*/
+    @media screen and (max-width: 1180px) {
 
-    @media screen and (max-width: 1439px) {
       .heading {
         padding-top: 48px;
         margin-bottom: 40px;
@@ -219,7 +222,7 @@
       }
 
       .section-title{
-        font-size: 120px;
+        font-size: 110px;
         line-height: 1.2;
         letter-spacing: -4px;
       }
@@ -233,6 +236,7 @@
     }
 
 
+  /*
     @media screen and (max-width: 1023px) {
       .heading {
         padding-top: 44px;
@@ -256,17 +260,18 @@
       }
 
     }
+  */
 
-    @media screen and (max-width: 959px) {
-      .container {
-          max-width: calc(720px + 5rem);
-      }
+    @media screen and (max-width: 965px) {
       .icon{
         width: 160px;
         right: calc(50% - 335px);
       }
-      .section-title{
+      /* .section-title {
         font-size: 70px;
+      } */
+      .section-title {
+        font-size: 90px;
       }
       .time-col, .details{
         padding: 22px 0;
@@ -284,7 +289,7 @@
       }
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 725px) {
       .container {
         max-width: calc(480px + 5rem);
         padding: 0 16px;
@@ -294,11 +299,12 @@
         margin-bottom: 18px;
       }
       .section-title {
-        font-size: 60px;
+        font-size: 80px;
         letter-spacing: -2px;
+        max-width: 500px;
       }
       .icon {
-        width: 120px;
+        width: 180px;
         top: 0;
         right: -16px;
       }
@@ -391,8 +397,8 @@
         </p>
         </td>
         <td class="details">
-          <p class="agenda-title">Be the first to tune in</p>
-          <p class="agenda-description">Join the livestream early for a curated preview of the event from the Google campus in Mountain View and at learn how you can win exclusive prizes.</p>
+          <p class="agenda-title">Sneak Peek</p>
+          <p class="agenda-description">Preview the event and learn how to win exclusive Google Marketing Live swag.</p>
         </td>
       </tr>
       <tr>
@@ -402,8 +408,8 @@
           </p>
         </td>
         <td class="details">
-          <p class="agenda-title">Join us for the product innovation keynote</p>
-          <p class="agenda-description">Get a virtual front-row see to groundbreaking ads innovations across Google and YouTube, so you can see where discovery starts and decisions are made.</p>
+          <p class="agenda-title">Global Product Innovation Keynote</p>
+          <p class="agenda-description">Discover the latest products and insights from Google and YouTube.</p>
         </td>
       </tr>
       <tr>
@@ -413,11 +419,12 @@
         </p>
         </td>
         <td class="details">
-          <p class="agenda-title">Stay on to connect with  Google Ads product experts</p>
-          <p class="agenda-description">Join Ginny Marvin, Google's Ads Liaison, for a breakdown of key announcements and actionable strategies. Then, connect directly with our experts in a live Q&A to get your burning questions answered and elevate your campaigns.</p>
+          <p class="agenda-title">Live Q&A with Product Experts </p>
+          <p class="agenda-description">Dive deeper and connect directly with our product leaders.</p>
         </td>
       </tr>
     </table>
+
   </div>
 
 
