@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speakers</title>
   <style>
- 
+   
    img {
     vertical-align: middle;
     border: 0;
@@ -86,7 +86,7 @@
      margin:0;
      overflow-x: hidden;
      overflow-y: hidden;
-     padding-top: 72px;
+     padding: 36px 0;
    }
  
    h1, h2, h3, h5, h6 {
@@ -98,8 +98,8 @@
    h2 {
      margin: 0;
      color: #202124;
-     font: 700 140px/1.2 'Google Sans', sans-serif;
-     letter-spacing: -8.4px;
+     font: 700 100px/120px 'Google Sans', sans-serif;
+     letter-spacing: -4px;
    }
    /* Not needed? */
    /* 
@@ -124,23 +124,23 @@
      width: 100%;
    }
  
-   dialog{
-    margin-top: 122px; 
+   dialog {
+    margin-top: 116px; 
     position: fixed;
     top: 0;
     z-index: 10;
-    height: 500px;
+    height: 452px;
     border: 12px solid white;
     border-radius: 30px 30px;
     background-color: white;
-    filter: drop-shadow(0px 12px 24px #1616163d);
+    filter: drop-shadow(0px 8px 16px #1616163d);
     padding: 0;
     width: 90%;
     max-width: 900px;
     transition: opacity .8s ease-in-out;
    }
  
-   dialog::backdrop{
+   dialog::backdrop {
      background-color: transparent;
    }
  
@@ -159,7 +159,7 @@
      opacity: .5;
    }
    body:has(dialog[open]) .speaker-section .sec-content{
-     filter: blur(15px);
+     filter: blur(6px);
    }
  
    .dialog-close{
@@ -280,10 +280,6 @@
  **───────────────────────────────────────────────────────────*/
    @media (max-width: 1180px) {
  
-    h2 {
-     font-size: 110px;
-    }
- 
     .section2 {
      max-width: 740px;
     }
@@ -297,36 +293,49 @@
      h2 {
        font-size: clamp(80px, 10vw, 100px);
        letter-spacing: -4px;
+       line-height: 100px;
+     }
+     body:has(dialog[open]) .speaker-section .sec-content{
+     filter: blur(4px);
+   }
+   }
+
+ /*───────────────────────────────────────────────────────────
+ **  800 viewport - Gather page constraint = 767 iframe 
+ **───────────────────────────────────────────────────────────*/
+ 
+   @media (max-width: 767.98px) {
+ 
+    h2 {
+       font-size: 70px;
+       line-height: 1;
+       letter-spacing: -2px;
      }
    }
- 
+
  /*───────────────────────────────────────────────────────────
  **  800 viewport - Gather page constraint = 725 iframe 
  **───────────────────────────────────────────────────────────*/
    @media (max-width: 725px) {
  
-   .sec-content {
-     padding: 0;
-    }
- 
-     h2 {
-       font-size: 80px;
-       letter-spacing: -2px;
+    .sec-content {
+      max-width: calc(512px + 5rem);
+      padding: 0 16px;
      }
- 
-     dialog{
-      filter:none;
-      margin-top: 112px;
-      height: 560px;
-      width:100%;
+
+     dialog {
+      margin-top: 90px;
+      height: 520px;
+      width: calc(100% - 8px);
       border-radius: 30px 30px 0 0;
+      filter: drop-shadow(0px -6px 3px #16161618);
      }
-     .dialog-grid{
+     .dialog-grid {
        grid-template-columns: 1fr;
        grid-template-rows: auto;
      }
  
-     .dialog-fullname{
+     .dialog-fullname {
        font-size: max(30px, 5.5vw);
        margin-bottom: .5em;
      }
@@ -349,10 +358,13 @@
  **  480 viewport - Gather page constraint = 425 iframe 
  **───────────────────────────────────────────────────────────*/
    @media (max-width: 425px) {
+
+    .sec-content {
+      padding: 0 4px;
+     }
  
      h2 {
-       font-size: 12.5vw;
-       text-align: center;
+       font-size: 60px;
      }
  
      .dialog-inner{
@@ -454,9 +466,8 @@
    @media only screen and (max-width : 767.98px) {
 
     h2 {
-     max-width: 500px;
+      max-width: 500px;
     }
-
     .speaker-wrap {
      display: none;
     }
@@ -510,11 +521,11 @@
     .speaker-wrap .speaker-list {
      margin-top: 0px;
      grid-column-gap: 18px;
+     grid-row-gap: 14px;
      flex-grow: 3;
     }
  
     .speaker-wrap .speaker-list .speaker-item a {
-     padding: 10px 0;
      font-size: 24px;
      line-height: 28px;
      min-width: 232px;
@@ -571,7 +582,6 @@
     }
  
     .speaker-wrap .speaker-list .speaker-item a {
-     padding: 14px 0;
      font-size: 24px;
      line-height: 30px;
      min-width: 280px;
@@ -609,6 +619,10 @@
    }
  
    @media only screen and (max-width : 767.98px) {
+
+    body {
+     padding-top: 30px;
+    }
  
     .keynote-speaker-mobile{
      margin-top: 16px;
@@ -620,7 +634,7 @@
      margin-bottom: 8px;
      border: 1px solid transparent;
      animation: none !important;
-     height: 44px;
+     height: 48px;
     }
  
     .keynote-speaker-mobile .speaker-link:focus {
@@ -635,26 +649,10 @@
      width: 100%;
     }
  
-    .keynote-speaker-mobile .speaker-info .profile-img {
-     position: relative;
-     opacity: 1;
-     border-radius: 4px;
-     background: lightgray -10.596px -3.194px / 151.985% 121.429% no-repeat;
-     min-width: 40px;
-     min-height: 35px;
-     transform: translateY(1px);
-    }
- 
     .keynote-speaker-mobile .speaker-info .profile-img img {
-     object-fit: cover;
-     object-position: top;
-     max-width: 40px;
-     max-height: 40px;
-     min-width: 40px;
-     min-height: 40px;
-     position: absolute;
-     top: -5px;
-     border-radius: 4px;
+     max-width: 42px;
+     height: auto;
+     margin-left: 2px;
     }
  
     .keynote-speaker-mobile .speaker-info h6 {
@@ -665,6 +663,7 @@
      line-height: 28px;
      letter-spacing: -0.5px;
      width: 100%;
+     margin-top: 2px;
     }
  
     .keynote-speaker-mobile .plus-icon {
@@ -677,7 +676,7 @@
    }
    @media only screen and (max-width: 425px) {
     .keynote-speaker-mobile .speaker-info h6 {
-     font-size: 5.5vw;
+     font-size: 21px;
     }
    }
  
@@ -691,67 +690,66 @@
  <section class="speaker-section sec-gap">
  <div class="sec-content">
  
-   <h2>Digital hosts and product experts </h2>
+   <h2>Hosts & key experts</h2>
    <div id="w_47930215" class="hidden-xs">
     <div id="speaker_list_47930215">
  
      <div class="speaker-wrap">
       <div class="speaker-list">
-       <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/philipp.jpg" data-name="Digital Host Name">Digital Host 
-         Name
-         <div class="speaker-job">SVP, Chief Business Officer, Google</div>
-        </a>
-       </div>
 
        <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/sean.jpg" data-name="John Nicoletti">
-         John Nicoletti
-         <div class="speaker-job">President, Americas & Global Partners, Google</div>
-        </a>
-       </div>
-
-       <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/selin.jpg" data-name="Ginny Marvin">
+        <a class="open-as-modal speaker-link" data-name="Ginny Marvin">
          Ginny Marvin 
-          <div class="speaker-job">President, Google Customer Solutions</div>
+          <div class="speaker-job">Ads Product Liaison</div>
         </a>
        </div>
 
        <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/gaurav.png" data-name="Tatiana Gonzalez">
+        <a class="open-as-modal speaker-link" data-name="John Nicoletti">
+         John Nicoletti
+         <div class="speaker-job">Vice President, Google Customer Solutions</div>
+        </a>
+       </div>
+  
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-name="Maya Shankar">
+         Maya Shankar
+         <div class="speaker-job">Senior Director, Behavioral Economics</div>
+        </a>
+       </div>
+
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-name="Michael Foroobar">
+         Michael Foroobar
+         <div class="speaker-job">Director, Performance Measurement Solutions</div>
+        </a>
+       </div>
+
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-name="Pallavi Naresh">
+         Pallavi Naresh
+         <div class="speaker-job">Global Head of Creative, YouTube & Video</div>
+        </a>
+       </div>
+
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-name="Rachel Auth Melgaard">
+         Rachel Auth Melgaard
+         <div class="speaker-job">Director, Global Search Ads</div>
+        </a>
+       </div>
+
+       <div class="speaker-item">
+        <a class="open-as-modal speaker-link" data-name="Tatiana Gonzalez">
          Tatiana Gonzalez
-          <div class="speaker-job">VP/GM, Ads Measurement</div>
+          <div class="speaker-job">Creative Producer</div>
         </a>
        </div>
-
-       <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/philipp.jpg" data-name="Digital Host Name">Digital Host 
-         Name
-         <div class="speaker-job">SVP, Chief Business Officer, Google</div>
-        </a>
-       </div>
-
-       <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/philipp.jpg" data-name="Digital Host Name">Digital Host 
-         Name
-         <div class="speaker-job">SVP, Chief Business Officer, Google</div>
-        </a>
-       </div>
-
-       <div class="speaker-item">
-        <a class="open-as-modal speaker-link" data-image="https://xmtvc.github.io/gml/philipp.jpg" data-name="Digital Host Name">Digital Host 
-         Name
-         <div class="speaker-job">SVP, Chief Business Officer, Google</div>
-        </a>
-       </div>
-
 
       </div>
-
       <div class="speaker-profile-v2 hover-speaker-image">
        <figure>
-        <img src="https://xmtvc.github.io/gml/vidhya.jpg">
+        <img src="https://services.google.com/fh/files/events/gml25_aoa-spk-maya-yellow.jpg" width=484 height="399">
        </figure>
       </div>
      </div>
@@ -759,85 +757,82 @@
    </div>
    <div class="hidden-s-m-l">
  
-      <div class="keynote-speaker-mobile">
-       <div class="keynote-speaker-slider">
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Digital Host Name">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://xmtvc.github.io/gml/philipp-80x.png">
-          </div>
-          <h6>Digital Host 
-           Name</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
-  
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="John Nicoletti">
+    <div class="keynote-speaker-mobile">
+     <div class="keynote-speaker-slider">
+
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Ginny Marvin">
         <div class="speaker-info">
           <div class="profile-img">
-          <img src="https://xmtvc.github.io/gml/sean-80x.png">
+          <img src="https://xmtvc.github.io/gml/gml25-spk-square-green-200x228.png">
           </div>
-          <h6>John Nicoletti</h6>
+          <h6>Ginny Marvin</h6>
         </div>
         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
-          
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Ginny Marvin">
-          <div class="speaker-info">
-            <div class="profile-img">
-            <img src="https://xmtvc.github.io/gml/selin-80x.png">
-            </div>
-            <h6>Ginny Marvin</h6>
-          </div>
-          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
+      </a>
 
-         
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Tatiana Gonzalez">
-          <div class="speaker-info">
-            <div class="profile-img">
-            <img src="https://xmtvc.github.io/gml/gaurav-80x.png">
-            </div>
-            <h6>Tatiana Gonzalez</h6>
-          </div>
-          <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
-
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Digital Host Name">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://xmtvc.github.io/gml/philipp-80x.png">
-          </div>
-          <h6>Digital Host 
-           Name</h6>
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="John Nicoletti">
+       <div class="speaker-info">
+         <div class="profile-img">
+         <img src="https://services.google.com/fh/files/events/gml25_john-n-blue-200x228.png">
          </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
-
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Digital Host Name">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://xmtvc.github.io/gml/philipp-80x.png">
-          </div>
-          <h6>Digital Host 
-           Name</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
-
-        <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Digital Host Name">
-         <div class="speaker-info">
-          <div class="profile-img">
-           <img src="https://xmtvc.github.io/gml/philipp-80x.png">
-          </div>
-          <h6>Digital Host 
-           Name</h6>
-         </div>
-         <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
-        </a>
-
+         <h6>John Nicoletti</h6>
        </div>
-      </div>
+       <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+      </a>
+
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Maya Shankar">
+       <div class="speaker-info">
+        <div class="profile-img">
+         <img src="https://services.google.com/fh/files/events/gml25_maya-yellow-200x228.png">
+        </div>
+        <h6>Maya Shankar</h6>
+       </div>
+       <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+      </a>
+
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Michael Foroobar">
+       <div class="speaker-info">
+         <div class="profile-img">
+         <img src="https://services.google.com/fh/files/events/gml25_michael-f-green-200x228.png">
+         </div>
+         <h6>Michael Foroobar</h6>
+       </div>
+       <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+      </a>
+
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Pallavi Naresh">
+        <div class="speaker-info">
+          <div class="profile-img">
+          <img src="https://services.google.com/fh/files/events/gml25_pallavi-red-200x228.png">
+          </div>
+          <h6>Pallavi Naresh</h6>
+        </div>
+        <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+      </a>
+
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Rachel Auth Melgaard">
+        <div class="speaker-info">
+          <div class="profile-img">
+          <img src="https://services.google.com/fh/files/events/gml25_rachel-blue-200x228.png">
+          </div>
+          <h6>Rachel Auth Melgaard</h6>
+        </div>
+        <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+      </a>
+
+
+      <a class="keynote-speaker-list-xs open-as-modal speaker-link" data-name="Tatiana Gonzalez">
+        <div class="speaker-info">
+          <div class="profile-img">
+          <img src="https://services.google.com/fh/files/events/gml25_tatiana-blue-200x228.png">
+          </div>
+          <h6>Tatiana Gonzalez</h6>
+        </div>
+        <svg class="plus-icon"><use href="#svgmore" x="0" y="0"></use></svg>
+      </a>
+
+     </div>
+    </div>
    </div>
  </div>
  </section>
@@ -856,14 +851,14 @@
   <div class="dialog-inner">
     <div class="dialog-grid">
       <div class="dialog-content">
-        <h3 class="dialog-fullname">Vidhya Srinivasan</h3>
-        <div class="dialog-title">Vice President/General Manager, Ads, Google</div>
+        <h3 class="dialog-fullname">Maya Shankar</h3>
+        <div class="dialog-title">Senior Director, Behavioral Economics</div>
         <div class="dialog-bio">
-         Vidhya Srinivasan is a Vice President & General Manager, Ads at Google, overseeing Google’s Advertising products including search, display, shopping, analytics, travel, and video advertising.
+         Maya Shankar is a cognitive scientist and is Google's Senior Director of Behavioral Economics. She served as a Senior Advisor in the Obama White House, where she founded and served as Chair of the White House Social & Behavioral Science Team, which President Obama formalized by Executive Order in 2015. She also served as the first Behavioral Science Advisor to the United Nations under Ban Ki-moon and as a core member of Pete Buttigieg’s debate preparation team during his presidential run. Maya has a postdoctoral fellowship in cognitive neuroscience from Stanford, a Ph.D. from Oxford on a Rhodes Scholarship, and a B.A. from Yale. She has been profiled by The New Yorker and has been featured in The New York Times, Scientific American, and Forbes. She’s also been the featured guest on NPR's “All Things Considered,” “Freakonomics,” and “Hidden Brain.” Maya is a former private violin student of Itzhak Perlman and graduate of The Juilliard School’s pre-college program. She is the Creator, Host and Executive Producer of the podcast A Slight Change of Plans, which Apple awarded as the Best Show of the Year for 2021.
         </div>
       </div>
       <div class="dialog-photo">
-        <div><img class="dialog-img" src="" alt=""></div>
+        <div><img class="dialog-img" src="https://services.google.com/fh/files/events/gml25_aoa-spk-maya-yellow.jpg" alt=""></div>
       </div>
     </div>
   </div>
@@ -901,64 +896,45 @@
   <script>
 
     var speakerData = {
-      "Digital Host Name":{
-        img: "https://xmtvc.github.io/gml/philipp.jpg",
-        title: "SVP, Chief Business Officer, Google ",
-        bio: `Philipp Schindler is Google’s Senior Vice President and Chief Business Officer, leading Global Business & Operations. He leads the global and regional teams that drive sales, product commercialization, technical and consumer support for Google and YouTube, and country operations. He also oversees partnership strategy across Google’s products and services.
-
-He joined Google in 2005 to lead its advertising business in Northern and Central Europe before expanding his leadership across the region from London. Before Google, he was Senior Vice President at AOL Germany, where he led marketing, sales, and strategy while serving on the company’s management board for six years.
-
-Philipp holds a degree from the European Business School (EBS) in Oestrich-Winkel, Germany, and is a scholar of the Studienstiftung des deutschen Volkes. He currently lives in Menlo Park, California, with his wife and three children.`
-      },
-      "Vidhya Srinivasan":{
-        img: "https://xmtvc.github.io/gml/vidhya.jpg",
-        title: "VP/GM, Ads & Commerce, Google",
-        bio: `Vidhya Srinivasan is Vice President and General Manager of Ads and Commerce at Google. She leads advertising products for search, display, shopping, travel, video, and measurement, as well as consumer shopping, merchant shopping, and payments.
-
-A leader in AI-driven innovation, Vidhya has been instrumental in transforming Google Ads. She introduced Performance Max and Demand Gen, launched new ad formats in Google Search, and developed AI tools for campaign and asset creation. Her work also includes interactive ads like 3D rotation and Virtual Try-On. She led the revamp of Google Analytics, introduced the new Search Ads 360, pixel-less measurement for YouTube, and Ads Data Hub.
-
-Vidhya grew up in Chennai, India, and holds a Bachelor’s in Computer Science from IIT Madras and a Master’s in Computer Science from Georgia Tech. She is the proud mother of four children.`
-      },
-      "Ginny Marvin":{
-        img: "https://xmtvc.github.io/gml/selin.jpg",
-        title: "President, Google Customer Solutions",
-        bio: `Selin Song is a global business executive with 22 years of experience in sales, strategy, and operations. As global president of Google Customer Solutions (GCS), she leads Google’s SMB ad sales business, helping millions of customers worldwide.
-
-She joined Google in 2003 as an entry-level temp approving ads before leading the revenue strategy and operations team, as well as GCS sales teams across the APAC and EMEA regions. Having lived and worked in four countries, she brings a global perspective to her work. Selin is passionate about driving growth and impact for small businesses through Google solutions, fostering AI-driven innovation, and building a positive, inclusive culture.
-
-Selin holds a Bachelor’s in Communication and a Master’s in Sociology from Stanford University. She currently lives in California with her husband and their two daughters.`
+      "Maya Shankar":{
+        img: "https://services.google.com/fh/files/events/gml25_aoa-spk-maya-yellow.jpg",
+        title: "Senior Director, Behavioral Economics ",
+        bio: `Maya Shankar is a cognitive scientist and is Google's Senior Director of Behavioral Economics. She served as a Senior Advisor in the Obama White House, where she founded and served as Chair of the White House Social & Behavioral Science Team, which President Obama formalized by Executive Order in 2015. She also served as the first Behavioral Science Advisor to the United Nations under Ban Ki-moon and as a core member of Pete Buttigieg’s debate preparation team during his presidential run. Maya has a postdoctoral fellowship in cognitive neuroscience from Stanford, a Ph.D. from Oxford on a Rhodes Scholarship, and a B.A. from Yale. She has been profiled by The New Yorker and has been featured in The New York Times, Scientific American, and Forbes. She’s also been the featured guest on NPR's “All Things Considered,” “Freakonomics,” and “Hidden Brain.” Maya is a former private violin student of Itzhak Perlman and graduate of The Juilliard School’s pre-college program. She is the Creator, Host and Executive Producer of the podcast A Slight Change of Plans, which Apple awarded as the Best Show of the Year for 2021.`
       },
       "John Nicoletti":{
-        img: "https://xmtvc.github.io/gml/sean.jpg",
-        title: "President, Americas & Global Partners, Google",
-        bio: `Sean Downey is President of Americas and Global Partners at Google, leading the company’s advertising business across North and South America. Previously, he served as Vice President of Google Marketing Platform for the Americas, helping marketers, agencies, and partners leverage data and technology to advance digital marketing maturity, media buying, and measurement. 
+        img: "https://services.google.com/fh/files/events/gml25_aoa-spk-john-blue.jpg",
+        title: "Vice President, Google Customer Solutions",
+        bio: `As Vice President of Google Customer Solutions (GCS) for the Americas, John Nicoletti leads Google's sales team and initiatives to deliver digital advertising solutions and drive growth for XXM SMBs across the U.S., Canada, Central America, and South America.  He excels at building high-performing teams, solving complex problems, and leveraging the product, sales and advertising expertise he has developed through nearly two decades in Google’s Global Business Organization. Further, John is a champion for improving the DEI landscape within Google and our industry. He is the Chair of Google Customer Solutions' Diversity, Equity & Inclusion Council, responsible for progressing representation, promoting employee equity, and building an inclusive culture at Google. 
 
-Before joining Google in 2008, Sean was Vice President of Buy Side Sales at DoubleClick, leading its agency and advertiser business. He has also worked in various ad technology and software startups, bringing emerging advertising technologies to market, including rich media, programmatic buying, and analytics.
-
-Sean holds a BS in Business Administration from the State University of New York College at Fredonia. He currently lives in the Greater Boston area with his three children.`
+Outside of Google, John is active in his community with charities like CASA San Mateo and the George Marks house. He and his wife Courtney live in San Mateo and are parents to three happy children.`
       },
-      "Nicky Rettke": {
-       img: "https://xmtvc.github.io/gml/gaurav.png",
-       title: "Vice President, YouTube Ads",
-       bio: `Nicky Rettke is a Vice President of Ads at YouTube, focused on building end-to-end solutions for performance advertisers and scaling video advertising to businesses of all sizes. Nicky has been at Google since 2008 and led the efforts around YouTube mobile ads before building YouTube's direct response business.
+      "Ginny Marvin":{
+        img: "https://xmtvc.github.io/gml/speaker-shapes-green.jpg",
+        title: "Ads Product Liaison",
+        bio: `Google's Ads Product Liaison, Ginny Marvin acts as a bridge between marketers and Google's ads teams. She engages with the advertising community to answer questions about how ads products and policies work and brings marketers' insights back into Google. Prior to joining Google, Ginny was Editor-in-Chief of Search Engine Land where she covered digital advertising news and trends for seven years. She got her start in digital marketing in 2005 and held in-house and agency management positions. You can find her on X and Threads at @AdsLiaison.`
+      },
+      "Pallavi Naresh":{
+        img: "https://services.google.com/fh/files/events/gml25_aoa-spk-pallavi-red.jpg",
+        title: "Global Head of Creative, YouTube & Video",
+        bio: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis.`
+      },
+      "Rachel Auth Melgaard": {
+       img: "https://services.google.com/fh/files/events/gml25_aoa-spk-rachael-blue.jpg",
+       title: "Director, Global Search Ads ",
+       bio: `Rachel Melgaard is a Search Ads expert with 20 years of experience in Search Engine Marketing from both the sales and product perspective. She is the Director of Global AI Powered Search Ads, leading a team focused on driving innovation in Search Ads across the advertiser experience, incorporating the latest AI technology, and advancing growth to client’s businesses. 
+Prior to Google, Rachel worked on the agency side with clients in the media & entertainment industry.  Her recent search history shows she has 3 daughters who love crafts, 1 dog who needs a new squeaky toy and a husband who is about to run another marathon!`
+      },
+      "Michael Foroobar":{
+        img: "https://services.google.com/fh/files/events/gml25_aoa-spk-michael-f-green.jpg",
+        title: "Director, Performance Measurement Solutions",
+        bio: `Michael is the Global Director of Data & Measurement Solutions at Google. Michael and his team help advertisers grow their business with first-party data, attribution, and conversion measurement solutions. 
 
-Nicky graduated from the University of Pennsylvania with a B.S. and M.S. in Computer Telecommunications Engineering.`
+Previously Michael worked in Google’s advertising sales team across sectors such as healthcare, finance, and telecommunications. Prior to Google, Michael worked at several technology startups in strategy and analytics roles. Michael received a Bachelor of Science from the University of Virginia McIntire School of Commerce and resides in Virginia.`
       },
       "Tatiana Gonzalez": {
-       img: "https://xmtvc.github.io/gml/gaurav.png",
-       title: "VP/GM, Ads Measurement",
-       bio: `Gaurav Bhaya is a vice president and general manager in Google Ads, overseeing product, engineering, and data science teams for key Ads products, including AdWords, Performance Max, Google Analytics, Campaign Manager, Display and Video 360, and Ads Data Hub.
-With a focus on AI-powered campaigns and measurement solutions, Gaurav helps marketers drive effective ROI through advanced audience creation, cross-channel measurement, lift and incrementality analysis, data-driven attribution, experimentation, and large-scale data analytics.`
-      },
-      "Jenny Cheng":{
-        "img": "https://xmtvc.github.io/gml/philipp.jpg",
-        "title": "SVP, Chief Business Officer, Google",
-        "bio": `Sylvanus Bent III is a Group Product Manager for Search Ads at Google. He has been at Google for seven years and leads the Search Creative Automation team focusing on helping advertisers improve their creative performance, with products like responsive search ads, ad strength, and automatically created assets. Prior to Google, he was a Product Manager at Medallia, a SaaS hypergrowth startup that achieved unicorn status. Sylvanus graduated from Stanford University with a Bachelor of Science Engineering Degree in Biomedical Computation.`
-      },
-      "YouTube Creator":{
-        img: "https://xmtvc.github.io/gml/philip.jpg",
-        title: "YouTube Creator",
-        bio: `Sylvanus Bent III is a Group Product Manager for Search Ads at Google. He has been at Google for seven years and leads the Search Creative Automation team focusing on helping advertisers improve their creative performance, with products like responsive search ads, ad strength, and automatically created assets. Prior to Google, he was a Product Manager at Medallia, a SaaS hypergrowth startup that achieved unicorn status. Sylvanus graduated from Stanford University with a Bachelor of Science Engineering Degree in Biomedical Computation.`
+       img: "https://services.google.com/fh/files/events/gml25_aoa-spk-tatiana-blue.jpg",
+       title: "Creative Producer",
+       bio: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis rerum veniam doloribus est eos minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, impedit excepturi esse fugiat quibusdam quod obcaecati, non debitis iure at nemo tempore ipsa blanditiis.`
       }
     }
 
@@ -968,9 +944,7 @@ With a focus on AI-powered campaigns and measurement solutions, Gaurav helps mar
        itemb.classList.remove('active')
       })
       var name = this.dataset.name;
-      var brName = name.replace(/ /, "<br>")
       document.querySelector(".hover-speaker-image img").src = speakerData[name].img
-      document.querySelector(".hover-speaker-image h4").innerHTML = brName
       this.closest(".speaker-item").classList.add('active')
       document.querySelector(".speaker-profile-v2").classList.add('show-speaker')
       this.addEventListener("mouseout",function(){
