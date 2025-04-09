@@ -152,22 +152,23 @@
       position: relative;
       padding-top: 64px;
       margin-bottom: 20px;
+      display: inline-block;
     }
 
     .icon {
       position: absolute;
       z-index: -1;
       top: 0px;
-      right: 40px;
-      width: 346px;
+      left: 87%;
+      width: 275px;
       height: auto;
     }
 
     .section-title {
       margin: 0;
       color: #202124;
-      font: 700 140px/1.2 'Google Sans', sans-serif;
-      letter-spacing: -8.4px;
+      font: 700 100px/120px 'Google Sans', sans-serif;
+      letter-spacing: -4px;
     }
 
     .agenda-section .section-title {
@@ -180,7 +181,7 @@
       color: #202124;
     }
     .time-col, .details{
-      padding: 28px 0;
+      padding: 26px 0;
       border-top: 1px solid #E0E0E0;
       border-bottom: 1px solid #E0E0E0;
       vertical-align: top;
@@ -212,69 +213,33 @@
 
       .heading {
         padding-top: 48px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
       }
       .icon {
         width: 240px;
         height: auto;
         top: 10px;
-        right: calc(50% - 480px);
       }
 
-      .section-title{
-        font-size: 110px;
-        line-height: 1.2;
-        letter-spacing: -4px;
-      }
       .time-col{
         font-size: 21px;
       }
       .agenda-title{
         font-size: 21px;
-        letter-spacing: -0.8px;
+        letter-spacing: -0.2px;
       }
     }
-
-
-  /*
-    @media screen and (max-width: 1023px) {
-      .heading {
-        padding-top: 44px;
-        margin-bottom: 36px;
-      }
-      .icon {
-        width: 200px;
-        right: calc(50% - 435px);
-      }
-      .section-title{
-        font-size: 100px;
-        line-height: 1.2;
-        letter-spacing: -4px;
-        text-align: center;
-      }
-      .time-col, .details{
-        padding: 24px 0;
-      }
-      .agenda-description{
-        max-width: 640px;
-      }
-
-    }
-  */
 
     @media screen and (max-width: 965px) {
       .icon{
-        width: 160px;
-        right: calc(50% - 335px);
+        width: 195px;
+        left: min(87%, calc(100vw - 236px))
       }
-      /* .section-title {
-        font-size: 70px;
-      } */
       .section-title {
         font-size: 90px;
       }
       .time-col, .details{
-        padding: 22px 0;
+        padding: 18px 0;
       }
       .time-col {
         width: 29vw;
@@ -296,16 +261,19 @@
       }
       .heading {
         padding-top: 24px;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
+        display: block;
       }
       .section-title {
-        font-size: 80px;
+        font-size: 70px;
+        line-height: 1;
         letter-spacing: -2px;
-        max-width: 500px;
+        max-width: 480px;
       }
       .icon {
         width: 180px;
         top: 0;
+        left: auto;
         right: -16px;
       }
       .time-col, .details{
@@ -314,18 +282,18 @@
       }
       .time-col {
         border-bottom: none;
-        padding: 18px 0 0 0;
+        padding: 16px 0 0 0;
       }
       tr:first-child .time-col{
         border-top: none;
       }
       .details {
         border-top: none;
-        padding: 0 0 18px 0;
+        padding: 0 0 16px 0;
       }
       .agenda-title{
         margin: 0 0 4px 0;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 1.2;
         letter-spacing: -0.8px;
         max-width: 376px;
@@ -341,11 +309,11 @@
     @media screen and (max-width: 479px) {
       .container {
         max-width: none;
-        padding: 0;
+        padding: 0 4px;
       }
       .heading {
         padding-top: 18px;
-        margin-bottom: 6px;
+        margin-bottom: 22px;
       }
       .icon {
         width: 100px;
@@ -357,23 +325,25 @@
         line-height: 1;
         letter-spacing: -2px;
         width: 320px;
-        margin: 0 auto;
         text-wrap-style: balance;
       }
-      .agenda{
-        max-width: 320px
-      }
+
       .time-col {
-        padding: 16px 0 0 0;
+        padding: 18px 0 0 0;
+        border-top: none;
+      }
+      tr:first-child .time-col {
+       border-top: 1px solid #E0E0E0;
       }
       .details {
-        padding: 0 0 16px 0;
+        padding: 0 0 18px 0;
       }
       .agenda-title{
         font-size: 20px;
       }
       .agenda-description{
-        font-size: 14px;
+        font-size: 16px;
+        max-width: 320px;
       }
     }
   </style>
