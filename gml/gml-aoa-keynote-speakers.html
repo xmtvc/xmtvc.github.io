@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speakers</title>
+    <title>Keynote speakers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
    
      img {
@@ -101,6 +103,15 @@
        font: 700 100px/120px 'Google Sans', sans-serif;
        letter-spacing: -4px;
      }
+     /* Not needed? */
+     /* 
+     .framewrap {
+      height: 893px;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 600px 1fr;
+     }
+     */
    
      section {
        height: 100%;
@@ -539,6 +550,8 @@
    
       .speaker-wrap .speaker-profile-v2 {
        flex-grow: 2;
+       /* max-width: 180px; */
+       /* max-height: 252px; */
       }
    
       .speaker-wrap .speaker-profile-v2 img {
@@ -586,6 +599,11 @@
       .speaker-job{
          font-size: 16px;
        }
+   
+      .speaker-wrap .speaker-profile-v2 {
+       /* max-width: 220px; */
+       /* max-height: 316px; */
+      }
    
       .speaker-wrap .speaker-profile-v2 img {
        width: 484px;
@@ -667,7 +685,6 @@
     </style>
    
    </head>
-
 <body>
 <div class="framewrap">
  
@@ -681,19 +698,16 @@
      <div class="speaker-wrap">
       <div class="speaker-list">
 
-
        <div class="speaker-item">
         <a class="open-as-modal speaker-link" data-name="Philipp Schindler">
-         Philipp
-         Schindler
+         Philipp Schindler
          <div class="speaker-job">SVP, Chief Business Officer, Google</div>
         </a>
        </div>
 
        <div class="speaker-item">
         <a class="open-as-modal speaker-link" data-name="Vidhya Srinivasan">
-          Vidhya
-         Srinivasan
+         Vidhya Srinivasan
          <div class="speaker-job">VP/GM, Ads & Commerce, Google</div>
         </a>
        </div>
@@ -708,21 +722,20 @@
        <div class="speaker-item">
         <a class="open-as-modal speaker-link" data-name="Jenny Cheng">
          Jenny Cheng
-          <div class="speaker-job">VP/GM, Ads Measurement</div>
+         <div class="speaker-job">VP/GM, Ads Measurement</div>
         </a>
        </div>
         
        <div class="speaker-item">
         <a class="open-as-modal speaker-link" data-name="Nicky Rettke">
          Nicky Rettke
-          <div class="speaker-job">VP/GM, Ads Measurement</div>
+         <div class="speaker-job">VP/GM, Ads Measurement</div>
         </a>
        </div>
 
        <div class="speaker-item">
         <a class="open-as-modal speaker-link" data-name="Sean Downey">
-          Sean
-         Downey
+         Sean Downey
          <div class="speaker-job">President, Americas & Global Partners, Google</div>
         </a>
        </div>
@@ -979,7 +992,5 @@ With a focus on AI-powered campaigns and measurement solutions, Gaurav helps mar
     })
   </script>
 
-
 </body>
-
 </html>
