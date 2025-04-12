@@ -44,7 +44,7 @@
     margin:0;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 36px 0;
+    padding: 36px 0 0 0;
   }
   h1, h2, h3, h5, h6 {
     margin: 0;
@@ -60,14 +60,17 @@
   img {
     vertical-align: middle;
   }
-  a {
+  button {
     text-decoration: none;
     background-color: transparent;
+    border:0;
+    padding: 0;
+    text-align: left;
   }
-   a:focus {
-    border: 1px solid #1A73E8;
-    border-radius: 2px;
-    outline: none;
+  button:focus-visible {
+    outline: 2px solid #1A73E8;
+    border-radius: 12px;
+    outline-offset: 4px;
   }
 
   section {
@@ -81,7 +84,7 @@
     transition: opacity .3s;
   }
   .sec-content {
-    margin: 0 auto;
+    margin: 0 auto 36px 0;
     padding: 0 40px;
     width: 100%;
   }
@@ -132,6 +135,7 @@
     display: inline-block;
     width: 100%;
     min-width: 280px;
+    z-index: 1;
   }
   .speaker-link h6 {
     font: 700 24px/30px 'Google Sans', sans-serif;
@@ -328,6 +332,9 @@
     letter-spacing: -2px;
     max-width: 500px;
   }
+  button:focus-visible{
+    border-radius: 6px;
+  }
 
   .speaker-wrap {
     display: none;
@@ -433,40 +440,40 @@
   
       <div class="speaker-wrap">
         <div class="speaker-list">
-          <a class="speaker-link" tabindex="0" data-name="Cecilia Wong">
+          <button class="speaker-link" data-name="Cecilia Wong">
             <h6>Cecilia Wong</h6>
             <div class="speaker-job">Global Head of Search Creatives & Formats</div>
-          </a>
+          </button>
 
-          <a class="speaker-link" tabindex="0" data-name="Ginny Marvin">
+          <button class="speaker-link" data-name="Ginny Marvin">
             <h6>Ginny Marvin</h6>
             <div class="speaker-job">Ads Product Liaison</div>
-          </a>
+          </button>
 
-          <a class="speaker-link" tabindex="0" data-name="John Nicoletti">
+          <button class="speaker-link" data-name="John Nicoletti">
             <h6>John Nicoletti</h6>
             <div class="speaker-job">VP, Google Customer Solutions</div>
-          </a>
+          </button>
 
-          <a class="speaker-link" tabindex="0" data-name="Maya Shankar">
+          <button class="speaker-link" data-name="Maya Shankar">
             <h6>Maya Shankar</h6>
             <div class="speaker-job">Senior Director, Behavioral Economics</div>
-          </a>
+          </button>
 
-          <a class="speaker-link" tabindex="0" data-name="Michael Foroobar">
+          <button class="speaker-link" data-name="Michael Foroobar">
             <h6>Michael Foroobar</h6>
             <div class="speaker-job">Director, Performance Measurement Solutions</div>
-          </a>
+          </button>
 
-          <a class="speaker-link" tabindex="0" data-name="Pallavi Naresh">
+          <button class="speaker-link" data-name="Pallavi Naresh">
             <h6>Pallavi Naresh</h6>
             <div class="speaker-job">Global Head of Creative, YouTube & Video</div>
-          </a>
+          </button>
 
-          <a class="speaker-link" tabindex="0" data-name="Tatiana Gonzalez">
+          <button class="speaker-link" data-name="Tatiana Gonzalez">
             <h6>Tatiana Gonzalez</h6>
             <div class="speaker-job">Creative Producer</div>
-          </a>
+          </button>
         </div>
         <div class="speaker-profile-v2 hover-speaker-image">
           <img src="https://services.google.com/fh/files/events/gml25_aoa-spk-ginny-red.jpg" width=484 height="399">
@@ -474,40 +481,40 @@
       </div>
       <div class="speaker-wrap-mobile">
 
-        <a class="speaker-link" tabindex="0" data-name="Cecilia Wong">
+        <button class="speaker-link" data-name="Cecilia Wong">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_cecilia-green-200x228.png">
           <h6>Cecilia Wong</h6>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Ginny Marvin">
+        <button class="speaker-link" data-name="Ginny Marvin">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_ginny-red-200x228.png">
           <h6>Ginny Marvin</h6>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="John Nicoletti">
+        <button class="speaker-link" data-name="John Nicoletti">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_john-n-blue-200x228.png">
           <h6>John Nicoletti</h6>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Maya Shankar">
+        <button class="speaker-link" data-name="Maya Shankar">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_maya-yellow-200x228.png">
           <h6>Maya Shankar</h6>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Michael Foroobar">
+        <button class="speaker-link" data-name="Michael Foroobar">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_michael-f-green-200x228.png">
           <h6>Michael Foroobar</h6>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Pallavi Naresh">
+        <button class="speaker-link" data-name="Pallavi Naresh">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_pallavi-red-200x228.png">
           <h6>Pallavi Naresh</h6>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Tatiana Gonzalez">
+        <button class="speaker-link" data-name="Tatiana Gonzalez">
           <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_tatiana-blue-200x228.png">
           <h6>Tatiana Gonzalez</h6>
-        </a>
+        </button>
 
       </div>
 
