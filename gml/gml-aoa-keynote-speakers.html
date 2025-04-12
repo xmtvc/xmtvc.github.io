@@ -44,7 +44,7 @@
     margin:0;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 36px 0;
+    padding: 36px 0 0 0;
   }
   h1, h2, h3, h5, h6 {
     margin: 0;
@@ -60,14 +60,17 @@
   img {
     vertical-align: middle;
   }
-  a {
+  button {
     text-decoration: none;
     background-color: transparent;
+    border:0;
+    padding: 0;
+    text-align: left;
   }
-    a:focus {
-    border: 1px solid #1A73E8;
-    border-radius: 2px;
-    outline: none;
+  button:focus-visible {
+    outline: 2px solid #1A73E8;
+    border-radius: 12px;
+    outline-offset: 4px;
   }
 
   section {
@@ -81,7 +84,7 @@
     transition: opacity .3s;
   }
   .sec-content {
-    margin: 0 auto;
+    margin: 0 auto 36px 0;
     padding: 0 40px;
     width: 100%;
   }
@@ -132,6 +135,7 @@
     display: inline-block;
     width: 100%;
     min-width: 280px;
+    z-index: 1;
   }
   .speaker-link h6 {
     font: 700 24px/30px 'Google Sans', sans-serif;
@@ -278,11 +282,12 @@
 /*───────────────────────────────────────────────────────────
 **  1280 viewport - Gather page constraint = 1180 iframe (without scrollbar)
 **───────────────────────────────────────────────────────────*/
-@media (max-width: 1180px) {
-  .section2 {
-    max-width: 740px;
+  @media (max-width: 1180px) {
+    .section2 {
+      max-width: 740px;
+    }
+    
   }
-}
 
 /*───────────────────────────────────────────────────────────
 **   1025 viewport - Gather page constraints 965 iframe 
@@ -311,8 +316,8 @@
     line-height: 28px;
     min-width: 232px;
   }
-
 }
+
 /*───────────────────────────────────────────────────────────
 **  767 iframe = 827 Gather page 
 **───────────────────────────────────────────────────────────*/
@@ -326,6 +331,9 @@
     line-height: 1;
     letter-spacing: -2px;
     max-width: 500px;
+  }
+  button:focus-visible{
+    border-radius: 6px;
   }
 
   .speaker-wrap {
@@ -355,8 +363,8 @@
     width: 100%;
     margin-top: 2px;
   }
-
 }
+
 /*───────────────────────────────────────────────────────────
 **  725 iframe 
 **───────────────────────────────────────────────────────────*/
@@ -431,40 +439,40 @@
     <div class="speaker-wrap">
       <div class="speaker-list">
 
-        <a class="speaker-link" tabindex="0" data-name="Philipp Schindler">
+        <button class="speaker-link" data-name="Philipp Schindler">
           <h6>Philipp Schindler</h6>
           <div class="speaker-job">SVP, Chief Business Officer, Google</div>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Vidhya Srinivasan">
+        <button class="speaker-link" data-name="Vidhya Srinivasan">
           <h6>Vidhya Srinivasan</h6>
           <div class="speaker-job">VP/GM, Ads & Commerce, Google</div>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Gaurav Bhaya">
+        <button class="speaker-link" data-name="Gaurav Bhaya">
           <h6>Gaurav Bhaya</h6>
           <div class="speaker-job">VP/GM, Ads Measurement</div>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Jenny Cheng">
+        <button class="speaker-link" data-name="Jenny Cheng">
           <h6>Jenny Cheng</h6>
           <div class="speaker-job">VP/GM, Ads Measurement</div>
-        </a>
+        </button>
         
-        <a class="speaker-link" tabindex="0" data-name="Nicky Rettke">
+        <button class="speaker-link" data-name="Nicky Rettke">
           <h6>Nicky Rettke</h6>
           <div class="speaker-job">VP/GM, Ads Measurement</div>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Sean Downey">
+        <button class="speaker-link" data-name="Sean Downey">
           <h6>Sean Downey</h6>
           <div class="speaker-job">President, Americas & Global Partners, Google</div>
-        </a>
+        </button>
 
-        <a class="speaker-link" tabindex="0" data-name="Selin Song">
+        <button class="speaker-link" data-name="Selin Song">
           <h6>Selin Song</h6>
           <div class="speaker-job">President, Google Customer Solutions</div>
-        </a>
+        </button>
 
       </div>
       <div class="speaker-profile-v2 hover-speaker-image">
@@ -474,40 +482,40 @@
 
     <div class="speaker-wrap-mobile">
 
-      <a class="speaker-link" tabindex="0" data-name="Philipp Schindler">
+      <button class="speaker-link" data-name="Philipp Schindler">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_phiipp-yellow_200x228.png">
         <h6>Philipp Schindler</h6>
-      </a>
+      </button>
 
-      <a class="speaker-link" tabindex="0" data-name="Vidhya Srinivasan">
+      <button class="speaker-link" data-name="Vidhya Srinivasan">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_vidhya-blue-200x228.png">
         <h6>Vidhya Srinivasan</h6>
-      </a>
+      </button>
 
-      <a class="speaker-link" tabindex="0" data-name="Gaurav Bhaya">
+      <button class="speaker-link" data-name="Gaurav Bhaya">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_gaurav-green-200x228.png">
         <h6>Gaurav Bhaya</h6>
-    </a>
+    </button>
 
-    <a class="speaker-link" tabindex="0" data-name="Jenny Cheng">
+    <button class="speaker-link" data-name="Jenny Cheng">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_jenny-red-200x228.png">
         <h6>Jenny Cheng</h6>
-    </a>
+    </button>
 
-    <a class="speaker-link" tabindex="0" data-name="Nicky Rettke">
+    <button class="speaker-link" data-name="Nicky Rettke">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_nicky-yellow-200x228.png">
         <h6>Nicky Rettke</h6>
-    </a>
+    </button>
 
-      <a class="speaker-link" tabindex="0" data-name="Sean Downey">
+      <button class="speaker-link" data-name="Sean Downey">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_sean-blue-200x228.png">
         <h6>Sean Downey</h6>
-      </a>
+      </button>
 
-      <a class="speaker-link" tabindex="0" data-name="Selin Song">
+      <button class="speaker-link" data-name="Selin Song">
         <img class="profile-img" src="https://services.google.com/fh/files/events/gml25_selin-green-200x228.png">
         <h6>Selin Song</h6>
-      </a>
+      </button>
 
     </div>
 
