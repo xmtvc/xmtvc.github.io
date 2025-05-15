@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What to expect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <style>
+  /*
+  * See: https://fonts.google.com/license/googlerestricted
+  */
+
+  /* latin Google Sans regular */
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/googlesans/v62/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  /* latin Google Sans medium */
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://fonts.gstatic.com/s/googlesans/v62/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  /* latin Google Sans bold */
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/googlesans/v62/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  </style>
+
+  <style>
+    body {
+      margin: 0;
+      color: #202124;
+      font: 400 1rem/1.5 'Google Sans Text', sans-serif;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    .container {
+      max-width: 1340px;
+      padding-right: 40px;
+      padding-left: 40px;
+      margin: 0 auto;
+    }
+
+    .heading {
+      position: relative;
+      z-index: 1;
+      padding-top: 64px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .icon {
+      position: absolute;
+      z-index: -1;
+      top: 0px;
+      left: 87%;
+      width: 275px;
+      height: auto;
+    }
+
+    .section-title {
+      margin: 0;
+      color: #202124;
+      font: 700 100px/120px 'Google Sans', sans-serif;
+      letter-spacing: -4px;
+    }
+
+    .agenda-section .section-title {
+      position: relative;
+    }
+
+    .agenda {
+      margin: 0 auto;
+      width: 100%;
+      color: #202124;
+    }
+    .time-col, .details{
+      padding: 26px 0;
+      border-top: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+      vertical-align: top;
+    }
+
+    .time-col {
+      font: 700 24px/150% 'Google Sans', sans-serif;
+      width: 235px;
+    }
+    .agenda-time{
+      margin:0;
+      font: 500 16px 'Google Sans', sans-serif;
+      line-height: inherit;
+    }
+    .agenda-title{
+      margin: 0 0 4px 0;
+      font: 700 24px/1.5 'Google Sans', sans-serif;
+      letter-spacing: -0.8px;
+    }
+    .agenda-description{
+      margin: 0;
+      font: 500 18px/28px 'Google Sans', sans-serif;
+    }
+
+/*───────────────────────────────────────────────────────────
+**  1280 viewport - Gather page constraint = 1180 iframe (without scrollbar)
+**───────────────────────────────────────────────────────────*/
+    @media screen and (max-width: 1180px) {
+
+      .heading {
+        padding-top: 48px;
+        margin-bottom: 30px;
+      }
+      .icon {
+        width: 240px;
+        height: auto;
+        top: 10px;
+      }
+
+      .time-col{
+        font-size: 21px;
+      }
+      .agenda-title{
+        font-size: 21px;
+        letter-spacing: -0.2px;
+      }
+    }
+
+    @media screen and (max-width: 965px) {
+      .icon{
+        width: 195px;
+        left: min(87%, calc(100vw - 236px))
+      }
+      .section-title {
+        font-size: 90px;
+      }
+      .time-col, .details{
+        padding: 18px 0;
+      }
+      .time-col {
+        width: 29vw;
+        font-size: 19px;
+      }
+      .agenda-title{
+        font-size: 19px;
+      }
+      .agenda-description{
+        font-size: 18px;
+        max-width: 470px;
+      }
+    }
+
+    @media screen and (max-width: 725px) {
+      .container {
+        max-width: calc(480px + 5rem);
+        padding: 0 16px;
+        margin-left: 0;
+      }
+      .heading {
+        padding-top: 24px;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .section-title {
+        font-size: 70px;
+        line-height: 1;
+        letter-spacing: -2px;
+        max-width: 480px;
+      }
+      .icon {
+        width: 180px;
+        top: 0;
+        left: auto;
+        right: -16px;
+      }
+      .time-col, .details{
+        display: block;
+        width: 100%;
+      }
+      .time-col {
+        border-bottom: none;
+        padding: 16px 0 0 0;
+      }
+      tr:first-child .time-col{
+        border-top: none;
+      }
+      .details {
+        border-top: none;
+        padding: 0 0 16px 0;
+      }
+      .agenda-title{
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: -0.8px;
+        max-width: 376px;
+        text-wrap-style: balance;
+      }
+      .agenda-description{
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 440px;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      .container {
+        max-width: none;
+        padding: 0 4px;
+      }
+      .heading {
+        padding-top: 18px;
+        margin-bottom: 22px;
+      }
+      .icon {
+        width: 100px;
+        top: 10px;
+        right: 0px;
+      }
+      .section-title {
+        font-size: 48px;
+        line-height: 1;
+        letter-spacing: -2px;
+        width: 320px;
+        text-wrap-style: balance;
+      }
+      .time-col {
+        padding: 18px 0 0 0;
+        border-top: none;
+      }
+      tr:first-child .time-col {
+       border-top: 1px solid #E0E0E0;
+      }
+      .details {
+        padding: 0 0 18px 0;
+      }
+      .agenda-title{
+        font-size: 20px;
+      }
+      .agenda-description{
+        font-size: 16px;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="heading">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="346" height="309" viewBox="0 0 346 309" fill="none">
+        <path d="M254.776 237.915L192.552 26.711C190.413 19.4509 185.997 13.9972 179.304 10.3501C172.612 6.70296 165.636 5.9487 158.377 8.08731L26.3974 46.9711C19.1385 49.1098 13.686 53.5256 10.04 60.2186C6.39401 66.9116 5.6405 73.8882 7.77947 81.1483L70.004 292.352L150.723 225.533L254.776 237.915Z" fill="#2EBA53" />
+        <path d="M304.12 237.549C320.368 208.602 316.244 171.203 291.749 146.547C262.295 116.899 214.544 116.899 185.09 146.547C155.637 176.195 155.637 224.265 185.09 253.913C209.662 278.648 246.969 282.746 275.763 266.21L317.586 308.311L346 279.707L304.12 237.549Z" fill="#5AFB8A" />
+      </svg>
+      <h2 class="section-title">What to expect</h2>
+    </div>
+    <table class="agenda" border=0 cellpadding=0 cellspacing=0>
+      <tr>
+        <td class="time-col">
+          <p class="agenda-time">
+          8:45 AM PT - 9:00 AM PT
+        </p>
+        </td>
+        <td class="details">
+          <p class="agenda-title">Sneak Peek</p>
+          <p class="agenda-description">Get a look behind the scenes while we wait for the event to begin.</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="time-col">
+          <p class="agenda-time">
+            9:00 AM PT - 10:00 AM PT
+          </p>
+        </td>
+        <td class="details">
+          <p class="agenda-title">Global Product Innovation Keynote</p>
+          <p class="agenda-description">Discover the latest products and insights from Google and YouTube.</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="time-col">
+          <p class="agenda-time">
+          10:00 AM PT - 11:00 AM PT
+        </p>
+        </td>
+        <td class="details">
+          <p class="agenda-title">Top Takeaways and Live Q&A with Product Experts</p>
+          <p class="agenda-description">Dive deeper and connect directly with our product leaders.</p>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>
